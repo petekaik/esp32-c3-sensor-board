@@ -1,0 +1,34 @@
+Add-in board for ESP32-C3 Super Mini to plug in sensor modules and other peripherals.
+The board provides easy access to GPIO pins, power supply, and communication interfaces for rapid prototyping and development with the ESP32-C3 Super Mini.
+
+Features:
+- Compatible with ESP32-C3 Super Mini
+- Provides access to GPIO pins, power supply, and communication interfaces
+- Supports I2C and SPI communication protocols
+- Temperature, humidity, and pressure sensor modules support (e.g., BME280, BME680)
+- Luminosity sensor module support (e.g., BH1750)
+- Presence sensor module support (e.g., HLK-LD2410C)
+- Input/output modules support (e.g., relays, buttons, LEDs)
+- Wall-mountable design with 3d printed enclosure for easy installation and protection of the board and connected modules
+
+Hardware:
+- ESP32-C3 Super Mini
+- BME280
+- BH1750
+- HLK-LD2410C
+- Relay module with wire terminals
+- Button wire terminals
+
+Software:
+ESPhome: An open-source platform that allows you to control and automate your ESP32-C3 Super Mini devices using a simple configuration file. It supports various sensors, actuators, and communication protocols.
+Configuration is built in separate project via YAML files, so any configuration options (e.g. default high/low states, pin assignments, etc.) can be easily modified without changing the main codebase. HW design impacting those options shall be documented for straightforward configuration.
+Configuration options selected:
+- BME280: SDA, SCL pins for I2C communication
+- BH1750: SDA, SCL pins for I2C communication
+- HLK-LD2410C: UART pins for serial communication
+- Relay module: GPIO4 pin for control
+- Button module: GPIO3 pin for input
+
+HW Design Considerations:
+- Automated board design with Claude Code, MCP server and Kicad
+- Pitfalls/research: https://jlcpcb.com/blog/kicad-mcp-how-to-design-a-pcb-with-claude-code

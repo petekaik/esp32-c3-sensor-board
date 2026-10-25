@@ -1,0 +1,13 @@
+# ESPHome secrets — never commit
+secrets.yaml
+.esphome/
+
+# KiCad
+*.kicad_prl
+*-backups/
+_autosave-*
+*.bak
+fp-info-cache
+
+# macOS
+.DS_Store

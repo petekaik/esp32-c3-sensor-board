@@ -1,0 +1,128 @@
+esphome:
+  name: doorbell
+  comment: ESP32-C3 Super Mini with doorbell momentary button, chime relay, and BH1750, LD2410C and BME280 sensors
+  area: Eteinen
+  friendly_name: Doorbell
+esp32:
+  board: esp32-c3-devkitm-1
+  variant: esp32c3 # Ensure ESP32-C3 compatibility
+  framework:
+    type: esp-idf # Use ESP-IDF framework for ESP32-C3 as recommended by ESPHome
+# Enable logging
+logger:
+  #level: INFO # Set to INFO from default DEBUG to reduce log size
+# Enable Home Assistant API
+api:
+  # Remove encryption key due to Homey connectivity issues
+  #encryption:
+    #key:
+ota:
+  - platform: esphome
+    password: !secret ota_password # Get OTA password from secrets.yaml
+wifi:
+  ssid: !secret wifi_ssid # Get SSID definition from secrets.yaml
+  password: !secret wifi_password # Get wifi password from secrets.yaml
+  power_save_mode: none # Change from ESP32 default "light" to "none" for potentially better wifi performance
+  fast_connect: true # Enable fast connect for potentially better wifi performance
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    password: !secret wifi_ap_password
+captive_portal:
+    
+# ******************
+# Sensors and inputs
+# ******************
+# I2C bus
+# https://esphome.io/components/i2c#i2c
+i2c:
+  sda: GPIO6
+  scl: GPIO7
+  scan: True
+# END I2C bus
+# UART bus
+# https://esphome.io/components/uart.html
+uart:
+  tx_pin: GPIO21
+  rx_pin: GPIO20
+  baud_rate: 256000
+# END UART bus
+# Button
+# https://home-assistant-guide.com/guide/how-to-use-a-physical-switch-or-button-in-esphome-with-gpio-binary-sensor/
+binary_sensor:
+  - platform: gpio
+    pin: # https://esphome.io/guides/configuration-types#config-pin-schema
+      number: GPIO3 # Configure GPIO3 as input for button
+      inverted: true # Invert logic: Pressed = HIGH, Released = LOW
+      mode: INPUT_PULLUP # Enable internal pull-up resistor
+    id: button
+    name: Button
+    icon: "mdi:doorbell"
+    filters:
+      - delayed_on: 25ms
+      - delayed_off: 25ms
+    on_press:
+    - switch.turn_on: chime
+# END Button
+# Relay
+# https://esphome.io/components/switch/gpio.html
+switch:
+  - platform: gpio
+    pin: # https://esphome.io/guides/configuration-types#config-pin-schema
+      number: GPIO4 # Configure GPIO4 as an output for chime relay
+    id: chime
+    name: Chime
+    icon: "mdi:bell-outline"
+    on_turn_on:
+    - delay: 500ms
+    - switch.turn_off: chime
+# END Relay
+# BME280 temperature, pressure and humidity sensor
+# https://esphome.io/components/sensor/bme280
+sensor:
+  - platform: bme280_i2c
+    address: 0x76 # Address needed to be changed from default 0x77 to 0x76 to eliminate "Communication with BME280 failed!" error
+    temperature:
+      name: "Temperature"
+      unit_of_measurement: '°C'
+      device_class: "temperature"
+      state_class: "measurement"
+      accuracy_decimals: 1
+    humidity:
+      name: "Humidity"
+      unit_of_measurement: '%'
+      device_class: "humidity"
+      state_class: "measurement"
+      accuracy_decimals: 1
+    pressure:
+      name: "Pressure"
+      unit_of_measurement: 'hPa'
+      device_class: "pressure"
+      state_class: "measurement"
+      accuracy_decimals: 1
+# END BME280
+# BH1750 light sensor
+# https://esphome.io/components/sensor/bh1750.html
+  - platform: bh1750
+    name: "Light Level"
+    address: 0x23
+    update_interval: 60s
+    accuracy_decimals: 1
+    unit_of_measurement: 'lx'
+# END BH1750
+# LD2410C radar motion sensor
+# https://esphome.io/components/sensor/ld2410.html
+  - platform: ld2410
+    id: ld2410_sensor
+    update_interval: 1s
+    movement:
+      name: "Motion Detected"
+      device_class: "motion"
+    distance:
+      name: "Object Distance"
+      unit_of_measurement: 'cm'
+      accuracy_decimals: 1
+    speed:
+      name: "Object Speed"
+      unit_of_measurement: 'cm/s'
+      accuracy_decimals: 1
+# END LD2410C
