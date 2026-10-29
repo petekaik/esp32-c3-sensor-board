@@ -1,0 +1,48 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>compact-bme280 — ESP32-C3 Sensor Board</title><style>
+:root{--fg:#1b1f24;--muted:#5a6672;--line:#d7dde3;--bg:#fbfcfd;--card:#fff;--accent:#2f6f4f}
+@media (prefers-color-scheme: dark){:root{--fg:#e6edf3;--muted:#9aa7b4;--line:#2c333b;--bg:#0f1419;--card:#161c22;--accent:#6fcf97}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
+font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+main{max-width:900px;margin:0 auto;padding:32px 20px 64px}
+h1{font-size:2rem;margin:0 0 4px}h2{font-size:1.2rem;margin:32px 0 10px;border-bottom:1px solid var(--line);padding-bottom:6px}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.95rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600}code{background:rgba(127,127,127,.12);padding:1px 5px;border-radius:4px;font-size:.9em}
+a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margin-right:14px}
+</style></head><body><main><nav><a href="../index.html">Index</a><a href="../pinout.html">Pin map</a><a href="relay-bme280.html">relay-bme280</a><a href="relay-bme680.html">relay-bme680</a><a href="compact-bme280.html">compact-bme280</a><a href="compact-bme680.html">compact-bme680</a></nav><h1>Variant: compact, no relay, BME280 (planned)</h1>
+<p><strong>Status:</strong> planned</p>
+<p><strong>Board:</strong> 46 × 68 mm, R3, 2-layer (≈21 mm shorter than rev2)</p>
+<h2>What changes</h2>
+<ul>
+<li><strong>J3 and the relay module area removed</strong> — no relay socket, no relay footprint.</li>
+<li>Board shortened to 46 × 68 mm; the sensor strip, ESP32, LD2410C and breakout keep their</li>
+</ul>
+<p>  positions.</p>
+<ul>
+<li><strong>GPIO4 freed</strong> and added to the breakout row → <strong>J5 becomes 1×15</strong>:</li>
+</ul>
+<p>  <code>3V3 · 5V · GND · IO0 · IO1 · IO2 · IO4 · IO5 · IO8 · IO9 · IO10 · SDA · SCL · RX · TX</code></p>
+<ul>
+<li>Buttons stay on J4; jumpers JP1/JP2/JP3 unchanged with defaults 1–2 (I²C, 0x76, 0x23).</li>
+</ul>
+<h2>BOM</h2>
+<p><a href="../BOM.csv"><code>../BOM.csv</code></a> minus the J3 socket and the KY-019 relay module.</p>
+<h2>Layout</h2>
+<table>
+<tr><th>Item</th><th>Position (mm, origin top-left)</th></tr>
+<tr><td>ESP32-C3 socket</td><td>(22, 11.2), USB out the top short edge</td></tr>
+<tr><td>LD2410C</td><td>(20, 33)</td></tr>
+<tr><td>BME280</td><td>(3.5, 47.5)</td></tr>
+<tr><td>BH1750</td><td>(23, 47.5)</td></tr>
+<tr><td>Jumper headers</td><td>(3.5 / 7.1 / 10.7, 51.2)</td></tr>
+<tr><td>Breakout row J5</td><td>x 40, y 25 … 60.6 (15 holes)</td></tr>
+<tr><td>Button terminal</td><td>(6.5, 14.5)</td></tr>
+</table>
+<h2>Firmware</h2>
+<p>Same as <a href="relay-bme280.html">relay-bme280</a> but <strong>remove the <code>switch: chime</code> block</strong> and the button's</p>
+<p><code>on_press</code> action; GPIO4 is now a free I/O on the breakout row.</p>
+<h2>Open questions</h2>
+<ul>
+<li>Does the enclosure still need the wiring-side depth, or can it become a slimmer wall box?</li>
+<li>Keep the 2-pin button terminal, or move the button onto the breakout row?</li>
+</ul></main></body></html>

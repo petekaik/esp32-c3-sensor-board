@@ -8,6 +8,11 @@ secrets.yaml
 _autosave-*
 *.bak
 fp-info-cache
+.mcp-backups/
 
 # macOS
 .DS_Store
+
+# KiCad local history / lock files
+.history/
+*.lck

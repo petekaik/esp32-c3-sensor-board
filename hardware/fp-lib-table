@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "sensor-board")(type "KiCad")(uri "${KIPRJMOD}/lib/sensor-board.pretty")(options "")(descr "Project-specific footprints for the ESP32-C3 sensor board"))
+)

@@ -1,0 +1,18 @@
+Ref,Value,Footprint,Qty,Notes
+PCB,ESP32-C3 sensor carrier,2-layer 46 x 89 mm,1,1.6 mm FR4 R3 corners ENIG preferred
+U1,ESP32-C3 Super Mini,module 2x8 2.54 mm,1,plugs into two 1x8 sockets
+U2,HLK-LD2410C,module 1x5 2.54 mm,1,plugs into 1x5 socket
+J1,BME280 module,module 1x6 2.54 mm,1,BME680 in the bme680 variants
+J2,BH1750 GY-302,module 1x5 2.54 mm,1,
+J3,KY-019 relay module,module 1x3 2.54 mm,1,not fitted on compact variants
+S1,1x8 female socket 2.54 mm,sensor-board footprint,2,U1 socket
+S2,1x5 female socket 2.54 mm,sensor-board footprint,2,U2 and J2 sockets
+S3,1x6 female socket 2.54 mm,sensor-board footprint,1,J1 socket
+J3S,1x3 female socket horizontal 2.54 mm,sensor-board footprint,1,relay; not fitted on compact variants
+J4,2-pin screw terminal 5.0 mm,MX126-5.0-02P,1,button
+JP1,1x3 pin header 2.54 mm,PinHeader_1x03,1,I2C / SPI select
+JP2,1x3 pin header 2.54 mm,PinHeader_1x03,1,address / SPI MISO select
+JP3,1x2 pin header 2.54 mm,PinHeader_1x02,1,address select
+SHUNT,2.54 mm jumper shunt,generic,3,one per jumper
+H1-H4,M3 mounting hole,3.2 mm drill,4,no hardware included
+J5,1x14 breakout holes,none (PCB feature),1,no header fitted

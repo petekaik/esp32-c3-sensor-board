@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ESP32-C3 Sensor Board</title>
+<style>
+  :root{--fg:#1b1f24;--muted:#5a6672;--line:#d7dde3;--bg:#fbfcfd;--card:#fff;--accent:#2f6f4f}
+  @media (prefers-color-scheme: dark){:root{--fg:#e6edf3;--muted:#9aa7b4;--line:#2c333b;--bg:#0f1419;--card:#161c22;--accent:#6fcf97}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  main{max-width:960px;margin:0 auto;padding:32px 20px 64px}
+  h1{font-size:2rem;line-height:1.2;margin:0 0 4px}
+  h2{font-size:1.25rem;margin:36px 0 12px;border-bottom:1px solid var(--line);padding-bottom:6px}
+  p.lead{color:var(--muted);margin:0 0 24px}
+  img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.95rem}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600}
+  code{background:rgba(127,127,127,.12);padding:1px 5px;border-radius:4px;font-size:.9em}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .card h3{margin:0 0 6px;font-size:1rem}
+  .card p{margin:0;color:var(--muted);font-size:.9rem}
+  .tag{display:inline-block;font-size:.75rem;padding:1px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+  .tag.built{color:var(--accent);border-color:var(--accent)}
+  a{color:var(--accent)}
+  footer{margin-top:40px;color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+<main>
+  <h1>ESP32-C3 Sensor Board</h1>
+  <p class="lead">Wall-mountable carrier for an ESP32-C3 Super Mini — plug-in sensor modules, relay and button terminals, USB-C on the top edge.</p>
+  <img src="img/board.png" alt="rev2 carrier board, top view">
+
+  <h2>Variants</h2>
+  <div class="grid">
+    <div class="card"><h3>Relay + BME280 <span class="tag built">built</span></h3><p>46 × 89 mm. Base design: relay socket, BME280, BH1750, LD2410C, button.</p></div>
+    <div class="card"><h3>Relay + BME680 <span class="tag">planned</span></h3><p>46 × 89 mm. Same PCB, BME680 on the 1×6 socket.</p></div>
+    <div class="card"><h3>Compact + BME280 <span class="tag">planned</span></h3><p>46 × 68 mm. Relay removed, GPIO4 added to the breakout row (15 holes).</p></div>
+    <div class="card"><h3>Compact + BME680 <span class="tag">planned</span></h3><p>46 × 68 mm. No relay, BME680 sensor.</p></div>
+  </div>
+
+  <h2>Pin map (rev2)</h2>
+  <table>
+    <tr><th>Function</th><th>GPIO</th><th>Net</th><th>Where</th></tr>
+    <tr><td>Relay control</td><td>4</td><td>RELAY</td><td>J3 pin 3</td></tr>
+    <tr><td>Button</td><td>3</td><td>BUTTON</td><td>J4 pin 1</td></tr>
+    <tr><td>I²C SDA</td><td>6</td><td>I2C_SDA</td><td>J1/J2 + J5</td></tr>
+    <tr><td>I²C SCL</td><td>7</td><td>I2C_SCL</td><td>J1/J2 + J5</td></tr>
+    <tr><td>LD2410C RX</td><td>20</td><td>UART_RX</td><td>U2 pin 1 + J5</td></tr>
+    <tr><td>LD2410C TX</td><td>21</td><td>UART_TX</td><td>U2 pin 2 + J5</td></tr>
+    <tr><td>SPI CS (jumper)</td><td>5</td><td>SPI_CS</td><td>JP1 pin 3 + J5</td></tr>
+    <tr><td>SPI MISO (jumper)</td><td>10</td><td>SPI_MISO</td><td>JP2 pin 3 + J5</td></tr>
+  </table>
+  <p><code>J5</code>: 3V3 · 5V · GND · IO0 · IO1 · IO2 · IO5 · IO8 · IO9 · IO10 · SDA · SCL · RX · TX (compact variants add IO4).</p>
+
+  <h2>Jumpers</h2>
+  <table>
+    <tr><th>Ref</th><th>Default</th><th>1–2</th><th>2–3 / open</th></tr>
+    <tr><td>JP1</td><td>1–2</td><td>CSB → 3V3, I²C mode</td><td>CSB → IO5, SPI mode</td></tr>
+    <tr><td>JP2</td><td>1–2</td><td>SDO → GND, address 0x76</td><td>SDO → IO10, SPI MISO</td></tr>
+    <tr><td>JP3</td><td>1–2</td><td>ADDR → GND, 0x23</td><td>open, 0x5C</td></tr>
+  </table>
+
+  <h2>Buses</h2>
+  <table>
+    <tr><th>Bus</th><th>Pins</th><th>Settings</th></tr>
+    <tr><td>I²C</td><td>GPIO6 / GPIO7</td><td>100 kHz, module pull-ups</td></tr>
+    <tr><td>UART</td><td>GPIO20 / GPIO21</td><td>256000 baud, 8N1</td></tr>
+    <tr><td>SPI (optional)</td><td>SCK 7, MOSI 6, MISO 10, CS 5</td><td>GPIO-matrix routing</td></tr>
+  </table>
+
+  <h2>Documents</h2>
+  <p>
+    <a href="pinout.html">Pin map and connectors</a> ·
+    <a href="BOM.csv">Bill of materials</a> ·
+    <a href="variants/relay-bme280.html">relay-bme280</a> ·
+    <a href="variants/relay-bme680.html">relay-bme680</a> ·
+    <a href="variants/compact-bme280.html">compact-bme280</a> ·
+    <a href="variants/compact-bme680.html">compact-bme680</a>
+  </p>
+
+  <footer>
+    Hardware: CERN-OHL-P-2.0 (proposed) · Documentation: CC BY-SA 4.0.
+    Firmware defaults follow <code>doorbell.yml</code> in the repository root.
+  </footer>
+</main>
+</body>
+</html>

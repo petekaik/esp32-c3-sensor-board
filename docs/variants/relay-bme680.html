@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>relay-bme680 — ESP32-C3 Sensor Board</title><style>
+:root{--fg:#1b1f24;--muted:#5a6672;--line:#d7dde3;--bg:#fbfcfd;--card:#fff;--accent:#2f6f4f}
+@media (prefers-color-scheme: dark){:root{--fg:#e6edf3;--muted:#9aa7b4;--line:#2c333b;--bg:#0f1419;--card:#161c22;--accent:#6fcf97}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
+font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+main{max-width:900px;margin:0 auto;padding:32px 20px 64px}
+h1{font-size:2rem;margin:0 0 4px}h2{font-size:1.2rem;margin:32px 0 10px;border-bottom:1px solid var(--line);padding-bottom:6px}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.95rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600}code{background:rgba(127,127,127,.12);padding:1px 5px;border-radius:4px;font-size:.9em}
+a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margin-right:14px}
+</style></head><body><main><nav><a href="../index.html">Index</a><a href="../pinout.html">Pin map</a><a href="relay-bme280.html">relay-bme280</a><a href="relay-bme680.html">relay-bme680</a><a href="compact-bme280.html">compact-bme280</a><a href="compact-bme680.html">compact-bme680</a></nav><h1>Variant: relay + BME680 (planned)</h1>
+<p><strong>Status:</strong> planned — reuses the rev2 PCB, BME680 module fitted instead of BME280.</p>
+<p><strong>Board:</strong> 46 × 89 mm, R3, 2-layer</p>
+<h2>Difference from relay-bme280</h2>
+<p>Only the sensor module and the firmware change. The 1×6 BME socket, JP1/JP2 jumpers and the I²C</p>
+<p>bus are pin-compatible between BME280 and BME680 breakout modules.</p>
+<table>
+<tr><th>Item</th><th>BME280 variant</th><th>BME680 variant</th></tr>
+<tr><td>Sensor</td><td>BME280</td><td>BME680 (same 6-pin socket)</td></tr>
+<tr><td>I²C address</td><td>0x76</td><td>0x76 (JP2 1–2)</td></tr>
+<tr><td>ESPHome component</td><td><code>bme280_i2c</code></td><td><code>bme680_bsec</code> or <code>bme680_i2c</code></td></tr>
+<tr><td>Measurements</td><td>T, RH, P</td><td>T, RH, P, VOC/IAQ</td></tr>
+</table>
+<h2>Firmware notes</h2>
+<ul>
+<li>BME680 modules with the <strong>BSEC</strong> library need a longer I²C timeout and are happier at 100 kHz.</li>
+<li>If the module's SDO is tied high on the PCB itself, the address is 0x77 — check the module and</li>
+</ul>
+<p>  set JP2 accordingly.</p>
+<ul>
+<li>VOC output needs a burn-in period; expose it as a separate sensor with `state_class:</li>
+</ul>
+<p>  measurement`.</p>
+<h2>Everything else</h2>
+<p>Identical to <a href="relay-bme280.html">relay-bme280</a>: relay on J3, button on J4, LD2410C on U2, BH1750 on</p>
+<p>J2, 1×14 breakout row, jumper defaults 1–2.</p></main></body></html>

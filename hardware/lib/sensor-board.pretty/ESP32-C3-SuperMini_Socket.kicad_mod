@@ -1,0 +1,198 @@
+(footprint "ESP32-C3-SuperMini_Socket"
+  (version 20241229)
+  (generator "kicad-mcp")
+  (generator_version "9.0")
+  (layer "F.Cu")
+  (descr "ESP32-C3 Super Mini module socket, 2x8 2.54mm pitch, 15.24mm row spacing, 22.52x18mm module outline. Pin 1 = 5V (top-left). USB end at +Y, antenna end at -Y.")
+  (tags "ESP32-C3 Super Mini socket header 2x8 2.54mm")
+
+  (property "Reference" "REF**" (at 0 -13 0)
+    (layer "F.SilkS")
+    (uuid "c4c77c82-b405-4fe9-abd7-6f1f16463bd7")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Value" "ESP32-C3-SuperMini_Socket" (at 0 13 0)
+    (layer "F.Fab")
+    (uuid "b7f52d93-3331-4f57-bd11-7eebf89cfd93")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (property "Datasheet" "" (at 0 0 0)
+    (layer "F.Fab")
+    (uuid "08780ddd-880b-4319-8e61-f9683b264d8d")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+
+  (fp_rect
+    (start -9.25 -11.51)
+    (end 9.25 11.51)
+    (stroke (width 0.05) (type default))
+    (fill none)
+    (layer "F.CrtYd")
+    (uuid "26f27628-a420-4142-ab6d-3f47ec0dac44")
+  )
+
+  (fp_rect
+    (start -9.2 -11.46)
+    (end 9.2 11.46)
+    (stroke (width 0.12) (type default))
+    (fill none)
+    (layer "F.SilkS")
+    (uuid "a15a6daa-112d-4c62-859c-bc357895cd62")
+  )
+
+  (fp_rect
+    (start -9 -11.26)
+    (end 9 11.26)
+    (stroke (width 0.1) (type default))
+    (fill none)
+    (layer "F.Fab")
+    (uuid "cad71b92-aa73-48f9-bfa6-47fdd1701354")
+  )
+
+  (pad "1" thru_hole rect
+    (at -7.62 -8.89)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "9d5f7d43-c67f-4d24-858a-d34f0c9c1bb7")
+  )
+
+  (pad "2" thru_hole circle
+    (at -7.62 -6.35)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "7e39ef7f-af2c-4370-9040-5d00998d01a8")
+  )
+
+  (pad "3" thru_hole circle
+    (at -7.62 -3.81)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "10f14d24-9f7b-4f9a-be33-4b26d6351464")
+  )
+
+  (pad "4" thru_hole circle
+    (at -7.62 -1.27)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "d4c45808-9712-4a68-9bb4-f4f32db547b0")
+  )
+
+  (pad "5" thru_hole circle
+    (at -7.62 1.27)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "a82c4f2f-e9d3-4ea3-a8f1-3153ae80e1ea")
+  )
+
+  (pad "6" thru_hole circle
+    (at -7.62 3.81)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "42743b67-5fe2-464c-acd3-7c908a8e203d")
+  )
+
+  (pad "7" thru_hole circle
+    (at -7.62 6.35)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "f0b4bc60-8344-489e-aa75-e5b8f1c4cac5")
+  )
+
+  (pad "8" thru_hole circle
+    (at -7.62 8.89)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "5932e484-6de4-485f-a45a-dc0e6c94090c")
+  )
+
+  (pad "9" thru_hole circle
+    (at 7.62 -8.89)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "0b6ee78d-2ae0-415a-844e-fd66e83e419d")
+  )
+
+  (pad "10" thru_hole circle
+    (at 7.62 -6.35)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "cb6c11a1-ace5-487f-92ba-ba6c38ef1eac")
+  )
+
+  (pad "11" thru_hole circle
+    (at 7.62 -3.81)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "fce1c85d-aebc-4866-9304-267a6d624e6e")
+  )
+
+  (pad "12" thru_hole circle
+    (at 7.62 -1.27)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "a3c22dc5-183f-4896-bcc5-6289c3a03594")
+  )
+
+  (pad "13" thru_hole circle
+    (at 7.62 1.27)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "775064fb-01ed-4998-81ba-c488f0e4a84d")
+  )
+
+  (pad "14" thru_hole circle
+    (at 7.62 3.81)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "73fa152d-96a9-43c5-8e7e-ad95b134505a")
+  )
+
+  (pad "15" thru_hole circle
+    (at 7.62 6.35)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "419f1506-00de-464e-9181-8c871298be7a")
+  )
+
+  (pad "16" thru_hole circle
+    (at 7.62 8.89)
+    (size 1.7 1.7)
+    (drill 1)
+    (layers "*.Cu" "*.Mask")
+    (uuid "8ba152ee-db10-494b-995a-df4d8080049c")
+  )
+
+	
+	(model "${KIPRJMOD}/lib/models/esp32c3-supermini.step"
+		(offset (xyz 0 0 8.5))
+		(scale (xyz 1 1 1))
+		(rotate (xyz 0 0 180))
+	)
+	
+	
+	(model "${KIPRJMOD}/lib/models/socket_1x08_a.step"
+		(offset (xyz -7.62 8.89 0))
+		(scale (xyz 1 1 1))
+		(rotate (xyz 0 0 0))
+	)
+	(model "${KIPRJMOD}/lib/models/socket_1x08_b.step"
+		(offset (xyz 7.62 8.89 0))
+		(scale (xyz 1 1 1))
+		(rotate (xyz 0 0 0))
+	)
+)

@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "sensor-board")(type "KiCad")(uri "${KIPRJMOD}/lib/sensor-board.kicad_sym")(options "")(descr "Project-specific symbols for the ESP32-C3 sensor board"))
+  (lib (name "ld2410c")(type "KiCad")(uri "${KIPRJMOD}/lib/ld2410c.kicad_sym")(options "")(descr "HLK-LD2410C 24GHz mmWave radar module (PartReel)"))
+)
