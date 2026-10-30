@@ -138,3 +138,91 @@ dummy-carrier experiments were removed.
 - KiCad 3D viewer: File → Revert + Reload 3D cache.
 - Plug-and-play: male pin rows on ESP32-C3, LD2410C, BME280, BH1750; female
   sockets on the carrier; relay/button remain screw terminals.
+
+
+## Session resume (2026-10-30)
+
+### Where things are
+- Repo: `github.com/petekaik/esp32-c3-sensor-board` (public). Pages live at
+  `http://gitpages.morgeweb.com/esp32-c3-sensor-board/` (served from `main` / `docs`,
+  custom account domain). Landing page is `docs/index.html`; variant pages are
+  generated HTML next to their .md sources.
+- KiCad project: `hardware/esp32-c3-sensor-board-rev2.kicad_pro` (46 x 89 mm rev2).
+  DRC 0 errors / 0 unconnected / 2 known warnings; ERC 0.
+- Fabrication: `fabrication/esp32-c3-sensor-board-rev2-gerbers.zip` (8 files),
+  `bom-jlc.csv`, `cpl-jlc.csv`, `QUOTE.md`.
+- Docs: `README.md`, `docs/pinout.md`, `docs/pricing.md`, `docs/BOM.csv`,
+  `docs/variants/*.md|html`, `tools/aisler_quote.py`, `tools/kicad-plugin/`.
+- Case: Fusion document `Sensorbox v4` (cloud, saved). Bodies: TRAY_FLOOR,
+  TRAY_WALLS (with rails), MOUNT_BOSS, STANDOFF_1..4, COVER_SLIDE + the imported
+  board assembly.
+
+### Environment facts
+- KiCad MCP moved out of iCloud: `~/mcp/KiCAD-MCP-Server`, config in
+  `~/.claude.json` (backup `.bak-mcp-move`). Tools only register at session start;
+  if missing, restart Claude Code (server must be running).
+- `kicad-cli` at `/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli`.
+- Fusion MCP: `http://127.0.0.1:27182/mcp` (Fusion must be running).
+- FreeRouting: `docker run --rm -v /tmp:/work -v ~/.kicad-mcp:/data
+  eclipse-temurin:25-jre java -jar /data/freerouting.jar -de in.dsn -do out.ses`.
+
+### Pending work, highest first
+1. Case fixes in Fusion (rebuild tray+cover in one pass, after deleting the
+   existing TRAY_*/COVER_* bodies):
+   - trim the slide rails so they stop at the USB clearance line (`rail y1 = iy1`);
+     currently they run to `oy1` and appear as strips floating in the open USB end;
+   - `wallTop = tallest component + 3 mm` (relay top is 18.1 mm; ceiling at 19.1 is
+     only 1 mm clear and the cover's inward lips sit in the same band);
+   - move the rail lips/grooves to mid-wall (z ~15) rather than at the top;
+   - rebuild as ONE base feature, then verify the body list has no `(1)` duplicates.
+2. Relay 3D in the case: `kicad-cli pcb export step` ignores J3's 3D-model transform,
+   so the relay lands at raw coordinates (x ~ -43). J3 currently carries only the
+   socket model; drop `lib/models/ky019.step` into the Fusion assembly manually at
+   board x 0.5-33.9, y -62.55..-88.45, z 1.0-18.1.
+3. Optional: add the fab/quote outputs and new docs to git (they are committed up to
+   the earlier documentation commit; fabrication/, tools/, docs/pricing.md are new).
+4. Nice-to-have: corner fillets on the case, lid fit check, snap-bump tuning.
+
+### Known quirks
+- `FusionDocument.saveAs` needs a DataFolder argument through the MCP bridge, so the
+  document could not be renamed to plain "Sensorbox"; it is `Sensorbox v2...v4` in the
+  data panel - rename there if wanted.
+- Aisler has no public REST pricing API; `tools/aisler_quote.py` uses their published
+  formula (EUR12 job fee + 0.067 EUR/cm2 x qty). Live quotes need an access key + MCP.
+- JLCPCB asks for BOM/CPL only for assembly; our board is THT + modules, so order
+  bare PCB and hand-solder.
+
+
+## Session resume (2026-10-31) - case candidates in Fusion + Blender
+
+### State
+- Fusion document **Sensorbox v4** (cloud, saved) holds the board assembly and:
+  - old case (hidden, not deleted): TRAY_FLOOR, TRAY_WALLS, MOUNT_BOSS, COVER_SLIDE, STANDOFF_1..4
+  - new: TRAY_SHARED, TRAY_SHARED_WALLS (one tray for all candidates)
+  - candidates: CAND_A_stepped, CAND_B_wavy, CAND_C_ribbed, arranged at x = 0 / 140 / 280 mm
+- Known defect in A and B: corner cylinders are unioned from floorTop-1 to zTop+1, so
+  they stand ~1 mm proud of the top. Fix: stop them at zTop, cut only above floorTop.
+- Blender: addon `blender_mcp.py` installed for 5.2, MCP server `uvx mcp-for-blender`
+  (user scope), tools available. /tmp/sensorbox_case.stl (old case, all bodies merged)
+  was imported once; scene units set to mm.
+- Shared case parameters: board 46x89 mm, PCB z 0..1.51; clrL 2.5 (wire channel),
+  others 0.25, USB side 0.3; wall 2; floor 2 mm at z -3.5..-1.5; standoffs 1.5 mm;
+  wallTop 22; cover top 24.5. Openings: rounded USB-C 9.2x3.4 R1.6 at x22,z13.6;
+  grommet D8 at x36,z4; BH window 11x11; 5 BME louvres 1.6x9.5; 3 radar vents.
+
+### Next steps (in order)
+1. Fix corner cylinders; delete hidden old case bodies; keep TRAY_SHARED pair.
+2. Render each candidate separately (hide the other two) and pick one with the user.
+3. Export chosen case-only component as STL (see CASE_EXPORT component pattern:
+   copy bodies into a new component, then exportManager.createSTLExportOptions(comp, path)).
+4. Blender artistic pass, then return a STEP/STL; keep Fusion as dimensional master.
+5. Constraints to preserve: smallest envelope, USB-C flush (0.3 mm wall engagement),
+   radar kept in its own pocket with an internal wall, BME louvres not shared with
+   radar exhaust, BH clear window, printable flat without supports.
+
+### Environment
+- Fusion MCP http://127.0.0.1:27182/mcp; Blender MCP `uvx mcp-for-blender`;
+  KiCad MCP `~/mcp/KiCAD-MCP-Server` (reconnect at session start).
+- kicad-cli: /Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli
+- Uncommitted: case/, fabrication/, tools/, docs/pricing.md, updated ky019.step,
+  board, HANDOFF/README. Commit before shipping the repo.

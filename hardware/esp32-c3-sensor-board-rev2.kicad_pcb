@@ -1837,17 +1837,6 @@
 				(xyz -0 -0 -0)
 			)
 		)
-		(model "${KIPRJMOD}/lib/models/ky019.step"
-			(offset
-				(xyz -10.1 -6.5 1)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz -0 -0 -0)
-			)
-		)
 	)
 	(footprint "sensor-board:ESP32-C3-SuperMini_Socket"
 		(layer "F.Cu")
@@ -2679,17 +2668,6 @@
 				(xyz 0 0 0)
 			)
 		)
-		(model "${KIPRJMOD}/lib/models/bh1750-good-baked.step"
-			(offset
-				(xyz -0.04 -10.2 11)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz -0 -0 -0)
-			)
-		)
 		(model "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x05_P2.54mm_Vertical.step"
 			(offset
 				(xyz 0 -10.16 11)
@@ -2699,6 +2677,17 @@
 			)
 			(rotate
 				(xyz -180 -0 -0)
+			)
+		)
+		(model "${KIPRJMOD}/lib/models/bh1750-good-baked.step"
+			(offset
+				(xyz -0.04 -10.2 11)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
 			)
 		)
 	)
@@ -2994,17 +2983,6 @@
 				(xyz 0 0 0)
 			)
 		)
-		(model "${KIPRJMOD}/lib/models/bme280-good-baked.step"
-			(offset
-				(xyz 0 -12.7 11)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz -0 -0 -0)
-			)
-		)
 		(model "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x06_P2.54mm_Vertical.step"
 			(offset
 				(xyz 0 -12.7 11)
@@ -3014,6 +2992,17 @@
 			)
 			(rotate
 				(xyz -180 -0 -0)
+			)
+		)
+		(model "${KIPRJMOD}/lib/models/bme280-good-baked.step"
+			(offset
+				(xyz 0 -12.7 11)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
 			)
 		)
 	)

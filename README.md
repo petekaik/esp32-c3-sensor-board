@@ -71,6 +71,7 @@ the breakout row (15 holes).
 
 - [Pin map and connectors](docs/pinout.md)
 - [Bill of materials](docs/BOM.csv)
+- [Cost estimate — bare vs populated](docs/pricing.md) (script: `tools/aisler_quote.py`)
 - [Generated HTML page](docs/index.html) (GitHub Pages ready)
 - Variant pages under [`docs/variants/`](docs/variants/)
 
