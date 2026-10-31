@@ -1,12 +1,12 @@
 %TF.GenerationSoftware,KiCad,Pcbnew,10.0.7*%
-%TF.CreationDate,2026-10-31T16:13:49+02:00*%
+%TF.CreationDate,2026-10-31T17:00:10+02:00*%
 %TF.ProjectId,esp32-c3-sensor-board-rev2,65737033-322d-4633-932d-73656e736f72,rev?*%
 %TF.SameCoordinates,Original*%
 %TF.FileFunction,Soldermask,Top*%
 %TF.FilePolarity,Negative*%
 %FSLAX46Y46*%
 G04 Gerber Fmt 4.6, Leading zero omitted, Abs format (unit mm)*
-G04 Created by KiCad (PCBNEW 10.0.7) date 2026-10-31 16:13:49*
+G04 Created by KiCad (PCBNEW 10.0.7) date 2026-10-31 17:00:10*
 %MOMM*%
 %LPD*%
 G01*

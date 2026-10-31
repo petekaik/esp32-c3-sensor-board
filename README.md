@@ -59,8 +59,9 @@ as well, so expect faint LED activity during I²C traffic.
 | JP2 | 1×3 | **1–2** | 1=GND, 2=BME SDO, 3=SPI_MISO (GPIO5) → 1–2 = 0x76, 2–3 = SPI MISO |
 | JP3 | 1×2 | **1–2** | GND–ADDR → 0x23 (open = 0x5C) |
 
-JP1/JP2 sit under the BME280 socket (≈6 mm clearance); the default-bridged pairs are boxed on
-the bottom silkscreen and the full descriptions are printed on the back.
+JP1/JP2 sit under the BME280 socket (≈6 mm clearance); the default 1–2 pair is ticked on the
+bottom silkscreen, where the pins are numbered (1–3) and the JP1/JP2/JP3 columns are named.
+The full descriptions are printed on the back.
 
 ## Variants / roadmap
 
