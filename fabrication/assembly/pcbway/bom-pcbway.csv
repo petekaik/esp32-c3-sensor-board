@@ -1,0 +1,8 @@
+Designator,Qty,Value,Footprint,MPN,LCSC
+"U1A,U1B",2,2.54mm 1x8 female header,Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical,C27438,C27438
+"U2,J2",2,2.54mm 1x5 female header,Connector_PinSocket_2.54mm:PinSocket_1x05_P2.54mm_Vertical,C50950,C50950
+J1,1,2.54mm 1x6 female header,Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical,C40877,C40877
+J4,1,5.0mm 2P screw terminal,TerminalBlock:TerminalBlock_MaiXu_MX126-5.0-02P_1x02_P5.00mm,C5188434,C5188434
+J5,1,2.54mm 1x14 female header,Connector_PinSocket_2.54mm:PinSocket_1x14_P2.54mm_Vertical,C41417326,C41417326
+"JP1,JP2",2,2.54mm 1x3 male pin header,Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical,C49257,C49257
+JP3,1,2.54mm 1x2 male pin header,Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical,C32713268,C32713268

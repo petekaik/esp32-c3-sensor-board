@@ -48,8 +48,23 @@ Ask each vendor for the **delivered** total, not the board price:
 - Mounting holes are plain 3.2 mm NPTH — do not tent them.
 - Silkscreen includes small 0.8 mm text; if a vendor flags legibility, allow 0.8 mm minimum.
 
+## Assembly BOM / CPL
+
+Per-provider assembly files are in `fabrication/assembly/` (JLCPCB, PCBWay,
+Aisler/generic). They list only the **soldered connectors**; the ESP32-C3
+Super Mini, LD2410C, BME280, BH1750 and relay are plug-in modules and are not
+assembled. U1 is fitted as **two 1×8 sockets** (`U1A`/`U1B`); U2 is a 1×5
+socket. The JLCPCB files are also at `fabrication/bom-jlc.csv` and
+`fabrication/cpl-jlc.csv`.
+
+**J3 is excluded** from the assembly files and hand-soldered: the relay socket
+has to be raised to meet the KY-019 module's header, which a flush automated
+THT placement cannot do. See `fabrication/assembly/hand-solder-j3.md` for the
+height, part and procedure.
+
 ## After the boards arrive
 
-1. Fit sockets (2× 1×8, 1×6, 1×5, 1×14, 1×3 horizontal), terminals, jumper headers.
-2. Insert the ESP32-C3 Super Mini and modules, flash via USB-C.
-3. Set jumpers: JP1 1–2 (I²C), JP2 1–2 (0x76), JP3 1–2 (0x23).
+1. **Bare board:** fit sockets (2× 1×8, 1×6, 1×5, 1×14), terminals, jumper headers. **Assembled order:** the provider fits them, except J3 — skip to step 2.
+2. Hand-solder J3 (relay socket) at the height that mates with the relay module; see `fabrication/assembly/hand-solder-j3.md`.
+3. Insert the ESP32-C3 Super Mini and modules, flash via USB-C.
+4. Set jumpers: JP1 1–2 (I²C), JP2 1–2 (0x76), JP3 1–2 (0x23).
