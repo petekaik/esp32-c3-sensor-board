@@ -132,7 +132,7 @@
 				(pin bidirectional line
 					(at -12.7 1.27 0)
 					(length 2.54)
-					(name "IO4"
+					(name "GPIO4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -150,7 +150,7 @@
 				(pin bidirectional line
 					(at -12.7 -1.27 0)
 					(length 2.54)
-					(name "IO3"
+					(name "GPIO3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -168,7 +168,7 @@
 				(pin bidirectional line
 					(at -12.7 -3.81 0)
 					(length 2.54)
-					(name "IO2"
+					(name "GPIO2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -186,7 +186,7 @@
 				(pin bidirectional line
 					(at -12.7 -6.35 0)
 					(length 2.54)
-					(name "IO1"
+					(name "GPIO1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -204,7 +204,7 @@
 				(pin bidirectional line
 					(at -12.7 -8.89 0)
 					(length 2.54)
-					(name "IO0"
+					(name "GPIO0"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -222,7 +222,7 @@
 				(pin bidirectional line
 					(at 12.7 8.89 180)
 					(length 2.54)
-					(name "IO5"
+					(name "GPIO5/MISO"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -240,7 +240,7 @@
 				(pin bidirectional line
 					(at 12.7 6.35 180)
 					(length 2.54)
-					(name "IO6"
+					(name "GPIO6/MOSI"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -258,7 +258,7 @@
 				(pin bidirectional line
 					(at 12.7 3.81 180)
 					(length 2.54)
-					(name "IO7"
+					(name "GPIO7/SS"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -276,7 +276,7 @@
 				(pin bidirectional line
 					(at 12.7 1.27 180)
 					(length 2.54)
-					(name "IO8"
+					(name "GPIO8/SDA"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -294,7 +294,7 @@
 				(pin bidirectional line
 					(at 12.7 -1.27 180)
 					(length 2.54)
-					(name "IO9"
+					(name "GPIO9/SCL"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -312,7 +312,7 @@
 				(pin bidirectional line
 					(at 12.7 -3.81 180)
 					(length 2.54)
-					(name "IO10"
+					(name "GPIO10"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -330,7 +330,7 @@
 				(pin bidirectional line
 					(at 12.7 -6.35 180)
 					(length 2.54)
-					(name "IO20"
+					(name "GPIO20/RX"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -348,7 +348,7 @@
 				(pin bidirectional line
 					(at 12.7 -8.89 180)
 					(length 2.54)
-					(name "IO21"
+					(name "GPIO21/TX"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4316,26 +4316,6 @@
 		)
 		(uuid "16104769-4bfb-4cc9-9d2b-bcbfa993462e")
 	)
-	(global_label "I2C_SDA"
-		(at 113.03 93.98 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "dd2d558b-3bf9-4f17-83ec-0f7bbe934095")
-	)
-	(global_label "I2C_SCL"
-		(at 113.03 96.52 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "3931d988-4894-4aed-b2b2-de4701543885")
-	)
 	(global_label "UART_RX"
 		(at 113.03 106.67999999999999 0)
 		(effects
@@ -4809,26 +4789,6 @@
 		)
 		(uuid "6d19cc3a-3602-4f87-9e7d-0ad9d1d92913")
 	)
-	(global_label "SPI_CS"
-		(at 113.03 91.44 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "2c1e25ba-06e1-43cb-b8e1-9469f68eae1f")
-	)
-	(global_label "SPI_MISO"
-		(at 113.03 104.14 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "af3396d9-24d9-42d8-bec8-3773ae597ee7")
-	)
 	(global_label "GND"
 		(at 144.78 147.32000000000002 180)
 		(effects
@@ -4888,26 +4848,6 @@
 			(justify right)
 		)
 		(uuid "f9023eb8-7fe0-4953-88fd-e6371d9fcbcd")
-	)
-	(global_label "IO8"
-		(at 113.03 99.06 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "5ccea2b0-87ba-42f2-9fbd-3f8c814f1c15")
-	)
-	(global_label "IO9"
-		(at 113.03 101.6 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "711839b9-cd53-427f-b094-77d232b418d2")
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x14")
@@ -5084,46 +5024,6 @@
 		)
 		(uuid "309543b8-861f-4887-9bd1-917a2b7c5204")
 	)
-	(global_label "SPI_CS"
-		(at 194.30999999999997 59.69 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "85e04e8c-df2f-401f-8de0-61843b8301be")
-	)
-	(global_label "IO8"
-		(at 194.30999999999997 62.23 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "e8fc5e28-57c5-47a4-9ad2-0081eef6ba4b")
-	)
-	(global_label "IO9"
-		(at 194.30999999999997 64.77 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "277ed7b7-4ac4-4066-9dfc-2f51c30735d6")
-	)
-	(global_label "SPI_MISO"
-		(at 194.30999999999997 67.31 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "af4d3e7d-d3e3-441b-8a78-c4e627f36dee")
-	)
 	(global_label "I2C_SDA"
 		(at 194.30999999999997 69.85 180)
 		(effects
@@ -5163,6 +5063,106 @@
 			(justify right)
 		)
 		(uuid "7696b58f-5685-401b-87e5-7bc3855202f5")
+	)
+	(global_label "IO6"
+		(at 113.03 93.98 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "451f1e60-145c-4c67-a8c3-927409ca3740")
+	)
+	(global_label "I2C_SDA"
+		(at 113.03 99.06 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2c02fa84-fca4-4a41-9ce8-e7cee5f37579")
+	)
+	(global_label "I2C_SCL"
+		(at 113.03 101.6 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6ac6f447-42ec-43c3-9ebc-957caf68a2b5")
+	)
+	(global_label "IO6"
+		(at 194.31 62.23 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "6914f9be-25f0-4dea-b5e1-57b501ca278d")
+	)
+	(global_label "SPI_MISO"
+		(at 113.03 91.44 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "436078ec-81c2-498f-bb07-deb200609840")
+	)
+	(global_label "SPI_CS"
+		(at 113.03 96.52 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d96926fa-a066-4886-bff6-ee56c76f0677")
+	)
+	(global_label "IO10"
+		(at 113.03 104.14 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "5ed15e64-2122-4e6a-b06c-7a8226da6efc")
+	)
+	(global_label "SPI_MISO"
+		(at 194.31 59.69 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ddf9848c-cd0a-4a89-9186-502d709b72d2")
+	)
+	(global_label "SPI_CS"
+		(at 194.31 64.77 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ac995a75-a671-4257-a1a0-3794081d02eb")
+	)
+	(global_label "IO10"
+		(at 194.31 67.31 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e4cb9990-583c-41a6-9bd1-a0e7eb5c8ff4")
 	)
 	(sheet_instances
 		(path "/"

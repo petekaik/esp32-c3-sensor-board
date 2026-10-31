@@ -88,7 +88,7 @@
       (pin bidirectional line
         (at -12.7 1.27 0)
         (length 2.54)
-        (name "IO4"
+        (name "GPIO4"
           (effects (font (size 1.27 1.27)))
         )
         (number "4"
@@ -98,7 +98,7 @@
       (pin bidirectional line
         (at -12.7 -1.27 0)
         (length 2.54)
-        (name "IO3"
+        (name "GPIO3"
           (effects (font (size 1.27 1.27)))
         )
         (number "5"
@@ -108,7 +108,7 @@
       (pin bidirectional line
         (at -12.7 -3.81 0)
         (length 2.54)
-        (name "IO2"
+        (name "GPIO2"
           (effects (font (size 1.27 1.27)))
         )
         (number "6"
@@ -118,7 +118,7 @@
       (pin bidirectional line
         (at -12.7 -6.35 0)
         (length 2.54)
-        (name "IO1"
+        (name "GPIO1"
           (effects (font (size 1.27 1.27)))
         )
         (number "7"
@@ -128,7 +128,7 @@
       (pin bidirectional line
         (at -12.7 -8.89 0)
         (length 2.54)
-        (name "IO0"
+        (name "GPIO0"
           (effects (font (size 1.27 1.27)))
         )
         (number "8"
@@ -138,7 +138,7 @@
       (pin bidirectional line
         (at 12.7 8.89 180)
         (length 2.54)
-        (name "IO5"
+        (name "GPIO5/MISO"
           (effects (font (size 1.27 1.27)))
         )
         (number "9"
@@ -148,7 +148,7 @@
       (pin bidirectional line
         (at 12.7 6.35 180)
         (length 2.54)
-        (name "IO6"
+        (name "GPIO6/MOSI"
           (effects (font (size 1.27 1.27)))
         )
         (number "10"
@@ -158,7 +158,7 @@
       (pin bidirectional line
         (at 12.7 3.81 180)
         (length 2.54)
-        (name "IO7"
+        (name "GPIO7/SS"
           (effects (font (size 1.27 1.27)))
         )
         (number "11"
@@ -168,7 +168,7 @@
       (pin bidirectional line
         (at 12.7 1.27 180)
         (length 2.54)
-        (name "IO8"
+        (name "GPIO8/SDA"
           (effects (font (size 1.27 1.27)))
         )
         (number "12"
@@ -178,7 +178,7 @@
       (pin bidirectional line
         (at 12.7 -1.27 180)
         (length 2.54)
-        (name "IO9"
+        (name "GPIO9/SCL"
           (effects (font (size 1.27 1.27)))
         )
         (number "13"
@@ -188,7 +188,7 @@
       (pin bidirectional line
         (at 12.7 -3.81 180)
         (length 2.54)
-        (name "IO10"
+        (name "GPIO10"
           (effects (font (size 1.27 1.27)))
         )
         (number "14"
@@ -198,7 +198,7 @@
       (pin bidirectional line
         (at 12.7 -6.35 180)
         (length 2.54)
-        (name "IO20"
+        (name "GPIO20/RX"
           (effects (font (size 1.27 1.27)))
         )
         (number "15"
@@ -208,7 +208,7 @@
       (pin bidirectional line
         (at 12.7 -8.89 180)
         (length 2.54)
-        (name "IO21"
+        (name "GPIO21/TX"
           (effects (font (size 1.27 1.27)))
         )
         (number "16"

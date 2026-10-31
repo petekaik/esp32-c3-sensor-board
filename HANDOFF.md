@@ -138,3 +138,155 @@ dummy-carrier experiments were removed.
 - KiCad 3D viewer: File → Revert + Reload 3D cache.
 - Plug-and-play: male pin rows on ESP32-C3, LD2410C, BME280, BH1750; female
   sockets on the carrier; relay/button remain screw terminals.
+
+
+## Session resume (2026-10-30)
+
+### Where things are
+- Repo: `github.com/petekaik/esp32-c3-sensor-board` (public). Pages live at
+  `http://gitpages.morgeweb.com/esp32-c3-sensor-board/` (served from `main` / `docs`,
+  custom account domain). Landing page is `docs/index.html`; variant pages are
+  generated HTML next to their .md sources.
+- KiCad project: `hardware/esp32-c3-sensor-board-rev2.kicad_pro` (46 x 89 mm rev2).
+  DRC 0 errors / 0 unconnected / 2 known warnings; ERC 0.
+- Fabrication: `fabrication/esp32-c3-sensor-board-rev2-gerbers.zip` (8 files),
+  `bom-jlc.csv`, `cpl-jlc.csv`, `QUOTE.md`.
+- Docs: `README.md`, `docs/pinout.md`, `docs/pricing.md`, `docs/BOM.csv`,
+  `docs/variants/*.md|html`, `tools/aisler_quote.py`, `tools/kicad-plugin/`.
+- Case: Fusion document `Sensorbox v4` (cloud, saved). Bodies: TRAY_FLOOR,
+  TRAY_WALLS (with rails), MOUNT_BOSS, STANDOFF_1..4, COVER_SLIDE + the imported
+  board assembly.
+
+### Environment facts
+- KiCad MCP moved out of iCloud: `~/mcp/KiCAD-MCP-Server`, config in
+  `~/.claude.json` (backup `.bak-mcp-move`). Tools only register at session start;
+  if missing, restart Claude Code (server must be running).
+- `kicad-cli` at `/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli`.
+- Fusion MCP: `http://127.0.0.1:27182/mcp` (Fusion must be running).
+- FreeRouting: `docker run --rm -v /tmp:/work -v ~/.kicad-mcp:/data
+  eclipse-temurin:25-jre java -jar /data/freerouting.jar -de in.dsn -do out.ses`.
+
+### Pending work, highest first
+1. Case fixes in Fusion (rebuild tray+cover in one pass, after deleting the
+   existing TRAY_*/COVER_* bodies):
+   - trim the slide rails so they stop at the USB clearance line (`rail y1 = iy1`);
+     currently they run to `oy1` and appear as strips floating in the open USB end;
+   - `wallTop = tallest component + 3 mm` (relay top is 18.1 mm; ceiling at 19.1 is
+     only 1 mm clear and the cover's inward lips sit in the same band);
+   - move the rail lips/grooves to mid-wall (z ~15) rather than at the top;
+   - rebuild as ONE base feature, then verify the body list has no `(1)` duplicates.
+2. Relay 3D in the case: `kicad-cli pcb export step` ignores J3's 3D-model transform,
+   so the relay lands at raw coordinates (x ~ -43). J3 currently carries only the
+   socket model; drop `lib/models/ky019.step` into the Fusion assembly manually at
+   board x 0.5-33.9, y -62.55..-88.45, z 1.0-18.1.
+3. Optional: add the fab/quote outputs and new docs to git (they are committed up to
+   the earlier documentation commit; fabrication/, tools/, docs/pricing.md are new).
+4. Nice-to-have: corner fillets on the case, lid fit check, snap-bump tuning.
+
+### Known quirks
+- `FusionDocument.saveAs` needs a DataFolder argument through the MCP bridge, so the
+  document could not be renamed to plain "Sensorbox"; it is `Sensorbox v2...v4` in the
+  data panel - rename there if wanted.
+- Aisler has no public REST pricing API; `tools/aisler_quote.py` uses their published
+  formula (EUR12 job fee + 0.067 EUR/cm2 x qty). Live quotes need an access key + MCP.
+- JLCPCB asks for BOM/CPL only for assembly; our board is THT + modules, so order
+  bare PCB and hand-solder.
+
+
+## Session resume (2026-10-31) - case candidates in Fusion + Blender
+
+### State
+- Fusion document **Sensorbox v6** (cloud, saved 2026-10-31).
+- The v4/v5 candidates (TRAY_SHARED, TRAY_SHARED_WALLS, CAND_A/B/C, Move1..3) were
+  **never saved** and were lost when the app closed. The saved document had only the
+  old case: TRAY_FLOOR, TRAY_WALLS, MOUNT_BOSS, COVER_SLIDE, STANDOFF_1..4.
+- Candidates rebuilt by script on 2026-10-31 from the surviving `COVER_SLIDE`
+  (which already carries the USB-C opening, grommet, BH window, 5 BME louvres and
+  slide rails). Everything is a TemporaryBRepManager boolean, one body per
+  base feature — adding three bodies in one base-feature edit keeps only the last.
+  Build recipe (all mm, case frame x -6.5..50.25, y -91.25..4.3, R14 corners):
+  - `base` = COVER_SLIDE ∩ rounded prism; + internal wall x -5.5..49.25,
+    y -45.5..-44, z 14..22.5 (separates radar vents from BME louvres).
+  - openings cut **last**, through any added top: 5 louvres x 3/6/9/12/15 +1.6,
+    y -56..-46.5; BH window x 22..33, y -61..-50; 3 radar vents x 18/24/30 +2.6,
+    y -40..-26; all from z 21 to 28.
+  - A stepped: + box x 1.5..42.25, y -83.25..-5.7, z 24.4..26.5.
+  - B wavy: three crests — cylinders r 89.6, axis along X at y -84/-44/-4,
+    top z 25.6, clipped to y ±14 and to the prism.
+  - C ribbed: + three ribs 3 mm wide at x 12/22/32, y -83.25..-5.7, z 24.4..26.7.
+  - Every top is re-clipped to the prism so nothing overhangs the rounded outline.
+- Renders: `case/renders/cand_{a_stepped,b_wavy,c_ribbed}_iso.png` (+ b side view).
+- Blender: addon `blender_mcp.py` installed for 5.2, MCP server `uvx mcp-for-blender`
+  (user scope), tools available. /tmp/sensorbox_case.stl (old case, all bodies merged)
+  was imported once; scene units set to mm.
+- Shared case parameters: board 46x89 mm, PCB z 0..1.51; clrL 2.5 (wire channel),
+  others 0.25, USB side 0.3; wall 2; floor 2 mm at z -3.5..-1.5; standoffs 1.5 mm;
+  wallTop 22; cover top 24.5. Openings: rounded USB-C 9.2x3.4 R1.6 at x22,z13.6;
+  grommet D8 at x36,z4; BH window 11x11; 5 BME louvres 1.6x9.5; 3 radar vents.
+
+### Next steps (in order)
+1. Pick a candidate with the user.
+2. Export the chosen cover + the tray as STL (CASE_EXPORT component pattern:
+   copy bodies into a new component, then exportManager.createSTLExportOptions(comp, path)).
+3. Blender artistic pass, then return a STEP/STL; keep Fusion as dimensional master.
+4. Constraints to preserve: smallest envelope, USB-C flush (0.3 mm wall engagement),
+   radar kept in its own pocket with an internal wall, BME louvres not shared with
+   radar exhaust, BH clear window, printable flat without supports.
+5. Nice-to-have: corner fillets on the tray, lid fit check, snap-bump tuning.
+
+### Environment
+- Fusion MCP http://127.0.0.1:27182/mcp; Blender MCP `uvx mcp-for-blender`;
+  KiCad MCP `~/mcp/KiCAD-MCP-Server` (reconnect at session start).
+- kicad-cli: /Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli
+- Fusion MCP quirks: long script calls and screenshots over ~700 px often exceed the
+  idle timeout even though the work completes — verify with a cheap read-only script
+  afterwards. `body.deleteMe()` inside a base-feature edit can take other bodies with it.
+- Committed as `cc315db`: case/, fabrication/, tools/, docs/pricing.md, ky019.step,
+  board, HANDOFF/README. Later this session: `case/renders/`.
+
+## Faceplate route (organic, 2026-10-31)
+
+The three rounded-corner covers were rejected: rounding the lid exposed the square
+tray underneath. New route — a flat faceplate taken from the cover's top rectangle,
+with the mandatory openings, sculpted in Blender.
+
+- **Generator:** `tools/blender/make_faceplate.py`, run in Blender with
+  `exec(open('.../make_faceplate.py').read())`. It rebuilds, sculpts and exports the
+  STL in one go; tune the constants at the top rather than editing the mesh.
+- **Part:** `case/faceplate_organic.stl` — 56.75 x 95.55 mm, z 22..25.35, occupying
+  the `COVER_SLIDE` top-plate volume. Manifold (0 non-manifold edges), 41.6k tris.
+- **Shape:** heightfield top — flat 3 mm border rim at z 24.5, deck recessed to 23.5,
+  vein field of stretched fbm contours (grain along the length) rising to ~25.3.
+  0.5 mm grid. Heightfield → no undercuts, prints flat without supports.
+- **BH1750:** lofted funnel, exact 11 x 11 at the bottom face z 22, flaring through
+  6.4 to an organic lobe (~18 mm) at the surface. Monotonic, so no undercut.
+- **Openings:** five louvres and three radar vents cut clean through the deck; roots
+  are masked 0.4–2.4 mm clear of each so nothing is blocked. Verified: 0 bottom
+  faces inside any opening.
+- **Not yet in Fusion:** the faceplate is still a standalone STL. To finish the case,
+  remove `COVER_SLIDE`'s top plate, add a seating lip, and fit the faceplate.
+- Blender 5.2 scene keeps `faceplate` plus the hidden `sensorbox_case` reference.
+
+### Faceplate integrated (2026-10-31)
+
+Fusion **Sensorbox v6** now holds the assembled case:
+- `TRAY_UNION` — the seven tray bodies unioned into one solid (57 faces).
+- `COVER_OPEN` — `COVER_SLIDE` with everything above z 22 removed (open top) plus a
+  2 mm seating ledge at z 21..22 inset from the cavity (x -3.5..47.25, y -89.25..0.3).
+- `FACEPLATE` — mesh body from `case/faceplate_organic.stl`, seated at z 22..25.35.
+- Hidden archive (do not delete again, see below): `COVER_SLIDE`, `CAND_A/B/C`,
+  the original `TRAY_FLOOR/WALLS/MOUNT_BOSS/STANDOFF_*`.
+
+Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organic.stl`.
+
+**Fusion gotchas found the hard way**
+- `BRepBody.deleteMe()` inside/after a base-feature edit can remove sibling bodies —
+  it cost the tray bodies twice. Never delete when a rename + hide will do. Recover
+  by closing without saving and reopening the last saved version.
+- `MeshBodies.addByTriangleMeshData(coords, coordIdx, normals, normalIdx)`. STL
+  triangles must be wound so Fusion does not backface-cull them — the first import
+  rendered see-through until the winding and normals were flipped.
+- A new body's `name` set inside the same base-feature edit often does not stick;
+  rename it in a later call (`Body103` -> `TRAY_UNION`).
+- Export right after adding a body in the same script can silently write nothing;
+  re-run the export in a fresh call.
