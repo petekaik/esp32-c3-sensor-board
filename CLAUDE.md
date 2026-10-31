@@ -77,7 +77,7 @@ PCB and case are co-designed: footprint positions, module heights and connector 
 
 ## PCB layout
 
-**Current design is rev3:** `hardware/esp32-c3-sensor-board-rev3.*` — 46 × 89 mm portrait, R3, USB-C on the top short edge, relay on a right-angle 1×3 socket at the bottom edge, **J5 breakout 1×16** (GPIO3 and GPIO4 included). Rev3 is routed with 0.25 mm traces, 0.20 mm clearance, **0.8/0.3 mm vias (0.25 mm annular ring, untented, 0.9 mm mask openings)**, 50 µm mask expansion and 0.15 mm silkscreen. **Rev2** (`hardware/esp32-c3-sensor-board-rev2.*`) is the ordered baseline and is otherwise the same board with the older 1×14 J5. **Compact** (`hardware/esp32-c3-sensor-board-compact.*`) is 46 × 72 mm, drops J3/J4, keeps the 1×16 J5. Details in `HANDOFF.md`. The rev1 numbers below are kept for reference.
+**Current design is rev3:** `hardware/esp32-c3-sensor-board-rev3.*` — 46 × 89 mm portrait, R3, USB-C on the top short edge, relay on a right-angle 1×3 socket at the bottom edge, **J5 breakout 1×16** (GPIO3 and GPIO4 included). Rev3 is routed with 0.25 mm traces, 0.20 mm clearance, **0.8/0.3 mm vias (0.25 mm annular ring, untented, 0.9 mm mask openings)**, 50 µm mask expansion and 0.15 mm silkscreen. **Rev2** (`hardware/esp32-c3-sensor-board-rev2.*`) is the ordered baseline and is otherwise the same board with the older 1×14 J5. **Compact** (`hardware/esp32-c3-sensor-board-compact.*`) is 34 × 76 mm, drops J3/J4, keeps the 1×16 J5, and stacks the radar, BH1750 and BME280 in a column with J5 on the right. Details in `HANDOFF.md`. The rev1 numbers below are kept for reference.
 
 Board 80×60 mm, 3 mm corner radius, origin top-left, +Y toward the wiring edge.
 

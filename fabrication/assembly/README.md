@@ -2,7 +2,7 @@
 
 > **Revision note:** the assembly files here are for **rev2**, the ordered
 > baseline with the 1×14 J5. Rev3 expands J5 to **1×16** (LCSC C7499334); the
-> compact board is 46 × 72 mm with no J3/J4 and the same 1×16 row. Bare-board
+> compact board is 34 × 76 mm with no J3/J4 and the same 1×16 row. Bare-board
 > gerbers are `fabrication/esp32-c3-sensor-board-rev3-gerbers.zip` and
 > `fabrication/esp32-c3-sensor-board-compact-gerbers.zip`. Regenerate the
 > BOM/CPL with the Fabrication Toolkit for either assembled variant.

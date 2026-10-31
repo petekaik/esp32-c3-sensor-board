@@ -389,17 +389,23 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   `CSB, SDO`; require a 6-pin crossover adapter or a CS-before-SDO clone.
 
 ### Compact board (2026-10-31)
-- `hardware/esp32-c3-sensor-board-compact.*` — 46 × 72 mm R3, no J3/J4.
-  Copied from rev3, removed the relay/button footprints and their branch
-  traces, shortened the outline to 72 mm. The extra height clears the 1×16 J5
-  (last pad y63.1) and the bottom holes at (3,69)/(43,69).
-- J5/U2 use project-local footprints
-  `sensor-board:PinSocket_1x16_P2.54mm_Vertical` and
-  `sensor-board:ld2410c_compact`, with the silk side/top lines moved to F.Fab;
-  the schematic footprint fields match.
-- DRC: **0 violations, 0 unconnected**; ERC 0; parity only the 4 pre-existing
-  H1–H4 notices.
+- `hardware/esp32-c3-sensor-board-compact.*` — **34 × 76 mm** R3, no J3/J4.
+  Stacked column: U1 at the top (U1A 24.62,2.31; U1B 9.38,2.31), LD2410C at
+  (17,33), BH1750 J2 at (24.79,44.92) rot 0 (body landscape, aligned with the
+  radar), BME280 J1 at (25,60.55) rot 0 (body portrait), J5 1×16 at (31,24),
+  JP1/JP2/JP3 at (5/8.6/12.2,60), holes at (3,3), (31,3), (3,73), (31,73).
+  BH1750 and BME280 are rotated 90° from the old compact layout.
+- The 34 mm width leaves no room for 16 on-board J5 pin labels; the breakout
+  pinout stays in `docs/pinout.md`. The J5/U2 local footprints and schematic
+  fields are unchanged.
+- Routing: FreeRouting (0 unrouted), all tracks normalised to 0.25 mm,
+  zones refilled. Added left-edge GND stitching vias at (1.5,30/45/55) and
+  bottom GND tracks at y75.
+- DRC: **0 violations, 0 errors**; ERC 0; parity only the 4 pre-existing
+  H1–H4 notices. KiCad reports **3 GND-zone connectivity notices** between
+  pour islands; no pads or signal tracks are unconnected (GND is continuous
+  through the through-hole pads and stitching vias).
 - Gerbers/drill/zip: `fabrication/esp32-c3-sensor-board-compact-*`.
-- Rev3 received the same silk cleanup and local footprints; its gerbers were
-  regenerated after the changes.
-- Rev2 is untouched and remains the ordered baseline.
+- The enclosure front must move the radar, BH window and BME louvres to the
+  new stacked positions; the current case is for the old layout.
+- Rev3 and rev2 are unchanged; rev2 remains the ordered baseline.

@@ -1,5 +1,5 @@
 Ref,Value,Footprint,Qty,Notes
-PCB,ESP32-C3 sensor carrier compact,2-layer 46 x 72 mm,1,1.6 mm FR4 R3 corners ENIG preferred
+PCB,ESP32-C3 sensor carrier compact,2-layer 34 x 76 mm,1,1.6 mm FR4 R3 corners ENIG preferred
 U1,ESP32-C3 Super Mini,module 2x8 2.54 mm,1,plugs into two 1x8 sockets
 U2,HLK-LD2410C,module 1x5 2.54 mm,1,plugs into 1x5 socket
 J1,BME280 module,module 1x6 2.54 mm,1,BME680 in the bme680 variant

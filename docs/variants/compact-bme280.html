@@ -11,13 +11,12 @@ th{color:var(--muted);font-weight:600}code{background:rgba(127,127,127,.12);padd
 a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margin-right:14px}
 </style></head><body><main><nav><a href="../index.html">Index</a><a href="../pinout.html">Pin map</a><a href="relay-bme280.html">relay-bme280</a><a href="relay-bme680.html">relay-bme680</a><a href="compact-bme280.html">compact-bme280</a><a href="compact-bme680.html">compact-bme680</a></nav><h1>Variant: compact, no relay, BME280 (routed)</h1>
 <p><strong>Status:</strong> routed — <code>hardware/esp32-c3-sensor-board-compact.*</code></p>
-<p><strong>Board:</strong> 46 × 72 mm, R3, 2-layer (≈17 mm shorter than rev2)</p>
+<p><strong>Board:</strong> 34 × 76 mm, R3, 2-layer (12 mm narrower, 13 mm shorter than rev2)</p>
 <h2>What changes</h2>
 <ul>
 <li><strong>J3, the relay module area and J4 (button terminal) removed</strong> — no relay socket, no relay footprint, no button terminal.</li>
-<li>Board shortened to 46 × 72 mm; the sensor strip, ESP32, LD2410C and breakout keep their</li>
+<li>Board is a 34 × 76 mm stacked column: radar, BH1750 and BME280 one below the other, with J5 on the right.</li>
 </ul>
-<p>  positions.</p>
 <ul>
 <li><strong>GPIO3 and GPIO4 freed</strong> and added to the breakout row → <strong>J5 becomes 1×16</strong>:</li>
 </ul>
@@ -30,12 +29,12 @@ a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margi
 <h2>Layout</h2>
 <table>
 <tr><th>Item</th><th>Position (mm, origin top-left)</th></tr>
-<tr><td>ESP32-C3 socket</td><td>(22, 11.2), USB out the top short edge</td></tr>
-<tr><td>LD2410C</td><td>(20, 33)</td></tr>
-<tr><td>BME280</td><td>(3.5, 47.5)</td></tr>
-<tr><td>BH1750</td><td>(23, 47.5)</td></tr>
-<tr><td>Jumper headers</td><td>(3.5 / 7.1 / 10.7, 51.2)</td></tr>
-<tr><td>Breakout row J5</td><td>x 40, y 25 … 63.1 (16 socket positions)</td></tr>
+<tr><td>ESP32-C3 socket</td><td>U1A (24.62, 2.31), U1B (9.38, 2.31), USB out the top short edge</td></tr>
+<tr><td>LD2410C</td><td>(17, 33), landscape</td></tr>
+<tr><td>BH1750</td><td>J2 (24.79, 44.92), rot 0 — body landscape, socket row vertical</td></tr>
+<tr><td>BME280</td><td>J1 (25, 60.55), rot 0 — body portrait, socket row vertical</td></tr>
+<tr><td>Jumper headers</td><td>(5 / 8.6 / 12.2, 60)</td></tr>
+<tr><td>Breakout row J5</td><td>x 31, y 24 … 64.64 (16 socket positions)</td></tr>
 <tr><td>Button terminal</td><td>removed (GPIO3 on J5 pin 7)</td></tr>
 </table>
 <h2>Firmware</h2>
@@ -44,5 +43,5 @@ a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margi
 <h2>Open questions</h2>
 <ul>
 <li>Does the enclosure still need the wiring-side depth, or can it become a slimmer wall box?</li>
-<li>Board is 46 × 72 mm; bottom mounting holes are at (3,69) and (43,69).</li>
+<li>The enclosure front must move the radar, BH window and BME louvres to the new stacked positions.</li>
 </ul></main></body></html>
