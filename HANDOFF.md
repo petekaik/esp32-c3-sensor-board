@@ -266,3 +266,27 @@ with the mandatory openings, sculpted in Blender.
 - **Not yet in Fusion:** the faceplate is still a standalone STL. To finish the case,
   remove `COVER_SLIDE`'s top plate, add a seating lip, and fit the faceplate.
 - Blender 5.2 scene keeps `faceplate` plus the hidden `sensorbox_case` reference.
+
+### Faceplate integrated (2026-10-31)
+
+Fusion **Sensorbox v6** now holds the assembled case:
+- `TRAY_UNION` — the seven tray bodies unioned into one solid (57 faces).
+- `COVER_OPEN` — `COVER_SLIDE` with everything above z 22 removed (open top) plus a
+  2 mm seating ledge at z 21..22 inset from the cavity (x -3.5..47.25, y -89.25..0.3).
+- `FACEPLATE` — mesh body from `case/faceplate_organic.stl`, seated at z 22..25.35.
+- Hidden archive (do not delete again, see below): `COVER_SLIDE`, `CAND_A/B/C`,
+  the original `TRAY_FLOOR/WALLS/MOUNT_BOSS/STANDOFF_*`.
+
+Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organic.stl`.
+
+**Fusion gotchas found the hard way**
+- `BRepBody.deleteMe()` inside/after a base-feature edit can remove sibling bodies —
+  it cost the tray bodies twice. Never delete when a rename + hide will do. Recover
+  by closing without saving and reopening the last saved version.
+- `MeshBodies.addByTriangleMeshData(coords, coordIdx, normals, normalIdx)`. STL
+  triangles must be wound so Fusion does not backface-cull them — the first import
+  rendered see-through until the winding and normals were flipped.
+- A new body's `name` set inside the same base-feature edit often does not stick;
+  rename it in a later call (`Body103` -> `TRAY_UNION`).
+- Export right after adding a body in the same script can silently write nothing;
+  re-run the export in a fresh call.

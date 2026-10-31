@@ -33,10 +33,10 @@ OPEN_LOUVRES = [(3.0, 4.6, -56.0, -46.5), (6.0, 7.6, -56.0, -46.5), (9.0, 10.6, 
 
 # ---- relief tuning -------------------------------------------------------
 GRAIN_SCALE = (0.085, 0.016)           # x, y noise scale: strongly stretched along the length
-GRAIN_CUT = 0.075                      # contour half-width -> narrower = thinner veins
+GRAIN_CUT = 0.058                      # contour half-width -> narrower = thinner veins
 BRANCH_SCALE = (0.050, 0.030)
-BRANCH_CUT = 0.055
-AMP_MAIN, AMP_BRANCH, AMP_FINE = 1.45, 0.75, 0.16
+BRANCH_CUT = 0.042
+AMP_MAIN, AMP_BRANCH, AMP_FINE = 1.55, 0.80, 0.15
 AMP_MAX = 1.85
 
 
@@ -66,8 +66,8 @@ def mask(x, y):
     """1 where roots may grow, 0 over the mandatory openings and the BH mouth."""
     m = 1.0
     for r in OPEN_VENTS + OPEN_LOUVRES:
-        m = min(m, smoothstep(0.4, 2.4, rect_gap(x, y, r)))
-    return min(m, smoothstep(7.5, 10.0, math.hypot(x - CX, y - CY)))
+        m = min(m, smoothstep(0.25, 1.5, rect_gap(x, y, r)))
+    return min(m, smoothstep(6.6, 8.4, math.hypot(x - CX, y - CY)))
 
 
 def ztop(x, y):
