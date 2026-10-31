@@ -38,11 +38,11 @@
 		(45 "User.4" user)
 	)
 	(setup
-		(pad_to_mask_clearance 0)
+		(pad_to_mask_clearance 0.05)
 		(allow_soldermask_bridges_in_footprints no)
 		(tenting
-			(front yes)
-			(back yes)
+			(front no)
+			(back no)
 		)
 		(covering
 			(front no)
@@ -1924,8 +1924,8 @@
 			(uuid "da7f90db-6342-4677-be23-babd44fc0cc5")
 		)
 		(fp_line
-			(start -5.8 -6.5)
-			(end -5.8 -5.9)
+			(start -6.2 -6.5)
+			(end -6.2 -5.9)
 			(stroke
 				(width 0.15)
 				(type solid)
@@ -5753,6 +5753,10 @@
 		(size 0.8)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
+		(tenting
+			(front no)
+			(back no)
+		)
 		(net "UART_TX")
 		(uuid "0a7b886c-1fb4-4d2a-b734-2d8dd088d5b3")
 	)
@@ -5913,6 +5917,10 @@
 		(size 0.8)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
+		(tenting
+			(front no)
+			(back no)
+		)
 		(net "I2C_SCL")
 		(uuid "119c490f-8c73-45ea-9e42-ff1b0d11b730")
 	)
@@ -6033,6 +6041,10 @@
 		(size 0.8)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
+		(tenting
+			(front no)
+			(back no)
+		)
 		(net "I2C_SDA")
 		(uuid "11757fa7-3a6d-414e-a38d-fee9c61747b0")
 	)
@@ -6041,6 +6053,10 @@
 		(size 0.8)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
+		(tenting
+			(front no)
+			(back no)
+		)
 		(net "I2C_SDA")
 		(uuid "a0e34d93-4f73-4cc7-b46c-7f5ba8cfd4b7")
 	)
@@ -6049,6 +6065,10 @@
 		(size 0.8)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
+		(tenting
+			(front no)
+			(back no)
+		)
 		(net "I2C_SDA")
 		(uuid "f4c61af2-8a64-4f46-b452-009ae2bb642d")
 	)
@@ -6689,6 +6709,10 @@
 		(size 0.8)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
+		(tenting
+			(front no)
+			(back no)
+		)
 		(net "IO10")
 		(uuid "89e9ec24-3294-4907-baf0-a3a28c7b92d2")
 	)

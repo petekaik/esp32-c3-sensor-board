@@ -95,7 +95,8 @@ CLAUDE.md / HANDOFF.md    design brief and working notes
 ## Ordering
 
 - 2-layer, 1.6 mm FR4, 0.25 mm minimum trace, 0.20 mm clearance, 0.8/0.3 mm vias
-  (0.25 mm annular ring), 0.15 mm silkscreen, ENIG preferred (castellated nothing — all standard PTH).
+  (0.25 mm annular ring, untented with 0.9 mm mask openings), 50 µm solder-mask
+  expansion, 0.15 mm silkscreen, ENIG preferred (castellated nothing — all standard PTH).
 - Assembly is hand-solder: sockets, terminals, jumper headers, breakout row.
 - Do not fit metal-filled or carbon filament anywhere in front of the radar or light sensor.
 
