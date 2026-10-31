@@ -96,7 +96,7 @@ Board 80×60 mm, 3 mm corner radius, origin top-left, +Y toward the wiring edge.
 
 Design is automated with Claude Code + the KiCad MCP server (KiCad 10).
 
-- Project: `hardware/esp32-c3-sensor-board.kicad_pro`. Libraries: `sensor-board` (symbols + footprints) and `ld2410c` (symbol), both `${KIPRJMOD}`-relative. Super Mini socket is `sensor-board:ESP32-C3-SuperMini_Socket` — 2x8, 2.54 mm pitch, 15.24 mm rows, 22.52x18 mm outline, pin 1 = 5V top-left, USB end at +Y. Its symbol is `sensor-board:ESP32-C3-SuperMini`.
+- Project: `hardware/esp32-c3-sensor-board.kicad_pro`. Libraries: `sensor-board` (symbols + footprints) and `ld2410c` (symbol), both `${KIPRJMOD}`-relative. The Super Mini socket is fitted as **two 1×8 sockets**: `U1A` (pads 1–8) at (29.62, 2.31) and `U1B` (pads 9–16) at (14.38, 2.31), both 0°, on the standard `Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical` footprint. `U1A` carries the ESP32-C3 module 3D model. The schematic uses `Connector_Generic:Conn_01x08` symbols; `U2` is `Conn_01x05` on the custom `sensor-board:ld2410c` footprint.
 
 - Drive KiCad through the MCP server; do not hand-edit `.kicad_sch` / `.kicad_pcb` text.
 - Run ERC and DRC before declaring a design done, and report the actual output.

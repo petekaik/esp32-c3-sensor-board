@@ -13,14 +13,23 @@ The carrier board is **through-hole only**: the provider fits the sockets, heade
 | J5 | 2.54 mm 1×14 female header | 1 | C41417326 |
 | JP1, JP2 | 2.54 mm 1×3 male pin header | 2 | C49257 |
 | JP3 | 2.54 mm 1×2 male pin header | 1 | C32713268 |
+| J3 | 2.54 mm 1×3 right-angle female header, long pins (hand-solder) | 1 | C54876732 |
+| SHUNT | 2.54 mm jumper shunt (hand-fit) | 3 | C5305 |
 | H1–H4 | 3.2 mm NPTH mounting holes | — | no part |
 
-**J3 is hand-soldered, not assembled.** The relay socket must be raised to meet the KY-019 module's header; automated THT assembly places parts flush. J3 is therefore excluded from every provider BOM/CPL — see [hand-solder-j3.md](hand-solder-j3.md).
+**J3 is hand-soldered, not assembled.** The relay socket must be raised to meet the KY-019 module's header; automated THT assembly places parts flush. J3 is therefore excluded from every provider BOM/CPL — see [hand-solder-j3.md](hand-solder-j3.md). The three jumpers' shunts are also hand-fitted after assembly.
+
+The Aisler project `BEAGDVXB` (`esp32-c3-sensor-board-rev2`) has catalogue parts
+assigned to all ten assembled lines; J3 is marked excluded. Aisler substitutes
+a Samtec `SSW-114-01-T-S` for J5 because LCSC `C41417326` is not in its
+catalogue. See [`docs/pricing.md`](../../docs/pricing.md) for the live BOM.
 
 **U1 is two 1×8 sockets**, not a 2×8 header: the Super Mini's two pin rows are 15.24 mm apart, so they are fitted as `U1A` and `U1B`. **U2 is a 1×5 socket** for the LD2410C; the module itself is not assembled.
 
 ## Provider files
 
+- `vendor-neutral-bom.csv` — one row per designator with **LCSC** and **Aisler
+  MPN** columns filled; the five plug-in modules are listed as excluded.
 - `jlcpcb/bom-jlcpcb.csv`, `cpl-jlcpcb.csv` — JLCPCB format:
   `Comment,Designator,Footprint,LCSC Part #` and
   `Designator,Mid X,Mid Y,Layer,Rotation`.

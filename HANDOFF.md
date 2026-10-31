@@ -294,3 +294,42 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   rename it in a later call (`Body103` -> `TRAY_UNION`).
 - Export right after adding a body in the same script can silently write nothing;
   re-run the export in a fresh call.
+
+## Session 2026-10-31 — vendor-assignable BOM + three-vendor pricing
+
+### Schematic
+- `U1` replaced by `U1A`/`U1B` (`Connector_Generic:Conn_01x08`, at
+  92.71/99.06 and 118.11/99.06), footprints
+  `Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical`.
+  Existing global labels re-used in place; no wires.
+- `U2` replaced by `Conn_01x05` at 193.04/100.33, footprint kept as
+  `sensor-board:ld2410c`. `J1`/`J2` values renamed to connector part names.
+- ERC: **0 violations**.
+- KiCad quirk: the BOM exporter prints `U1A?`/`U1B?` because single-unit
+  symbols with a unit-letter suffix are treated as unannotated. The netlist and
+  PCB use `U1A`/`U1B` correctly; do not run "annotate" (it would rename them).
+
+### PCB
+- U1's custom 2x8 footprint removed; two standard 1x8 sockets at
+  `U1A (29.62, 2.31)` and `U1B (14.38, 2.31)`, 0°. `U1A` carries the ESP32-C3
+  module STEP (`offset -7.62,-8.89,8.5`, rot 0).
+- IO6 track rerouted at the U1B pad-1 corner (pad 1 is square in the standard
+  footprint; the old route clipped it).
+- U2 pad 3 carries `unconnected-(U2-Pin_3-Pad3)` for schematic parity.
+- DRC: **0 errors, 0 unconnected**, 24 warnings (21 silk overlap, 3 silk edge;
+  baseline was 28). Schematic parity: only the 4 pre-existing H1–H4
+  "exclude from BOM" notices.
+- Gerbers, drill and the zip were regenerated.
+
+### Aisler
+- Project `BEAGDVXB` (`esp32-c3-sensor-board-rev2`), new revision imported.
+  10 assembled lines assigned; J3 excluded (hand-solder). Modules are plug-in
+  and have no PCB BOM line.
+- Live BOM (MCP): €7.28 at MOQ for one board; ~€10.3 of parts for 5 boards.
+- J5 uses Samtec `SSW-114-01-T-S` because LCSC `C41417326` is not in Aisler's
+  catalogue; shunts (`C5305`) are hand-fit and have no CAD line.
+
+### Files
+- `fabrication/assembly/vendor-neutral-bom.csv` — LCSC + Aisler MPN filled.
+- Provider BOMs unchanged; CPLs have U1A/U1B x swapped (29.62 / 14.38).
+- `docs/pricing.md` — three-vendor comparison.
