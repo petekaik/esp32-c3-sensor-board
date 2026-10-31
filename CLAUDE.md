@@ -77,7 +77,7 @@ PCB and case are co-designed: footprint positions, module heights and connector 
 
 ## PCB layout
 
-**Current design is rev2:** `hardware/esp32-c3-sensor-board-rev2.*` — 40 × 70 mm portrait, R3, USB-C on the top short edge, relay on a right-angle 1×3 socket at the bottom edge. Rev2 is routed with 0.20 mm traces, 0.15 mm clearance, **0.8/0.3 mm vias (0.25 mm annular ring)** and 0.15 mm silkscreen, so it passes AISLER's 2L 1.6 mm 35 µm process checks. Details in `HANDOFF.md`. The rev1 numbers below are kept for reference.
+**Current design is rev2:** `hardware/esp32-c3-sensor-board-rev2.*` — 40 × 70 mm portrait, R3, USB-C on the top short edge, relay on a right-angle 1×3 socket at the bottom edge. Rev2 is routed with 0.25 mm traces, 0.20 mm clearance, **0.8/0.3 mm vias (0.25 mm annular ring)** and 0.15 mm silkscreen, so it passes AISLER's 2L 1.6 mm 35 µm process checks. Details in `HANDOFF.md`. The rev1 numbers below are kept for reference.
 
 Board 80×60 mm, 3 mm corner radius, origin top-left, +Y toward the wiring edge.
 
