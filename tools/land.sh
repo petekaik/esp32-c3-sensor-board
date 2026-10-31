@@ -39,7 +39,11 @@ if [[ -z "$pr" ]]; then
   pr=$(gh pr list --head "$branch" --state open --json number --jq '.[0].number')
 fi
 
-gh pr merge "$pr" --merge --delete-branch
+gh pr merge "$pr" --merge
+
+# gh's --delete-branch tries to switch this worktree to main, which fails when
+# main is checked out in another worktree; delete the remote branch ourselves.
+git push origin --delete "$branch" >/dev/null 2>&1 || true
 
 # Fast-forward the main worktree (this works whether the script runs in the
 # main checkout or in a linked worktree).
