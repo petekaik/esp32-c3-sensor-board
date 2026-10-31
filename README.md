@@ -37,9 +37,13 @@ screw/plug connections.
 
 GPIO18/19 are the native USB pins and are left free for flashing/logging.
 
-## Breakout row (J5, 1×14 holes)
+## Breakout row (J5, 1×14 female socket)
 
 `3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX`
+
+J5 is fitted with a standard 2.54 mm 1×14 female socket
+(`Connector_PinSocket_2.54mm:PinSocket_1x14_P2.54mm_Vertical`), so the board
+can be ordered fully assembled.
 
 I²C and UART are on the row by net name, so a second device can share the buses. I²C uses GPIO8/9,
 which are also C3 strapping pins (GPIO9 = BOOT, GPIO8 = LED on most Super Minis); the module-side

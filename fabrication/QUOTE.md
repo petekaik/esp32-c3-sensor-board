@@ -42,13 +42,14 @@ Ask each vendor for the **delivered** total, not the board price:
 
 ## Notes for the order form
 
-- The relay socket and jumper headers are **through-hole**; no paste layers are needed.
+- The module sockets, the 1×14 J5 breakout socket, the relay socket and the jumper
+  headers are **through-hole**; no paste layers are needed.
 - No controlled impedance, no blind/buried vias, no edge plating.
 - Mounting holes are plain 3.2 mm NPTH — do not tent them.
 - Silkscreen includes small 0.8 mm text; if a vendor flags legibility, allow 0.8 mm minimum.
 
 ## After the boards arrive
 
-1. Fit sockets (2× 1×8, 1×6, 2× 1×5, 1×3 horizontal), terminals, jumper headers.
+1. Fit sockets (2× 1×8, 1×6, 1×5, 1×14, 1×3 horizontal), terminals, jumper headers.
 2. Insert the ESP32-C3 Super Mini and modules, flash via USB-C.
 3. Set jumpers: JP1 1–2 (I²C), JP2 1–2 (0x76), JP3 1–2 (0x23).

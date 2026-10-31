@@ -23,4 +23,4 @@ bus are pin-compatible between BME280 and BME680 breakout modules.
 
 ## Everything else
 Identical to [relay-bme280](relay-bme280.md): relay on J3, button on J4, LD2410C on U2, BH1750 on
-J2, 1×14 breakout row, jumper defaults 1–2.
+J2, 1×14 breakout female socket, jumper defaults 1–2.
