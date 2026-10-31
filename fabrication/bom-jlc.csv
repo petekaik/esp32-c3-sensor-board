@@ -2,7 +2,6 @@ Comment,Designator,Footprint,LCSC Part #
 2.54mm 1x8 female header,"U1A,U1B",Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical,C27438
 2.54mm 1x5 female header,"U2,J2",Connector_PinSocket_2.54mm:PinSocket_1x05_P2.54mm_Vertical,C50950
 2.54mm 1x6 female header,J1,Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical,C40877
-2.54mm 1x3 right-angle female header,J3,Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Horizontal,C54876732
 5.0mm 2P screw terminal,J4,TerminalBlock:TerminalBlock_MaiXu_MX126-5.0-02P_1x02_P5.00mm,C5188434
 2.54mm 1x14 female header,J5,Connector_PinSocket_2.54mm:PinSocket_1x14_P2.54mm_Vertical,C41417326
 2.54mm 1x3 male pin header,"JP1,JP2",Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical,C49257
