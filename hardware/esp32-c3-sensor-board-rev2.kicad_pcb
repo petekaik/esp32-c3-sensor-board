@@ -1837,6 +1837,17 @@
 				(xyz -0 -0 -0)
 			)
 		)
+		(model "${KIPRJMOD}/lib/models/ky019.step"
+			(offset
+				(xyz 0 5.08 1)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "sensor-board:ld2410c"
 		(layer "F.Cu")
