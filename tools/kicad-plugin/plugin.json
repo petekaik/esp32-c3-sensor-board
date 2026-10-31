@@ -1,9 +1,9 @@
 {
-  "name": "Aisler Quote",
-  "description": "Estimate the Aisler PCB price for the open board",
-  "description_full": "Runs tools/aisler_quote.py on the current board and shows the per-unit and delivered price for 3/5/10 pieces, using Aisler's published Budget pricing formula.",
-  "identifier": "com.petekaik.aisler-quote",
-  "version": "0.1.0",
+  "name": "PCB Quote",
+  "description": "Board size, Aisler estimate and links to PCB vendor quote pages",
+  "description_full": "Shows the open board's size and an offline Aisler estimate (tools/aisler_quote.py), plus one-click links to the quote/upload pages of Aisler, JLCPCB, PCBWay, Eurocircuits and OSHPark.",
+  "identifier": "com.petekaik.pcb-quote",
+  "version": "0.2.0",
   "author": {
     "name": "petekaik"
   },
@@ -14,9 +14,9 @@
   },
   "actions": [
     {
-      "identifier": "aisler_quote",
-      "name": "Aisler Quote",
-      "description": "Estimate Aisler PCB price from the current board",
+      "identifier": "pcb_quote",
+      "name": "PCB Quote",
+      "description": "Board size, Aisler estimate and vendor quote links",
       "show-button": true,
       "entrypoint": "action_plugin.py"
     }

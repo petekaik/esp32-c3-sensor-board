@@ -62,6 +62,23 @@ and needs an access key; JLCPCB assembly cannot place the modules (not in their
 library) and only partially handles the through-hole sockets. At 5 units, hand
 assembly is the realistic path.
 
+## KiCad quote plugin
+
+`tools/kicad-plugin/` is a PCB Editor action plugin that shows the open board's
+size, an Aisler estimate for 5 pcs (from `tools/aisler_quote.py`), and buttons
+that open the quote/upload pages of Aisler, JLCPCB, PCBWay, Eurocircuits and
+OSHPark. Only Aisler is estimated offline; the other buttons open the vendor's
+upload page — upload `fabrication/esp32-c3-sensor-board-rev2-gerbers.zip`.
+
+Install (copies the plugin into KiCad's user plugins folder):
+
+```
+python3 tools/kicad-plugin/install.py
+```
+
+Then restart KiCad and use **Tools → External Plugins → PCB Quote**. Enable the
+toolbar button in **Preferences → Action Plugins** if you want it in the toolbar.
+
 ## Caveats
 
 - Part prices are indicative EU retail; shipping and VAT are excluded from the parts lines.
