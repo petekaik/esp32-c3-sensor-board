@@ -89,7 +89,7 @@ Board 80×60 mm, 3 mm corner radius, origin top-left, +Y toward the wiring edge.
 - U1 has two 1×8 male pin-header 3D models (`PinHeader_1x08`, rotation X=180, offset x=±7.62, y=−8.89, z=11): long pins point down into the female sockets, short pins protrude through the module edges.
 - Bottom half: U1 Super Mini socket (19, 45.26, 0°) with USB at the bottom edge; J3 relay terminal (56, 51, 180°) and J4 button terminal (37, 51, 180°), wire entry toward the bottom edge.
 - H1–H4 M3 holes at (5,5), (76,5), (5,55), (76,55).
-- Routing: 2-layer; signals/power on F.Cu, GND pour on B.Cu with two holes — LD2410C patch area (x 10–31, y 8–21) and Super Mini antenna (x 14–24, y 34–37). Autorouted (Freerouting), then zone-filled; min trace 0.15 mm.
+- Routing: 2-layer; signals/power on F.Cu, GND pour on B.Cu with two holes — LD2410C patch area (x 10–31, y 8–21) and Super Mini antenna (x 14–24, y 34–37). Autorouted (Freerouting), then zone-filled; min trace 0.20 mm, min clearance 0.15 mm, vias 0.6/0.3 mm.
 - Verified: 0 courtyard overlaps at 0.3 mm margin, 0 boundary violations, 0 DRC errors (2 warnings: cosmetic U2 pin-1 silk and a JP2 library-mismatch note).
 
 ## Workflow
