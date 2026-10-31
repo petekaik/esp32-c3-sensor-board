@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Install the PCB Quote action plugin into KiCad's user plugin folder.
+"""Install the PCB Quote API plugin into KiCad's user plugin folder.
 
     python3 tools/kicad-plugin/install.py
-    python3 tools/kicad-plugin/install.py --dest ~/Documents/KiCad/10.0/scripting/plugins
 
-Restart KiCad afterwards; the plugin appears under
-Tools -> External Plugins -> PCB Quote and as a toolbar button.
+Restart KiCad afterwards (or use the refresh button on Preferences -> Action
+Plugins). The action appears under Tools -> External Plugins -> PCB Quote and
+as a toolbar button. KiCad creates an isolated Python environment for the
+plugin and installs kicad-python (kipy) from requirements.txt on first run.
 """
 
 from __future__ import annotations
@@ -16,7 +17,8 @@ import shutil
 import sys
 from pathlib import Path
 
-FILES = ("action_plugin.py", "plugin.json")
+FILES = ("__init__.py", "plugin.json", "quote.py", "requirements.txt")
+LEGACY = ("action_plugin.py",)
 
 
 def default_dest() -> Path:
@@ -39,13 +41,18 @@ def main() -> int:
     dest = dest_root / args.name
     dest.mkdir(parents=True, exist_ok=True)
 
+    for name in LEGACY:
+        stale = dest / name
+        if stale.exists():
+            stale.unlink()
+            print(f"removed legacy {stale}")
+
     for name in FILES:
         shutil.copy2(src / name, dest / name)
         print(f"installed {name} -> {dest / name}")
 
-    print("\nRestart KiCad, then Tools -> External Plugins -> PCB Quote.")
-    print("If the toolbar button is hidden: Preferences -> PCB Editor -> "
-          "Show external plugin toolbar.")
+    print("\nRestart KiCad (or click refresh on Preferences -> Action Plugins).")
+    print("Then use Tools -> External Plugins -> PCB Quote.")
     return 0
 
 

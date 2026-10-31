@@ -64,11 +64,11 @@ assembly is the realistic path.
 
 ## KiCad quote plugin
 
-`tools/kicad-plugin/` is a PCB Editor action plugin that shows the open board's
-size, an Aisler estimate for 5 pcs (from `tools/aisler_quote.py`), and buttons
-that open the quote/upload pages of Aisler, JLCPCB, PCBWay, Eurocircuits and
-OSHPark. Only Aisler is estimated offline; the other buttons open the vendor's
-upload page — upload `fabrication/esp32-c3-sensor-board-rev2-gerbers.zip`.
+`tools/kicad-plugin/` is a KiCad 10 API plugin (`plugin.json` + `kipy`
+entrypoint) that builds a quote report for the open board: board size, an
+offline Aisler estimate for 5 pcs (from `tools/aisler_quote.py`), links to the
+quote/upload pages of Aisler, JLCPCB, PCBWay, Eurocircuits and OSHPark, and
+links to the gerber zip / fabrication folder. The report opens in the browser.
 
 Install (copies the plugin into KiCad's user plugins folder):
 
@@ -76,8 +76,9 @@ Install (copies the plugin into KiCad's user plugins folder):
 python3 tools/kicad-plugin/install.py
 ```
 
-Then restart KiCad and use **Tools → External Plugins → PCB Quote**. Enable the
-toolbar button in **Preferences → Action Plugins** if you want it in the toolbar.
+Then restart KiCad (or click refresh on **Preferences → Action Plugins**) and use
+**Tools → External Plugins → PCB Quote**. On first run KiCad creates an isolated
+Python environment and installs `kicad-python` (kipy) from `requirements.txt`.
 
 ## Caveats
 
