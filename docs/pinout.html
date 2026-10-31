@@ -14,12 +14,12 @@ a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margi
 <h2>ESP32-C3 Super Mini socket (U1, 2×8)</h2>
 <table>
 <tr><th>Pad</th><th>Net</th><th>Pad</th><th>Net</th></tr>
-<tr><td>1</td><td>5V</td><td>9</td><td>GPIO5 → SPI_CS (JP1 pin 3, J5)</td></tr>
+<tr><td>1</td><td>5V</td><td>9</td><td>GPIO5 → SPI_MISO (JP2 pin 3, J5)</td></tr>
 <tr><td>2</td><td>GND</td><td>10</td><td>GPIO6 (J5)</td></tr>
-<tr><td>3</td><td>3V3</td><td>11</td><td>GPIO7 (J5)</td></tr>
+<tr><td>3</td><td>3V3</td><td>11</td><td>GPIO7 → SPI_CS (JP1 pin 3, J5)</td></tr>
 <tr><td>4</td><td>RELAY (GPIO4)</td><td>12</td><td>I2C_SDA (GPIO8)</td></tr>
 <tr><td>5</td><td>BUTTON (GPIO3)</td><td>13</td><td>I2C_SCL (GPIO9)</td></tr>
-<tr><td>6</td><td>GPIO2 (J5)</td><td>14</td><td>GPIO10 → SPI_MISO (JP2 pin 3, J5)</td></tr>
+<tr><td>6</td><td>GPIO2 (J5)</td><td>14</td><td>GPIO10 (J5)</td></tr>
 <tr><td>7</td><td>GPIO1 (J5)</td><td>15</td><td>UART_RX (GPIO20)</td></tr>
 <tr><td>8</td><td>GPIO0 (J5)</td><td>16</td><td>UART_TX (GPIO21)</td></tr>
 </table>
@@ -44,8 +44,8 @@ a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margi
 <h2>Jumper defaults</h2>
 <table>
 <tr><th>Ref</th><th>Default</th><th>Meaning</th></tr>
-<tr><td>JP1</td><td>1–2</td><td>CSB tied to 3V3 → I²C mode (2–3 = CSB to GPIO5, SPI mode)</td></tr>
-<tr><td>JP2</td><td>1–2</td><td>SDO tied to GND → address 0x76 (2–3 = SDO to GPIO10, SPI MISO)</td></tr>
+<tr><td>JP1</td><td>1–2</td><td>CSB tied to 3V3 → I²C mode (2–3 = CSB to GPIO7, SPI mode)</td></tr>
+<tr><td>JP2</td><td>1–2</td><td>SDO tied to GND → address 0x76 (2–3 = SDO to GPIO5, SPI MISO)</td></tr>
 <tr><td>JP3</td><td>1–2</td><td>ADDR tied to GND → 0x23 (open = 0x5C)</td></tr>
 </table>
 <p>All three are 2.54 mm pin headers; fit a shunt on the marked pair. The default pairs are boxed on</p>
@@ -55,5 +55,5 @@ a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margi
 <tr><th>Bus</th><th>Pins</th><th>Settings</th></tr>
 <tr><td>I²C</td><td>GPIO8 / GPIO9</td><td>100 kHz default, pull-ups on the modules</td></tr>
 <tr><td>UART</td><td>GPIO20 / GPIO21</td><td>256000 baud, 8N1</td></tr>
-<tr><td>SPI (optional)</td><td>SCK GPIO7, MOSI GPIO6, MISO GPIO10, CS GPIO5</td><td>GPIO-matrix routing</td></tr>
+<tr><td>SPI (optional, BME280 only)</td><td>SCK GPIO9, MOSI GPIO8, MISO GPIO5, CS GPIO7</td><td>reuses SCL/SDA as SCK/MOSI</td></tr>
 </table></main></body></html>

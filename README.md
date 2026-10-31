@@ -31,8 +31,9 @@ screw/plug connections.
 | I²C SCL | GPIO9 | I2C_SCL | J1/J2 + breakout |
 | LD2410C RX (module TX) | GPIO20 | UART_RX | U2 pin 1 |
 | LD2410C TX (module RX) | GPIO21 | UART_TX | U2 pin 2 |
-| SPI CS (jumper option) | GPIO5 | SPI_CS | JP1 pin 3 + breakout |
-| SPI MISO (jumper option) | GPIO10 | SPI_MISO | JP2 pin 3 + breakout |
+| SPI CS (jumper option) | GPIO7 | SPI_CS | JP1 pin 3 + breakout |
+| SPI MISO (jumper option) | GPIO5 | SPI_MISO | JP2 pin 3 + breakout |
+| SPI SCK / MOSI (SPI mode) | GPIO9 / GPIO8 | I2C_SCL / I2C_SDA | BME280 SCL/SDA — shared with I²C |
 
 GPIO18/19 are the native USB pins and are left free for flashing/logging.
 
@@ -50,8 +51,8 @@ as well, so expect faint LED activity during I²C traffic.
 
 | Ref | Pins | Default (doorbell.yml) | Function |
 |---|---|---|---|
-| JP1 | 1×3 | **1–2** | 1=3V3, 2=BME CSB, 3=SPI_CS → 1–2 = I²C, 2–3 = SPI |
-| JP2 | 1×3 | **1–2** | 1=GND, 2=BME SDO, 3=SPI_MISO → 1–2 = 0x76, 2–3 = SPI MISO |
+| JP1 | 1×3 | **1–2** | 1=3V3, 2=BME CSB, 3=SPI_CS (GPIO7) → 1–2 = I²C, 2–3 = SPI |
+| JP2 | 1×3 | **1–2** | 1=GND, 2=BME SDO, 3=SPI_MISO (GPIO5) → 1–2 = 0x76, 2–3 = SPI MISO |
 | JP3 | 1×2 | **1–2** | GND–ADDR → 0x23 (open = 0x5C) |
 
 JP1/JP2 sit under the BME280 socket (≈6 mm clearance); the default-bridged pairs are boxed on
