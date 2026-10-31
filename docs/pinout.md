@@ -54,8 +54,9 @@ Compact variants add **GPIO4** as hole 15.
 | JP2 | 1–2 | SDO tied to GND → address 0x76 (2–3 = SDO to GPIO5, SPI MISO) |
 | JP3 | 1–2 | ADDR tied to GND → 0x23 (open = 0x5C) |
 
-All three are 2.54 mm pin headers; fit a shunt on the marked pair. The default pairs are boxed on
-the bottom silkscreen.
+All three are 2.54 mm pin headers; fit a shunt on the marked pair. The default 1–2 pair is ticked
+on the bottom silkscreen, where the pins are numbered (1–3 for JP1/JP2, 1–2 for JP3) and the
+JP1/JP2/JP3 columns are named. Pin 1 is the square pad.
 
 ## Bus settings
 
