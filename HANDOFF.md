@@ -196,12 +196,26 @@ dummy-carrier experiments were removed.
 ## Session resume (2026-10-31) - case candidates in Fusion + Blender
 
 ### State
-- Fusion document **Sensorbox v4** (cloud, saved) holds the board assembly and:
-  - old case (hidden, not deleted): TRAY_FLOOR, TRAY_WALLS, MOUNT_BOSS, COVER_SLIDE, STANDOFF_1..4
-  - new: TRAY_SHARED, TRAY_SHARED_WALLS (one tray for all candidates)
-  - candidates: CAND_A_stepped, CAND_B_wavy, CAND_C_ribbed, arranged at x = 0 / 140 / 280 mm
-- Known defect in A and B: corner cylinders are unioned from floorTop-1 to zTop+1, so
-  they stand ~1 mm proud of the top. Fix: stop them at zTop, cut only above floorTop.
+- Fusion document **Sensorbox v6** (cloud, saved 2026-10-31).
+- The v4/v5 candidates (TRAY_SHARED, TRAY_SHARED_WALLS, CAND_A/B/C, Move1..3) were
+  **never saved** and were lost when the app closed. The saved document had only the
+  old case: TRAY_FLOOR, TRAY_WALLS, MOUNT_BOSS, COVER_SLIDE, STANDOFF_1..4.
+- Candidates rebuilt by script on 2026-10-31 from the surviving `COVER_SLIDE`
+  (which already carries the USB-C opening, grommet, BH window, 5 BME louvres and
+  slide rails). Everything is a TemporaryBRepManager boolean, one body per
+  base feature — adding three bodies in one base-feature edit keeps only the last.
+  Build recipe (all mm, case frame x -6.5..50.25, y -91.25..4.3, R14 corners):
+  - `base` = COVER_SLIDE ∩ rounded prism; + internal wall x -5.5..49.25,
+    y -45.5..-44, z 14..22.5 (separates radar vents from BME louvres).
+  - openings cut **last**, through any added top: 5 louvres x 3/6/9/12/15 +1.6,
+    y -56..-46.5; BH window x 22..33, y -61..-50; 3 radar vents x 18/24/30 +2.6,
+    y -40..-26; all from z 21 to 28.
+  - A stepped: + box x 1.5..42.25, y -83.25..-5.7, z 24.4..26.5.
+  - B wavy: three crests — cylinders r 89.6, axis along X at y -84/-44/-4,
+    top z 25.6, clipped to y ±14 and to the prism.
+  - C ribbed: + three ribs 3 mm wide at x 12/22/32, y -83.25..-5.7, z 24.4..26.7.
+  - Every top is re-clipped to the prism so nothing overhangs the rounded outline.
+- Renders: `case/renders/cand_{a_stepped,b_wavy,c_ribbed}_iso.png` (+ b side view).
 - Blender: addon `blender_mcp.py` installed for 5.2, MCP server `uvx mcp-for-blender`
   (user scope), tools available. /tmp/sensorbox_case.stl (old case, all bodies merged)
   was imported once; scene units set to mm.
@@ -211,18 +225,21 @@ dummy-carrier experiments were removed.
   grommet D8 at x36,z4; BH window 11x11; 5 BME louvres 1.6x9.5; 3 radar vents.
 
 ### Next steps (in order)
-1. Fix corner cylinders; delete hidden old case bodies; keep TRAY_SHARED pair.
-2. Render each candidate separately (hide the other two) and pick one with the user.
-3. Export chosen case-only component as STL (see CASE_EXPORT component pattern:
+1. Pick a candidate with the user.
+2. Export the chosen cover + the tray as STL (CASE_EXPORT component pattern:
    copy bodies into a new component, then exportManager.createSTLExportOptions(comp, path)).
-4. Blender artistic pass, then return a STEP/STL; keep Fusion as dimensional master.
-5. Constraints to preserve: smallest envelope, USB-C flush (0.3 mm wall engagement),
+3. Blender artistic pass, then return a STEP/STL; keep Fusion as dimensional master.
+4. Constraints to preserve: smallest envelope, USB-C flush (0.3 mm wall engagement),
    radar kept in its own pocket with an internal wall, BME louvres not shared with
    radar exhaust, BH clear window, printable flat without supports.
+5. Nice-to-have: corner fillets on the tray, lid fit check, snap-bump tuning.
 
 ### Environment
 - Fusion MCP http://127.0.0.1:27182/mcp; Blender MCP `uvx mcp-for-blender`;
   KiCad MCP `~/mcp/KiCAD-MCP-Server` (reconnect at session start).
 - kicad-cli: /Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli
-- Uncommitted: case/, fabrication/, tools/, docs/pricing.md, updated ky019.step,
-  board, HANDOFF/README. Commit before shipping the repo.
+- Fusion MCP quirks: long script calls and screenshots over ~700 px often exceed the
+  idle timeout even though the work completes — verify with a cheap read-only script
+  afterwards. `body.deleteMe()` inside a base-feature edit can take other bodies with it.
+- Committed as `cc315db`: case/, fabrication/, tools/, docs/pricing.md, ky019.step,
+  board, HANDOFF/README. Later this session: `case/renders/`.
