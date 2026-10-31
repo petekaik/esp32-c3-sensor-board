@@ -1,6 +1,6 @@
-# Variant: relay + BME680 (rev3, planned)
+# Variant: relay + BME680 (PCB ready)
 
-**Status:** planned — rev3 PCB, BME680 module fitted instead of BME280.
+**Status:** PCB routed — `hardware/esp32-c3-sensor-board-rev3.*`; BME680 module and firmware variant.
 **Board:** 46 × 89 mm, R3, 2-layer
 
 ## Difference from relay-bme280

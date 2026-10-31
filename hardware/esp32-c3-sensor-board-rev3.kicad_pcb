@@ -2554,7 +2554,7 @@
 			)
 		)
 	)
-	(footprint "Connector_PinSocket_2.54mm:PinSocket_1x16_P2.54mm_Vertical"
+	(footprint "sensor-board:PinSocket_1x16_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "6f676a05-d5bd-4ec0-b831-517bc3de9582")
 		(at 40 25)
@@ -2632,16 +2632,6 @@
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -1.33 1.27)
-			(end -1.33 39.43)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "b8001736-c976-4fdf-9b71-ae5d296f95ca")
-		)
-		(fp_line
-			(start -1.33 1.27)
 			(end 1.33 1.27)
 			(stroke
 				(width 0.12)
@@ -2679,16 +2669,6 @@
 			)
 			(layer "F.SilkS")
 			(uuid "e0aae420-312a-459a-899a-8f24a6ce6396")
-		)
-		(fp_line
-			(start 1.33 1.27)
-			(end 1.33 39.43)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "f462a4a1-ed27-4b89-8748-ea02726e6c5e")
 		)
 		(fp_line
 			(start -1.77 -1.77)
@@ -2729,6 +2709,16 @@
 			)
 			(layer "F.CrtYd")
 			(uuid "4228f460-b6dd-45a7-8f43-25ac36ab21ab")
+		)
+		(fp_line
+			(start -1.33 1.27)
+			(end -1.33 39.43)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "b8001736-c976-4fdf-9b71-ae5d296f95ca")
 		)
 		(fp_line
 			(start -1.27 -1.27)
@@ -2779,6 +2769,16 @@
 			)
 			(layer "F.Fab")
 			(uuid "27a6946a-a779-4e78-aa77-77dd0a277a06")
+		)
+		(fp_line
+			(start 1.33 1.27)
+			(end 1.33 39.43)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "f462a4a1-ed27-4b89-8748-ea02726e6c5e")
 		)
 		(fp_text user "${REFERENCE}"
 			(at 0 19.05 90)
@@ -2948,7 +2948,7 @@
 			)
 		)
 	)
-	(footprint "sensor-board:ld2410c"
+	(footprint "sensor-board:ld2410c_compact"
 		(layer "F.Cu")
 		(uuid "7abf1830-96fa-4a97-98f1-9ee2e1cd0798")
 		(at 20 33)
@@ -3026,16 +3026,6 @@
 		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
-		(fp_line
-			(start -11.11 -8.11)
-			(end 11.11 -8.11)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "5dcaaf70-939a-4450-b30b-f882935c9945")
-		)
 		(fp_line
 			(start -11.11 8.11)
 			(end -11.11 -8.11)
@@ -3115,6 +3105,16 @@
 			)
 			(layer "F.CrtYd")
 			(uuid "f2fc208a-dd6b-4e4f-889f-23cf3aa07a76")
+		)
+		(fp_line
+			(start -11.11 -8.11)
+			(end 11.11 -8.11)
+			(stroke
+				(width 0.15)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "5dcaaf70-939a-4450-b30b-f882935c9945")
 		)
 		(fp_line
 			(start -11 -6.5)
@@ -3562,6 +3562,7 @@
 		(property "Reference" "J1"
 			(at 0 -2.77 90)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "70018993-8130-424f-a28c-58ce9245036e")
 			(effects
 				(font
@@ -4354,18 +4355,8 @@
 		(uuid "e6bbea49-fc5b-4780-a0ba-ef878f82a986")
 	)
 	(gr_line
-		(start 0.8 87.8)
-		(end 0.8 62.55)
-		(stroke
-			(width 0.15)
-			(type default)
-		)
-		(layer "F.SilkS")
-		(uuid "dae7e16a-38e4-4a01-9e47-d59ec38787bd")
-	)
-	(gr_line
-		(start 1.9 46)
-		(end 17.8 46)
+		(start 1.4 45.5)
+		(end 18.3 45.5)
 		(stroke
 			(width 0.15)
 			(type default)
@@ -4374,8 +4365,8 @@
 		(uuid "e3b98c73-74e8-447a-b7a5-8b56d51a567f")
 	)
 	(gr_line
-		(start 1.9 57.5)
-		(end 1.9 46)
+		(start 1.4 57.5)
+		(end 1.4 46)
 		(stroke
 			(width 0.15)
 			(type default)
@@ -4384,8 +4375,8 @@
 		(uuid "c704caf9-07a1-4e14-ad4c-2a79168c4c08")
 	)
 	(gr_line
-		(start 17.8 46)
-		(end 17.8 57.5)
+		(start 18.3 46)
+		(end 18.3 57.5)
 		(stroke
 			(width 0.15)
 			(type default)
@@ -4394,8 +4385,8 @@
 		(uuid "0430b63c-0eb7-464a-b6c0-eee2d44e10e2")
 	)
 	(gr_line
-		(start 21.15 45.94)
-		(end 35.15 45.94)
+		(start 20.85 45.5)
+		(end 35.45 45.5)
 		(stroke
 			(width 0.15)
 			(type default)
@@ -4404,8 +4395,8 @@
 		(uuid "63aa9d4b-3334-43af-962f-45f0e63a854c")
 	)
 	(gr_line
-		(start 21.15 64.64)
-		(end 21.15 45.94)
+		(start 20.85 64.64)
+		(end 20.85 45.94)
 		(stroke
 			(width 0.15)
 			(type default)
@@ -4434,28 +4425,8 @@
 		(uuid "d18afae5-a7b1-4873-ba23-edc632a06ab6")
 	)
 	(gr_line
-		(start 33.5 62.55)
-		(end 33.5 87.8)
-		(stroke
-			(width 0.15)
-			(type default)
-		)
-		(layer "F.SilkS")
-		(uuid "3ec4d365-fd76-4afe-b6d9-321961ec7de0")
-	)
-	(gr_line
-		(start 33.5 87.8)
-		(end 0.8 87.8)
-		(stroke
-			(width 0.15)
-			(type default)
-		)
-		(layer "F.SilkS")
-		(uuid "59ff74c1-1fac-4840-b1a2-d5388b0aff8e")
-	)
-	(gr_line
-		(start 35.15 45.94)
-		(end 35.15 64.64)
+		(start 35.45 45.94)
+		(end 35.45 64.64)
 		(stroke
 			(width 0.15)
 			(type default)

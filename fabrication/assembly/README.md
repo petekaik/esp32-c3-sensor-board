@@ -1,8 +1,11 @@
 # Assembly BOM / CPL
 
-> **Revision note:** the files here are for **rev2**, the ordered baseline with
-> the 1×14 J5. Rev3 expands J5 to **1×16** (LCSC C7499334); regenerate the
-> BOM/CPL with the Fabrication Toolkit before ordering a rev3 assembled board.
+> **Revision note:** the assembly files here are for **rev2**, the ordered
+> baseline with the 1×14 J5. Rev3 expands J5 to **1×16** (LCSC C7499334); the
+> compact board is 46 × 72 mm with no J3/J4 and the same 1×16 row. Bare-board
+> gerbers are `fabrication/esp32-c3-sensor-board-rev3-gerbers.zip` and
+> `fabrication/esp32-c3-sensor-board-compact-gerbers.zip`. Regenerate the
+> BOM/CPL with the Fabrication Toolkit for either assembled variant.
 
 The carrier board is **through-hole only**: the provider fits the sockets, headers and terminals, except **J3** (the raised relay socket), which is hand-soldered. The ESP32-C3 Super Mini, LD2410C, BME280, BH1750 and relay are **plug-in modules** and are *not* part of the assembly — insert them after the board arrives.
 

@@ -5902,7 +5902,7 @@
 				)
 			)
 		)
-		(property "Footprint" "sensor-board:ld2410c"
+		(property "Footprint" "sensor-board:ld2410c_compact"
 			(at 193.04 100.33 0)
 			(hide yes)
 			(show_name no)
@@ -6008,7 +6008,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x16_P2.54mm_Vertical"
+		(property "Footprint" "sensor-board:PinSocket_1x16_P2.54mm_Vertical"
 			(at 199.39 62.23 0)
 			(hide yes)
 			(show_name no)

@@ -9,8 +9,10 @@ so every header pin is also available on the breakout:
 `3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 · GPIO3 · GPIO4 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX`.
 GPIO3/GPIO4 are the button and relay nets; they appear on J4/J3 and on J5.
 J3/J4 and all other placements are unchanged. The board was re-routed with
-FreeRouting at 0.25 mm traces / 0.20 mm clearance; DRC is 0 errors and 0
-unconnected.
+FreeRouting at 0.25 mm traces / 0.20 mm clearance; ERC is 0 and DRC is
+**0 violations, 0 unconnected**. J5 and U2 use project-local footprint copies
+with the side/top silk moved to the fab layer, so the silkscreen no longer
+clashes with the breakout labels or the nearby vias.
 
 Rev2 remains the ordered baseline and still has the 1×14 row.
 

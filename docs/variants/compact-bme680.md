@@ -1,7 +1,7 @@
-# Variant: compact, no relay, BME680 (rev3, planned)
+# Variant: compact, no relay, BME680 (PCB ready)
 
-**Status:** planned — rev3 layout
-**Board:** 46 × 68 mm, R3, 2-layer
+**Status:** PCB routed — `hardware/esp32-c3-sensor-board-compact.*`; BME680 module and firmware variant.
+**Board:** 46 × 72 mm, R3, 2-layer
 
 Combines the two changes:
 1. **Compact / no relay / no button terminal** — J3, the relay area and J4 removed;

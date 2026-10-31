@@ -69,15 +69,16 @@ The full descriptions are printed on the back.
 |---|---|---|---|---|---|---|
 | [relay-bme280](docs/variants/relay-bme280.md) (rev2) | 46 × 89 | yes | J4 | BME280 | 1×14 | **built / ordered** |
 | [relay-bme280](docs/variants/relay-bme280.md) (rev3) | 46 × 89 | yes | J4 | BME280 | 1×16 | **routed** |
-| [relay-bme680](docs/variants/relay-bme680.md) (rev3) | 46 × 89 | yes | J4 | BME680 | 1×16 | planned |
-| [compact-bme280](docs/variants/compact-bme280.md) (rev3) | 46 × 68 | no | none | BME280 | 1×16 | planned |
-| [compact-bme680](docs/variants/compact-bme680.md) (rev3) | 46 × 68 | no | none | BME680 | 1×16 | planned |
+| [relay-bme680](docs/variants/relay-bme680.md) (rev3) | 46 × 89 | yes | J4 | BME680 | 1×16 | **PCB ready** (sensor/firmware variant) |
+| [compact-bme280](docs/variants/compact-bme280.md) (compact) | 46 × 72 | no | none | BME280 | 1×16 | **routed** |
+| [compact-bme680](docs/variants/compact-bme680.md) (compact) | 46 × 72 | no | none | BME680 | 1×16 | **PCB ready** (sensor/firmware variant) |
 
 Rev3 expands J5 to a **1×16** row: `3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 ·
 GPIO3 · GPIO4 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX`. The
 relay variants keep J3/J4 and expose GPIO3/GPIO4 on both the terminals and J5.
-The compact variants drop **J3 and J4** entirely, remove the relay area,
-shorten the board to 46 × 68, and use the same full 1×16 row.
+The compact board (`hardware/esp32-c3-sensor-board-compact.*`) drops **J3 and
+J4**, removes the relay area, is 46 × 72, and uses the same full 1×16 row. The
+extra height clears the 1×16 socket and the bottom mounting holes.
 
 ## Documentation
 

@@ -378,9 +378,8 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   (Java 25 image) completed with 0 unrouted / 0 violations, SES imported.
   Freerouting left 44 tracks at 0.187 mm; all were set to 0.25 mm and DRC
   showed no clearance errors.
-- DRC: **0 errors, 0 unconnected**, 26 warnings (21 silk overlap, 3 silk edge,
-  2 silk over mask vias — U2/I2C_SDA and J5/IO10). Schematic parity: only the 4
-  pre-existing H1–H4 BOM-attribute notices.
+- DRC after silk cleanup: **0 violations, 0 unconnected**; ERC 0. Schematic
+  parity: only the 4 pre-existing H1–H4 BOM-attribute notices.
 - J5 breakout silkscreen labels replaced with the 16 new names; `REV2` silk
   changed to `REV3`.
 - Rev3 gerbers/drill/zip generated under `fabrication/esp32-c3-sensor-board-rev3-*`.
@@ -388,3 +387,19 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   variants drop **J3 and J4** and use the same 1×16 row (all header pins on J5).
 - BME680 variants: standard CJMCU-680 has `SDO, CS` order, opposite to J1's
   `CSB, SDO`; require a 6-pin crossover adapter or a CS-before-SDO clone.
+
+### Compact board (2026-10-31)
+- `hardware/esp32-c3-sensor-board-compact.*` — 46 × 72 mm R3, no J3/J4.
+  Copied from rev3, removed the relay/button footprints and their branch
+  traces, shortened the outline to 72 mm. The extra height clears the 1×16 J5
+  (last pad y63.1) and the bottom holes at (3,69)/(43,69).
+- J5/U2 use project-local footprints
+  `sensor-board:PinSocket_1x16_P2.54mm_Vertical` and
+  `sensor-board:ld2410c_compact`, with the silk side/top lines moved to F.Fab;
+  the schematic footprint fields match.
+- DRC: **0 violations, 0 unconnected**; ERC 0; parity only the 4 pre-existing
+  H1–H4 notices.
+- Gerbers/drill/zip: `fabrication/esp32-c3-sensor-board-compact-*`.
+- Rev3 received the same silk cleanup and local footprints; its gerbers were
+  regenerated after the changes.
+- Rev2 is untouched and remains the ordered baseline.

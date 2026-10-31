@@ -9,13 +9,13 @@ table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.95rem}
 th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
 th{color:var(--muted);font-weight:600}code{background:rgba(127,127,127,.12);padding:1px 5px;border-radius:4px;font-size:.9em}
 a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margin-right:14px}
-</style></head><body><main><nav><a href="../index.html">Index</a><a href="../pinout.html">Pin map</a><a href="relay-bme280.html">relay-bme280</a><a href="relay-bme680.html">relay-bme680</a><a href="compact-bme280.html">compact-bme280</a><a href="compact-bme680.html">compact-bme680</a></nav><h1>Variant: compact, no relay, BME280 (rev3, planned)</h1>
-<p><strong>Status:</strong> planned — rev3 layout</p>
-<p><strong>Board:</strong> 46 × 68 mm, R3, 2-layer (≈21 mm shorter than rev2)</p>
+</style></head><body><main><nav><a href="../index.html">Index</a><a href="../pinout.html">Pin map</a><a href="relay-bme280.html">relay-bme280</a><a href="relay-bme680.html">relay-bme680</a><a href="compact-bme280.html">compact-bme280</a><a href="compact-bme680.html">compact-bme680</a></nav><h1>Variant: compact, no relay, BME280 (routed)</h1>
+<p><strong>Status:</strong> routed — <code>hardware/esp32-c3-sensor-board-compact.*</code></p>
+<p><strong>Board:</strong> 46 × 72 mm, R3, 2-layer (≈17 mm shorter than rev2)</p>
 <h2>What changes</h2>
 <ul>
 <li><strong>J3, the relay module area and J4 (button terminal) removed</strong> — no relay socket, no relay footprint, no button terminal.</li>
-<li>Board shortened to 46 × 68 mm; the sensor strip, ESP32, LD2410C and breakout keep their</li>
+<li>Board shortened to 46 × 72 mm; the sensor strip, ESP32, LD2410C and breakout keep their</li>
 </ul>
 <p>  positions.</p>
 <ul>
@@ -44,5 +44,5 @@ a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margi
 <h2>Open questions</h2>
 <ul>
 <li>Does the enclosure still need the wiring-side depth, or can it become a slimmer wall box?</li>
-<li>J5 reaches y = 63.1 mm; the bottom mounting holes must move (or the board grow to ~70 mm).</li>
+<li>Board is 46 × 72 mm; bottom mounting holes are at (3,69) and (43,69).</li>
 </ul></main></body></html>

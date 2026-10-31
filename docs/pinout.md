@@ -60,7 +60,8 @@ Fitted with a standard 2.54 mm 1×16 female socket
 (`Connector_PinSocket_2.54mm:PinSocket_1x16_P2.54mm_Vertical`, LCSC C7499334).
 GPIO3 and GPIO4 are the button and relay signals; on the relay variants they are
 also available on J4/J3, so the same net appears on both the terminal and the
-breakout row. The compact variants drop J4 (and J3) and use the full row.
+breakout row. The compact variants drop J4 (and J3) and use the full row; the
+compact board is `hardware/esp32-c3-sensor-board-compact.*` (46 × 72 mm).
 
 Rev2 (the ordered baseline) has the older 1×14 row: `3V3 · 5V · GND · GPIO0 ·
 GPIO1 · GPIO2 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX`.
