@@ -45,8 +45,18 @@ J4 button configuration; GPIO3 and GPIO4 are now free I/O on the breakout row (p
 - Schematic parity: only the 4 pre-existing H1–H4 BOM-attribute notices.
 - Gerbers/drill/zip: `fabrication/esp32-c3-sensor-board-compact-gerbers.zip`.
 
+## Case
+- Fusion document **Sensorbox Compact v1** (Modules project); print files
+  `case/compact_tray.stl` and `case/compact_cover.stl`.
+- 41 × 84 × 24 mm envelope with a 3.5 mm perimeter margin and **no wiring
+  channel**; the J5 breakout exits through the right-hand slot.
+- Openings: USB-C, J5 side slot, 3 radar vents, BH1750 11 × 11 window, 5 BME280
+  louvres and 3 ESP32 side vents. Internal cover walls at y −42.6 and −24.4
+  keep the radar pocket separate from the BH/BME side.
+- Two wall-mount keyholes in the back; four M3 standoffs for the PCB; the cover
+  is a press-fit lid. See [`case/README.md`](../../case/README.md).
+
 ## Open questions
-- The enclosure front openings move with the modules (radar, BH window, BME
-  louvres stacked vertically; J5 on the right). The current case is for the old
-  layout and needs a new front.
+- Optional decorative faceplate overlay in Blender; the base cover is already
+  printable without it.
 - Does the enclosure still need the wiring-side depth, or can it become a slimmer wall box?

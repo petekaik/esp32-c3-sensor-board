@@ -409,3 +409,25 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
 - The enclosure front must move the radar, BH window and BME louvres to the
   new stacked positions; the current case is for the old layout.
 - Rev3 and rev2 are unchanged; rev2 remains the ordered baseline.
+
+### Compact case (2026-10-31)
+- Fusion document **Sensorbox Compact v1** in the `Modules` project. Imported
+  the compact board STEP (`kicad-cli pcb export step --output /tmp/compact-board.step
+  hardware/esp32-c3-sensor-board-compact.kicad_pcb`) and built the case around
+  it. Bodies: `TRAY_COMPACT`, `COVER_COMPACT`; hidden `COVER_SCREW_TEST`.
+- Envelope **41 × 84 × 24 mm** (x −3.5…37.5, y −80…4, z −3.5…20.5).
+  2 mm floor at z −3.5…−1.5, 2 mm walls to z 18.5, 1.5 mm standoffs with Ø2.5
+  M3 pilots, 2 mm cover plate z 18.5…20.5 with a 1.5 mm press-fit lip. Tray
+  outer corners R3, cover R1.5. No wiring channel.
+- Openings: USB-C 9.2 × 3.4 at x 17, z 13.6; J5 1×16 side slot 42 × 8.5 on the
+  right wall; 3 radar vents 3 × 10; BH1750 11 × 11 window; 5 BME280 louvres
+  1.6 × 9.5; 3 ESP32 side vents. Cover walls at y −42.6 and −24.4 separate the
+  radar pocket from the BH/BME side. Two wall-mount keyholes through the floor
+  at x 10/24, y −45.
+- Print files `case/compact_tray.stl` (1780 tris) and `case/compact_cover.stl`
+  (384 tris); both manifold, 0 boundary/non-manifold edges. See
+  `case/README.md` for print notes.
+- The cover is a friction/press fit; the PCB is fixed with four M3
+  self-tapping screws from the top into the standoffs with the cover off.
+- Optional decorative faceplate overlay in Blender is not done; the base cover
+  is printable as-is.
