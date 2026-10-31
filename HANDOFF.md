@@ -243,3 +243,26 @@ dummy-carrier experiments were removed.
   afterwards. `body.deleteMe()` inside a base-feature edit can take other bodies with it.
 - Committed as `cc315db`: case/, fabrication/, tools/, docs/pricing.md, ky019.step,
   board, HANDOFF/README. Later this session: `case/renders/`.
+
+## Faceplate route (organic, 2026-10-31)
+
+The three rounded-corner covers were rejected: rounding the lid exposed the square
+tray underneath. New route — a flat faceplate taken from the cover's top rectangle,
+with the mandatory openings, sculpted in Blender.
+
+- **Generator:** `tools/blender/make_faceplate.py`, run in Blender with
+  `exec(open('.../make_faceplate.py').read())`. It rebuilds, sculpts and exports the
+  STL in one go; tune the constants at the top rather than editing the mesh.
+- **Part:** `case/faceplate_organic.stl` — 56.75 x 95.55 mm, z 22..25.35, occupying
+  the `COVER_SLIDE` top-plate volume. Manifold (0 non-manifold edges), 41.6k tris.
+- **Shape:** heightfield top — flat 3 mm border rim at z 24.5, deck recessed to 23.5,
+  vein field of stretched fbm contours (grain along the length) rising to ~25.3.
+  0.5 mm grid. Heightfield → no undercuts, prints flat without supports.
+- **BH1750:** lofted funnel, exact 11 x 11 at the bottom face z 22, flaring through
+  6.4 to an organic lobe (~18 mm) at the surface. Monotonic, so no undercut.
+- **Openings:** five louvres and three radar vents cut clean through the deck; roots
+  are masked 0.4–2.4 mm clear of each so nothing is blocked. Verified: 0 bottom
+  faces inside any opening.
+- **Not yet in Fusion:** the faceplate is still a standalone STL. To finish the case,
+  remove `COVER_SLIDE`'s top plate, add a seating lip, and fit the faceplate.
+- Blender 5.2 scene keeps `faceplate` plus the hidden `sensorbox_case` reference.
