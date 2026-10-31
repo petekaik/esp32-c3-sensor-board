@@ -9,12 +9,12 @@ table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.95rem}
 th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
 th{color:var(--muted);font-weight:600}code{background:rgba(127,127,127,.12);padding:1px 5px;border-radius:4px;font-size:.9em}
 a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margin-right:14px}
-</style></head><body><main><nav><a href="../index.html">Index</a><a href="../pinout.html">Pin map</a><a href="relay-bme280.html">relay-bme280</a><a href="relay-bme680.html">relay-bme680</a><a href="compact-bme280.html">compact-bme280</a><a href="compact-bme680.html">compact-bme680</a></nav><h1>Variant: relay + BME680 (planned)</h1>
-<p><strong>Status:</strong> planned — reuses the rev2 PCB, BME680 module fitted instead of BME280.</p>
+</style></head><body><main><nav><a href="../index.html">Index</a><a href="../pinout.html">Pin map</a><a href="relay-bme280.html">relay-bme280</a><a href="relay-bme680.html">relay-bme680</a><a href="compact-bme280.html">compact-bme280</a><a href="compact-bme680.html">compact-bme680</a></nav><h1>Variant: relay + BME680 (rev3, planned)</h1>
+<p><strong>Status:</strong> planned — rev3 PCB, BME680 module fitted instead of BME280.</p>
 <p><strong>Board:</strong> 46 × 89 mm, R3, 2-layer</p>
 <h2>Difference from relay-bme280</h2>
-<p>Only the sensor module and the firmware change. The 1×6 BME socket, JP1/JP2 jumpers and the I²C</p>
-<p>bus are pin-compatible between BME280 and BME680 breakout modules.</p>
+<p>The sensor module and firmware change; rev3 uses the 1×16 breakout. The 1×6 BME socket and JP1/JP2 are pin-compatible with a BME280, but the common CJMCU-680 is not: its header is <code>VCC, GND, SCL, SDA, SDO, CS</code>, so pins 5/6 are swapped versus J1. Use a 6-pin crossover adapter or a CS-before-SDO clone; a direct fit puts CS low (SPI) and SDO high (0x77).</p>
+
 <table>
 <tr><th>Item</th><th>BME280 variant</th><th>BME680 variant</th></tr>
 <tr><td>Sensor</td><td>BME280</td><td>BME680 (same 6-pin socket)</td></tr>
@@ -34,4 +34,4 @@ a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margi
 <p>  measurement`.</p>
 <h2>Everything else</h2>
 <p>Identical to <a href="relay-bme280.html">relay-bme280</a>: relay on J3, button on J4, LD2410C on U2, BH1750 on</p>
-<p>J2, 1×14 breakout female socket, jumper defaults 1–2.</p></main></body></html>
+<p>J2, 1×16 breakout female socket (GPIO3/GPIO4 included), jumper defaults 1–2.</p></main></body></html>

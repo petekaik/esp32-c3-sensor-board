@@ -1,7 +1,18 @@
-# Variant: relay + BME280 (rev2, built)
+# Variant: relay + BME280 (rev2 built, rev3 routed)
 
-**Status:** built and routed — `hardware/esp32-c3-sensor-board-rev2.*`
+**Status:** rev2 built/ordered; rev3 routed — `hardware/esp32-c3-sensor-board-rev3.*`
 **Board:** 46 × 89 mm, R3, 2-layer
+
+## rev3 — 1×16 breakout
+Rev3 keeps the relay and button terminals but expands J5 from 1×14 to **1×16**,
+so every header pin is also available on the breakout:
+`3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 · GPIO3 · GPIO4 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX`.
+GPIO3/GPIO4 are the button and relay nets; they appear on J4/J3 and on J5.
+J3/J4 and all other placements are unchanged. The board was re-routed with
+FreeRouting at 0.25 mm traces / 0.20 mm clearance; DRC is 0 errors and 0
+unconnected.
+
+Rev2 remains the ordered baseline and still has the 1×14 row.
 
 ## Bill of materials
 See [`../BOM.csv`](../BOM.csv). Modules: BME280, BH1750, LD2410C, KY-019 relay, 2-pin button
@@ -24,7 +35,7 @@ This is the base design. All other variants are derived from it.
 - J2 BH1750 (1×5) — I²C 0x23
 - J3 relay (1×3 horizontal socket)
 - J4 button (2-pin terminal)
-- J5 breakout 1×14 female socket: 3V3, 5V, GND, GPIO0, GPIO1, GPIO2, GPIO5, GPIO6, GPIO7, GPIO10, SDA, SCL, RX, TX
+- J5 breakout **1×16** female socket (rev3): 3V3, 5V, GND, GPIO0, GPIO1, GPIO2, GPIO3, GPIO4, GPIO5, GPIO6, GPIO7, GPIO10, SDA, SCL, RX, TX; rev2 is the older 1×14 row without GPIO3/GPIO4
 - JP1/JP2/JP3 jumper headers, defaults 1–2 (I²C, 0x76, 0x23)
 
 ## Firmware

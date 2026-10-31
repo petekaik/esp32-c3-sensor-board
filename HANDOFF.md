@@ -360,3 +360,31 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   with the toolkit's gerber zip. Do not mix it with the generic
   `fabrication/*-gerbers.zip`.
 - `hardware/production/` is a build artifact (gitignored).
+
+## Session 2026-10-31 — rev3 1×16 breakout
+
+- New project `hardware/esp32-c3-sensor-board-rev3.*`, copied from rev2; project
+  instance names/sheet path rewritten to rev3. Rev2 is unchanged and remains the
+  ordered baseline.
+- **J5: 1×14 → 1×16**, standard `PinSocket_1x16_P2.54mm_Vertical` at (40, 25),
+  numeric order after GPIO2:
+  `3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 · GPIO3 · GPIO4 · GPIO5 · GPIO6 ·
+  GPIO7 · GPIO10 · SDA · SCL · RX · TX`.
+  J3 (relay) and J4 (button) stay; GPIO3/GPIO4 are duplicated on J5. J5 has
+  LCSC C7499334 (Megastar 16P female header).
+- Schematic J5 rebuilt as `Connector_Generic:Conn_01x16` at (199.39, 62.23),
+  16 global labels snapped to the pins; ERC 0.
+- PCB: old routing cleared (228 tracks/vias), DSN exported, FreeRouting
+  (Java 25 image) completed with 0 unrouted / 0 violations, SES imported.
+  Freerouting left 44 tracks at 0.187 mm; all were set to 0.25 mm and DRC
+  showed no clearance errors.
+- DRC: **0 errors, 0 unconnected**, 26 warnings (21 silk overlap, 3 silk edge,
+  2 silk over mask vias — U2/I2C_SDA and J5/IO10). Schematic parity: only the 4
+  pre-existing H1–H4 BOM-attribute notices.
+- J5 breakout silkscreen labels replaced with the 16 new names; `REV2` silk
+  changed to `REV3`.
+- Rev3 gerbers/drill/zip generated under `fabrication/esp32-c3-sensor-board-rev3-*`.
+- Variant docs updated: relay rev3 keeps J3/J4 with the 1×16 row; compact
+  variants drop **J3 and J4** and use the same 1×16 row (all header pins on J5).
+- BME680 variants: standard CJMCU-680 has `SDO, CS` order, opposite to J1's
+  `CSB, SDO`; require a 6-pin crossover adapter or a CS-before-SDO clone.

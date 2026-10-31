@@ -32,14 +32,14 @@
 <main>
   <h1>ESP32-C3 Sensor Board</h1>
   <p class="lead">Wall-mountable carrier for an ESP32-C3 Super Mini — plug-in sensor modules, relay and button terminals, USB-C on the top edge.</p>
-  <img src="img/board.png" alt="rev2 carrier board, top view">
+  <img src="img/board.png" alt="rev2 carrier board, top view; rev3 adds a 1×16 breakout row">
 
   <h2>Variants</h2>
   <div class="grid">
-    <div class="card"><h3>Relay + BME280 <span class="tag built">built</span></h3><p>46 × 89 mm. Base design: relay socket, BME280, BH1750, LD2410C, button.</p></div>
-    <div class="card"><h3>Relay + BME680 <span class="tag">planned</span></h3><p>46 × 89 mm. Same PCB, BME680 on the 1×6 socket.</p></div>
-    <div class="card"><h3>Compact + BME280 <span class="tag">planned</span></h3><p>46 × 68 mm. Relay removed, GPIO4 added to the breakout row (15 holes).</p></div>
-    <div class="card"><h3>Compact + BME680 <span class="tag">planned</span></h3><p>46 × 68 mm. No relay, BME680 sensor.</p></div>
+    <div class="card"><h3>Relay + BME280 <span class="tag built">rev2 built / rev3 routed</span></h3><p>46 × 89 mm. Relay, BME280, BH1750, LD2410C, button. Rev2 has the 1×14 J5; rev3 expands it to 1×16 (GPIO3/GPIO4).</p></div>
+    <div class="card"><h3>Relay + BME680 <span class="tag">planned</span></h3><p>46 × 89 mm, rev3 1×16 J5. BME680 on the 1×6 socket; CJMCU-680 needs a 5/6 crossover.</p></div>
+    <div class="card"><h3>Compact + BME280 <span class="tag">planned</span></h3><p>46 × 68 mm. Relay and button removed; full 1×16 breakout row (GPIO3/GPIO4 included).</p></div>
+    <div class="card"><h3>Compact + BME680 <span class="tag">planned</span></h3><p>46 × 68 mm. No relay/button, 1×16 row, BME680.</p></div>
   </div>
 
   <h2>Pin map (rev2)</h2>
@@ -54,7 +54,7 @@
     <tr><td>SPI CS (jumper)</td><td>7</td><td>SPI_CS</td><td>JP1 pin 3 + J5</td></tr>
     <tr><td>SPI MISO (jumper)</td><td>5</td><td>SPI_MISO</td><td>JP2 pin 3 + J5</td></tr>
   </table>
-  <p><code>J5</code>: 3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX (compact variants add GPIO4). Fitted with a 1×14 female socket.</p>
+  <p><code>J5</code> (rev3): 3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 · GPIO3 · GPIO4 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX. Fitted with a 1×16 female socket; rev2 uses the older 1×14 row without GPIO3/GPIO4.</p>
 
   <h2>Jumpers</h2>
   <table>

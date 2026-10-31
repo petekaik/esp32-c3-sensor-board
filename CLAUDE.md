@@ -18,7 +18,7 @@ Carrier board — the Super Mini plugs into headers; it is not soldered down. Mu
 - One I2C bus shared by **BME280** (temp/humidity/pressure) and **BH1750** (lux)
 - UART to **HLK-LD2410C** presence sensor
 - **Relay module** via wire terminals — GPIO4
-- **Button** via wire terminals — GPIO3
+- **Button** via wire terminals — GPIO3 (relay variants; compact variants drop J4 and expose GPIO3 on J5)
 - 3D-printable, wall-mountable enclosure
 
 ## Pin map
@@ -49,10 +49,10 @@ Every HW-dependent default (polarity, pull-ups, addresses, baud) is fixed by `do
 - I2C: one socket per module on the shared bus.
   - **BME280 (6-pin module, ~15.2×12 mm, 2.54 mm pitch):** 1x06 socket — 3V3, GND, SCL, SDA, CSB, SDO. CSB→3V3 (I2C mode) and SDO→GND (0x76) through 3-pad solder jumpers, default bridged; SDO alternate to 3V3 = 0x77. Verify silkscreen pin order — some clones swap CSB/SDO.
   - **BH1750 (GY-302 5-pin module, 13.9×18.5 mm, 2.54 mm pitch):** 1x05 socket — VCC (3V3), GND, SCL, SDA, ADDR. The module already pulls ADDR low (0x23), so JP3 is optional; alternate 3V3 = 0x5C.
-- Female headers: 2× 1×8 (U1), 1× 1×5 (U2), 1× 1×6 (J1), 1× 1×5 (J2), 1× 1×14 (J5 breakout). U1/U2 and J1/J2 have socket 3D models and J1/J2 use the detailed baked module models; J3/J4 terminal 3D uses Phoenix MKDS 5.00 stand-ins for the MX126 5.0 footprints.
+- Female headers: 2× 1×8 (U1), 1× 1×5 (U2), 1× 1×6 (J1), 1× 1×5 (J2), 1× 1×16 (J5 breakout, rev3; rev2 uses 1×14). U1/U2 and J1/J2 have socket 3D models and J1/J2 use the detailed baked module models; J3/J4 terminal 3D uses Phoenix MKDS 5.00 stand-ins for the MX126 5.0 footprints.
 - UART: 4-pin header for LD2410C — 5V, GND, ESP TX (GPIO21) → module RX, ESP RX (GPIO20) ← module TX
 - Relay: 3-pin screw terminal in module pin order — **5V, GND, RELAY (GPIO4)**. External active-high module (10 A contacts); switched load is low voltage (<50 V), so no mains isolation on the carrier.
-- Button: 2-pin wire terminal — GPIO3, GND; internal pull-up, button shorts to GND
+- Button: 2-pin wire terminal — GPIO3, GND; internal pull-up, button shorts to GND. Relay variants only; compact variants omit J4 and use GPIO3 on J5.
 
 ## Enclosure and mechanical
 
@@ -77,7 +77,7 @@ PCB and case are co-designed: footprint positions, module heights and connector 
 
 ## PCB layout
 
-**Current design is rev2:** `hardware/esp32-c3-sensor-board-rev2.*` — 40 × 70 mm portrait, R3, USB-C on the top short edge, relay on a right-angle 1×3 socket at the bottom edge. Rev2 is routed with 0.25 mm traces, 0.20 mm clearance, **0.8/0.3 mm vias (0.25 mm annular ring, untented, 0.9 mm mask openings)**, 50 µm mask expansion and 0.15 mm silkscreen, so it passes AISLER's 2L 1.6 mm 35 µm process checks (no tented vias, no silk on pads). Details in `HANDOFF.md`. The rev1 numbers below are kept for reference.
+**Current design is rev3:** `hardware/esp32-c3-sensor-board-rev3.*` — 46 × 89 mm portrait, R3, USB-C on the top short edge, relay on a right-angle 1×3 socket at the bottom edge, **J5 breakout 1×16** (GPIO3 and GPIO4 included). Rev3 is routed with 0.25 mm traces, 0.20 mm clearance, **0.8/0.3 mm vias (0.25 mm annular ring, untented, 0.9 mm mask openings)**, 50 µm mask expansion and 0.15 mm silkscreen. **Rev2** (`hardware/esp32-c3-sensor-board-rev2.*`) is the ordered baseline and is otherwise the same board with the older 1×14 J5. Details in `HANDOFF.md`. The rev1 numbers below are kept for reference.
 
 Board 80×60 mm, 3 mm corner radius, origin top-left, +Y toward the wiring edge.
 
@@ -96,7 +96,7 @@ Board 80×60 mm, 3 mm corner radius, origin top-left, +Y toward the wiring edge.
 
 Design is automated with Claude Code + the KiCad MCP server (KiCad 10).
 
-- Project: `hardware/esp32-c3-sensor-board.kicad_pro`. Libraries: `sensor-board` (symbols + footprints) and `ld2410c` (symbol), both `${KIPRJMOD}`-relative. The Super Mini socket is fitted as **two 1×8 sockets**: `U1A` (pads 1–8) at (29.62, 2.31) and `U1B` (pads 9–16) at (14.38, 2.31), both 0°, on the standard `Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical` footprint. `U1A` carries the ESP32-C3 module 3D model. The schematic uses `Connector_Generic:Conn_01x08` symbols; `U2` is `Conn_01x05` on the custom `sensor-board:ld2410c` footprint.
+- Project: `hardware/esp32-c3-sensor-board-rev3.kicad_pro` (rev2 is the ordered baseline at `hardware/esp32-c3-sensor-board-rev2.kicad_pro`). Libraries: `sensor-board` (symbols + footprints) and `ld2410c` (symbol), both `${KIPRJMOD}`-relative. The Super Mini socket is fitted as **two 1×8 sockets**: `U1A` (pads 1–8) at (29.62, 2.31) and `U1B` (pads 9–16) at (14.38, 2.31), both 0°, on the standard `Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical` footprint. `U1A` carries the ESP32-C3 module 3D model. The schematic uses `Connector_Generic:Conn_01x08` symbols; `U2` is `Conn_01x05` on the custom `sensor-board:ld2410c` footprint.
 
 - Drive KiCad through the MCP server; do not hand-edit `.kicad_sch` / `.kicad_pcb` text.
 - Run ERC and DRC before declaring a design done, and report the actual output.

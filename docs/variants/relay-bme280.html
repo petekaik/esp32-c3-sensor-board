@@ -9,9 +9,11 @@ table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.95rem}
 th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
 th{color:var(--muted);font-weight:600}code{background:rgba(127,127,127,.12);padding:1px 5px;border-radius:4px;font-size:.9em}
 a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margin-right:14px}
-</style></head><body><main><nav><a href="../index.html">Index</a><a href="../pinout.html">Pin map</a><a href="relay-bme280.html">relay-bme280</a><a href="relay-bme680.html">relay-bme680</a><a href="compact-bme280.html">compact-bme280</a><a href="compact-bme680.html">compact-bme680</a></nav><h1>Variant: relay + BME280 (rev2, built)</h1>
-<p><strong>Status:</strong> built and routed — <code>hardware/esp32-c3-sensor-board-rev2.*</code></p>
+</style></head><body><main><nav><a href="../index.html">Index</a><a href="../pinout.html">Pin map</a><a href="relay-bme280.html">relay-bme280</a><a href="relay-bme680.html">relay-bme680</a><a href="compact-bme280.html">compact-bme280</a><a href="compact-bme680.html">compact-bme680</a></nav><h1>Variant: relay + BME280 (rev2 built, rev3 routed)</h1>
+<p><strong>Status:</strong> rev2 built/ordered; rev3 routed — <code>hardware/esp32-c3-sensor-board-rev3.*</code></p>
 <p><strong>Board:</strong> 46 × 89 mm, R3, 2-layer</p>
+<h2>rev3 — 1×16 breakout</h2>
+<p>Rev3 keeps J3/J4 and expands J5 to 1×16; GPIO3/GPIO4 are on both the terminals and J5. Rev2 remains the ordered baseline with the 1×14 row.</p>
 <h2>Bill of materials</h2>
 <p>See <a href="../BOM.csv"><code>../BOM.csv</code></a>. Modules: BME280, BH1750, LD2410C, KY-019 relay, 2-pin button</p>
 <p>terminal.</p>
@@ -32,7 +34,7 @@ a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margi
 <li>J2 BH1750 (1×5) — I²C 0x23</li>
 <li>J3 relay (1×3 horizontal socket)</li>
 <li>J4 button (2-pin terminal)</li>
-<li>J5 breakout 1×14 female socket: 3V3, 5V, GND, GPIO0, GPIO1, GPIO2, GPIO5, GPIO6, GPIO7, GPIO10, SDA, SCL, RX, TX</li>
+<li>J5 breakout <strong>1×16</strong> female socket (rev3): 3V3, 5V, GND, GPIO0, GPIO1, GPIO2, GPIO3, GPIO4, GPIO5, GPIO6, GPIO7, GPIO10, SDA, SCL, RX, TX; rev2 is the older 1×14 row</li>
 <li>JP1/JP2/JP3 jumper headers, defaults 1–2 (I²C, 0x76, 0x23)</li>
 </ul>
 <h2>Firmware</h2>

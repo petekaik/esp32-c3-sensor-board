@@ -10,7 +10,7 @@ th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);verti
 th{color:var(--muted);font-weight:600}code{background:rgba(127,127,127,.12);padding:1px 5px;border-radius:4px;font-size:.9em}
 a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margin-right:14px}
 </style></head><body><main><nav><a href="index.html">Index</a><a href="pinout.html">Pin map</a><a href="relay-bme280.html">relay-bme280</a><a href="relay-bme680.html">relay-bme680</a><a href="compact-bme280.html">compact-bme280</a><a href="compact-bme680.html">compact-bme680</a></nav><h1>Pin map and connectors</h1>
-<p>Authoritative electrical reference for the carrier board. Rev2 hardware is frozen: I²C is on GPIO8 (SDA) / GPIO9 (SCL), UART on GPIO20/21, relay GPIO4, button GPIO3. <code>doorbell.yml</code> still lists GPIO6/7 for I²C and must be updated to <code>sda: GPIO8</code> / <code>scl: GPIO9</code>.</p>
+<p>Authoritative electrical reference for the carrier board. Rev2 is the ordered baseline; rev3 adds the 1×16 J5. I²C is on GPIO8 (SDA) / GPIO9 (SCL), UART on GPIO20/21, relay GPIO4, button GPIO3. <code>doorbell.yml</code> still lists GPIO6/7 for I²C and must be updated to <code>sda: GPIO8</code> / <code>scl: GPIO9</code>.</p>
 <h2>ESP32-C3 Super Mini socket (U1, 2×8)</h2>
 <table>
 <tr><th>Pad</th><th>Net</th><th>Pad</th><th>Net</th></tr>
@@ -30,6 +30,7 @@ a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margi
 <h3>J1 — BME280 / BME680 (1×6 socket)</h3>
 <p><code>1 3V3 · 2 GND · 3 SCL · 4 SDA · 5 CSB · 6 SDO</code></p>
 <p>CSB is pulled to 3V3 through JP1 (I²C mode); SDO selects the address through JP2.</p>
+<p><strong>Module compatibility.</strong> A 4-pin BME280 uses pins 1–4 (VCC, GND, SCL, SDA) and leaves CSB/SDO unused; verify it accepts 3.3 V and check its fixed address. The common CJMCU-680 BME680 is ordered <code>VCC, GND, SCL, SDA, SDO, CS</code>, so its last two pins are swapped versus J1; use a 6-pin crossover adapter or a CS-before-SDO clone.</p>
 <h3>J2 — BH1750 GY-302 (1×5 socket)</h3>
 <p><code>1 3V3 · 2 GND · 3 SCL · 4 SDA · 5 ADDR</code></p>
 <p>ADDR to GND through JP3 → 0x23.</p>
@@ -37,11 +38,11 @@ a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margi
 <p><code>1 GND · 2 5V · 3 RELAY (GPIO4)</code> — module pin order GND, Vcc+, Signal.</p>
 <p>Not fitted on the compact variants.</p>
 <h3>J4 — button (2-pin screw terminal)</h3>
-<p><code>1 BUTTON (GPIO3) · 2 GND</code> — internal pull-up, button shorts to GND.</p>
-<h3>J5 — breakout row (1×14 female socket)</h3>
-<p>Fitted with a standard 2.54 mm 1×14 female socket (<code>Connector_PinSocket_2.54mm:PinSocket_1x14_P2.54mm_Vertical</code>).</p>
-<p><code>3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX</code></p>
-<p>Compact variants add <strong>GPIO4</strong> as hole 15.</p>
+<p><code>1 BUTTON (GPIO3) · 2 GND</code> — internal pull-up, button shorts to GND. Relay variants only; compact variants omit J4 and use GPIO3 on J5.</p>
+<h3>J5 — breakout row (1×16 female socket, rev3)</h3>
+<p>Fitted with a standard 2.54 mm 1×16 female socket (<code>Connector_PinSocket_2.54mm:PinSocket_1x16_P2.54mm_Vertical</code>, LCSC C7499334).</p>
+<p><code>3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 · GPIO3 · GPIO4 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX</code></p>
+<p>GPIO3/GPIO4 are also on J4/J3 on the relay variants. Rev2 uses the older 1×14 row; compact variants drop J3/J4 and use the full 1×16 row.</p>
 <h2>Jumper defaults</h2>
 <table>
 <tr><th>Ref</th><th>Default</th><th>Meaning</th></tr>

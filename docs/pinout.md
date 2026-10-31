@@ -27,6 +27,21 @@ Module silkscreen order is TX RX OUT GND VCC; nets are crossed on purpose (modul
 `1 3V3 · 2 GND · 3 SCL · 4 SDA · 5 CSB · 6 SDO`
 CSB is pulled to 3V3 through JP1 (I²C mode); SDO selects the address through JP2.
 
+**Module compatibility**
+
+- **4-pin BME280 (I²C-only):** plugs into pins 1–4 (`VCC, GND, SCL, SDA`);
+  CSB/SDO are unused. No routing change. Verify the module accepts 3.3 V
+  (many 4-pin boards have an LDO and also accept 5 V) and check its fixed I²C
+  address — 4-pin boards are usually 0x76 or 0x77, not selectable.
+- **6-pin BME280:** matches J1 directly; JP1 1–2 and JP2 1–2 give I²C mode and
+  address 0x76.
+- **CJMCU-680 BME680 (6-pin):** the common module order is
+  `VCC, GND, SCL, SDA, SDO, CS`, i.e. the last two pins are swapped relative
+  to J1. Do **not** plug it straight in: JP2 would pull its CS low (SPI mode)
+  and JP1 would pull its SDO high (0x77). Use a 6-pin crossover adapter, or
+  check for a clone wired `…, CS, SDO`. The BME680 is 3.3 V and needs the
+  ESPHome `bme680` component, not the BME280 one.
+
 ### J2 — BH1750 GY-302 (1×5 socket)
 `1 3V3 · 2 GND · 3 SCL · 4 SDA · 5 ADDR`
 ADDR to GND through JP3 → 0x23.
@@ -38,13 +53,17 @@ Not fitted on the compact variants.
 ### J4 — button (2-pin screw terminal)
 `1 BUTTON (GPIO3) · 2 GND` — internal pull-up, button shorts to GND.
 
-### J5 — breakout row (1×14 female socket)
-`3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX`
+### J5 — breakout row (1×16 female socket, rev3)
+`3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 · GPIO3 · GPIO4 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX`
 
-Fitted with a standard 2.54 mm 1×14 female socket
-(`Connector_PinSocket_2.54mm:PinSocket_1x14_P2.54mm_Vertical`).
+Fitted with a standard 2.54 mm 1×16 female socket
+(`Connector_PinSocket_2.54mm:PinSocket_1x16_P2.54mm_Vertical`, LCSC C7499334).
+GPIO3 and GPIO4 are the button and relay signals; on the relay variants they are
+also available on J4/J3, so the same net appears on both the terminal and the
+breakout row. The compact variants drop J4 (and J3) and use the full row.
 
-Compact variants add **GPIO4** as hole 15.
+Rev2 (the ordered baseline) has the older 1×14 row: `3V3 · 5V · GND · GPIO0 ·
+GPIO1 · GPIO2 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX`.
 
 ## Jumper defaults
 
