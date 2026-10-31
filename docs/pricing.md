@@ -90,6 +90,10 @@ The same LCSC cart serves JLCPCB and PCBWay. JLCPCB's assembly adds an
 extended-part fee (about $3 per non-basic part) and a setup fee; PCBWay quotes
 THT assembly per job. At 5 boards those fees dominate the parts cost.
 
+`fabrication/assembly/jlcpcb/` is an upload-ready Fabrication Toolkit 5.3.1
+package (gerbers zip, BOM, CPL, IPC netlist) with J3 filtered out. PCBWay uses
+the part-centre CPL in `fabrication/assembly/pcbway/`.
+
 ## Three-vendor comparison (5 boards, THT assembly)
 
 | Vendor | Bare PCB | Parts | Board + parts | Notes |

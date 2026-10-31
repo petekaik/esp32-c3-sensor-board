@@ -17,5 +17,9 @@ fp-info-cache
 .history/
 *.lck
 
+# Fabrication Toolkit output (regenerate with plugins.cli)
+hardware/production/
+fabrication-toolkit-options.json
+
 # Claude Code local state
 .claude/

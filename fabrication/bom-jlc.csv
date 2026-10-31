@@ -1,8 +1,10 @@
-Comment,Designator,Footprint,LCSC Part #
-2.54mm 1x8 female header,"U1A,U1B",Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical,C27438
-2.54mm 1x5 female header,"U2,J2",Connector_PinSocket_2.54mm:PinSocket_1x05_P2.54mm_Vertical,C50950
-2.54mm 1x6 female header,J1,Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical,C40877
-5.0mm 2P screw terminal,J4,TerminalBlock:TerminalBlock_MaiXu_MX126-5.0-02P_1x02_P5.00mm,C5188434
-2.54mm 1x14 female header,J5,Connector_PinSocket_2.54mm:PinSocket_1x14_P2.54mm_Vertical,C41417326
-2.54mm 1x3 male pin header,"JP1,JP2",Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical,C49257
-2.54mm 1x2 male pin header,JP3,Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical,C32713268
+Designator,Footprint,Quantity,Value,LCSC Part #
+J1,PinSocket_1x06_P2.54mm_Vertical,1,1x6 female socket 2.54 mm,C40877
+J2,PinSocket_1x05_P2.54mm_Vertical,1,1x5 female socket 2.54 mm,C50950
+J4,TerminalBlock_MaiXu_MX126-5.0-02P_1x02_P5.00mm,1,Button,C5188434
+J5,PinSocket_1x14_P2.54mm_Vertical,1,GPIO,C41417326
+JP1,PinHeader_1x03_P2.54mm_Vertical,1,CSB_I2C,C49257
+JP2,PinHeader_1x03_P2.54mm_Vertical,1,SDO_ADDR,C49257
+JP3,PinHeader_1x02_P2.54mm_Vertical,1,ADDR_GND,C32713268
+"U1A, U1B",PinSocket_1x08_P2.54mm_Vertical,2,1x8 female socket 2.54 mm,C27438
+U2,ld2410c,1,1x5 female socket 2.54 mm,C50950

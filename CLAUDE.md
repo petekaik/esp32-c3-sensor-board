@@ -102,6 +102,11 @@ Design is automated with Claude Code + the KiCad MCP server (KiCad 10).
 - Run ERC and DRC before declaring a design done, and report the actual output.
 - Prefer standard KiCad library footprints; add custom ones only for module-specific connectors.
 - Export BOM and gerbers when the board is ready to order (JLCPCB).
+- JLCPCB assembly files are generated with **Fabrication Toolkit 5.3.1**
+  (installed in KiCad 10's 3rdparty plugins) via its headless `plugins.cli`;
+  board footprints carry a hidden `LCSC` field and U2 has
+  `FT Rotation Offset = 90`. See `HANDOFF.md` for the command. Filter J3 out
+  of the toolkit BOM/CPL — it is hand-soldered.
 
 Reference: https://jlcpcb.com/blog/kicad-mcp-how-to-design-a-pcb-with-claude-code
 
