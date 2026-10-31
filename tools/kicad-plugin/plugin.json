@@ -1,24 +1,20 @@
 {
-  "name": "Aisler Quote",
-  "description": "Estimate the Aisler PCB price for the open board",
-  "description_full": "Runs tools/aisler_quote.py on the current board and shows the per-unit and delivered price for 3/5/10 pieces, using Aisler's published Budget pricing formula.",
-  "identifier": "com.petekaik.aisler-quote",
-  "version": "0.1.0",
-  "author": {
-    "name": "petekaik"
-  },
-  "license": "MIT",
-  "resources": {},
+  "$schema": "https://go.kicad.org/api/schemas/v1",
+  "identifier": "com.petekaik.pcb-quote",
+  "name": "PCB Quote",
+  "description": "Board size, Aisler estimate and links to PCB vendor quote pages",
   "runtime": {
-    "type": "python"
+    "type": "python",
+    "min_version": "3.9"
   },
   "actions": [
     {
-      "identifier": "aisler_quote",
-      "name": "Aisler Quote",
-      "description": "Estimate Aisler PCB price from the current board",
+      "identifier": "pcb_quote",
+      "scopes": ["pcb"],
+      "name": "PCB Quote",
+      "description": "Generate a quote report for the open board",
       "show-button": true,
-      "entrypoint": "action_plugin.py"
+      "entrypoint": "quote.py"
     }
   ]
 }
