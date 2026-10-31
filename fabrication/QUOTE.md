@@ -11,8 +11,8 @@ Edge.Cuts, drill). Bare PCB, **5 pieces**, ship to Finland.
 | Layers | **2** |
 | Material / thickness | FR4, **1.6 mm** |
 | Copper weight | 1 oz (35 µm) |
-| Minimum trace / clearance | **0.15 mm / 0.2 mm** |
-| Minimum drill | 0.3 mm (vias 0.7/0.3) |
+| Minimum trace / clearance | **0.20 mm / 0.15 mm** |
+| Minimum drill | 0.3 mm (vias 0.6/0.3) |
 | Surface finish | **ENIG** preferred (HASL lead-free acceptable) |
 | Solder mask | green, both sides |
 | Silkscreen | white, both sides |
