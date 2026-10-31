@@ -21,5 +21,8 @@ fp-info-cache
 hardware/production/
 fabrication-toolkit-options.json
 
+# Blender backups
+*.blend1
+
 # Claude Code local state
 .claude/

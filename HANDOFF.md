@@ -429,5 +429,22 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   `case/README.md` for print notes.
 - The cover is a friction/press fit; the PCB is fixed with four M3
   self-tapping screws from the top into the standoffs with the cover off.
-- Optional decorative faceplate overlay in Blender is not done; the base cover
-  is printable as-is.
+- The base cover is printable without the decorative faceplate.
+
+### Compact decorative faceplate (2026-10-31)
+- Blender 5.2 scene `case/compact_faceplate.blend`; generator
+  `tools/blender/make_compact_faceplate.py`.
+- `case/faceplate_compact.stl` — 39.5 × 82.5 × 3.88 mm, bottom z 20.5. It sits
+  on the cover top, inset 0.75 mm from the 41 × 84 cover for a shadow gap;
+  tape/glue it in place. Its openings match the cover: 3 radar vents, 5 BME
+  louvres, and an 11 × 11 BH funnel flaring to a raised “eye” with 16 short
+  rays and a ring.
+- The stone field is a heightfield sampled from the CC0 Poly Haven **Rustic
+  Stone Wall 02** 2K displacement map, mapped at 300 mm per tile; the diffuse
+  1K map drives the preview material. Sources/licence in
+  `case/textures/README.md`. A CC0 wood alternative is **Bark Brown 02**.
+- STL: 102,028 tris, 0 boundary / 0 non-manifold edges. Renders:
+  `case/renders/faceplate_compact.png`, `faceplate_compact_top.png`,
+  `compact_case_faceplate.png`.
+- Print bottom-face-down, no supports; plain PLA/PETG or a mineral stone PLA,
+  never carbon- or metal-filled in front of the radar or BH1750.

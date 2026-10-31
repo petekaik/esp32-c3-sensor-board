@@ -55,6 +55,12 @@ J4 button configuration; GPIO3 and GPIO4 are now free I/O on the breakout row (p
   keep the radar pocket separate from the BH/BME side.
 - Two wall-mount keyholes in the back; four M3 standoffs for the PCB; the cover
   is a press-fit lid. See [`case/README.md`](../../case/README.md).
+- Optional decorative stone faceplate **`case/faceplate_compact.stl`** —
+  39.5 × 82.5 × 3.9 mm, sitting on the cover top (z 20.5), with the same
+  openings and a raised BH1750 “eye”. The stone surface is sampled from the
+  CC0 Poly Haven *Rustic Stone Wall 02* displacement map; previews are in
+  `case/renders/`. The Blender scene is `case/compact_faceplate.blend` and the
+  generator is [`tools/blender/make_compact_faceplate.py`](../../tools/blender/make_compact_faceplate.py).
 
 ## Open questions
 - Optional decorative faceplate overlay in Blender; the base cover is already

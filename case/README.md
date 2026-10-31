@@ -40,6 +40,27 @@ metal-filled filament in front of the radar or the BH1750 window.
 The compact case has **no wiring channel**; the 3.5 mm perimeter margin is all
 the space around the board. The J5 breakout exits through the right-hand slot.
 
+### Decorative faceplate
+
+Optional stone plaque that sits on the cover top (z 20.5):
+
+- `faceplate_compact.stl` — 39.5 × 82.5 × 3.9 mm, bottom z 20.5. It is inset
+  0.75 mm from the 41 × 84 cover, leaving a fine shadow gap; fix with
+  double-sided tape or a few drops of glue.
+- The field is a heightfield sampled from the CC0 **Rustic Stone Wall 02**
+  displacement map (Poly Haven), with a flat 3 mm rim, a carved border groove,
+  a raised ring and 16 short rays around the BH1750 opening, and the exact
+  radar/BME/BH openings of the cover.
+- `compact_faceplate.blend` — Blender 5.2 scene with the compact case,
+  faceplate, stone material, camera and lights.
+- `renders/faceplate_compact.png`, `renders/faceplate_compact_top.png`,
+  `renders/compact_case_faceplate.png` — previews.
+- Source texture and license: [`textures/README.md`](textures/README.md);
+  generator: [`../tools/blender/make_compact_faceplate.py`](../tools/blender/make_compact_faceplate.py).
+- Print bottom-face-down, no supports. Use plain PLA/PETG (or a mineral
+  “stone” PLA); do **not** use carbon- or metal-filled filament in front of the
+  radar or the BH1750 window.
+
 ## rev2 — 46 × 89 mm board (previous)
 
 - `tray.stl`, `cover_open.stl`, `faceplate_organic.stl`
