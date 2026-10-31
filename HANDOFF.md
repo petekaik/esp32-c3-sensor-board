@@ -79,8 +79,10 @@ dummy-carrier experiments were removed.
   (mirrored) because the modules cover those pads from above. Hole and U2
   reference fields are hidden.
 - Routed with Freerouting (Java 25 image): 225 tracks / 6 vias, 0 unrouted;
-  0.25 mm traces, 0.20 mm clearance, 0.8/0.3 mm vias (0.25 mm annular) and
-  0.15 mm silk for AISLER's 35 µm rules (above their 0.20/0.15 minima).
+  0.25 mm traces, 0.20 mm clearance, 0.8/0.3 mm vias (0.25 mm annular),
+  untented (0.9 mm mask openings), 50 µm mask expansion and 0.15 mm silk for
+  AISLER's 35 µm rules. U2 pin-1 silk moved off pad 1 (silk-on-pad is not
+  supported by AISLER).
 - DRC: 0 errors, 0 unconnected, 3 warnings — JP2 library mismatch, U2 pin-1
   silk, U1 silk clipped by the top edge (USB overhang).
 - Schematic (rev2 copy): J3 footprint changed to

@@ -22,10 +22,12 @@ Edge.Cuts, drill). Bare PCB, **5 pieces**, ship to Finland.
 
 Not needed for bare PCB: paste layers (excluded), assembly, test fixtures.
 
-AISLER's 2L 1.6 mm 35 µm process requires a **200 µm via annular ring**;
-the board uses 0.8 mm vias on 0.3 mm drills (250 µm ring), 0.25 mm traces
-and 0.20 mm clearance (above their 0.20/0.15 minima), and 0.15 mm
-silkscreen lines (their minimum). Both checks pass on the current zip.
+AISLER's 2L 1.6 mm 35 µm process requires a **200 µm via annular ring** and
+does **not** support tented vias or silkscreen on pads. The board uses 0.8 mm
+vias on 0.3 mm drills (250 µm ring), **untented with 0.9 mm mask openings**,
+0.25 mm traces and 0.20 mm clearance (above their 0.20/0.15 minima), 50 µm
+solder-mask expansion, and 0.15 mm silkscreen lines with the U2 pin-1 marker
+clear of pad 1. All checks pass on the current zip.
 
 ## What to compare (5 pcs, delivered)
 
