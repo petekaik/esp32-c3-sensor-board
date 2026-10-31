@@ -29,18 +29,18 @@ Authoritative source: `doorbell.yml`. The PCB must match it, not the other way r
 |---|---|---|
 | Relay control | GPIO4 | active-high; off at boot (`ALWAYS_OFF`) |
 | Button input | GPIO3 | button to GND, internal pull-up, active-low physically |
-| I2C SDA (BME280 + BH1750) | GPIO6 | BME280 @ 0x76 (SDO→GND), BH1750 @ 0x23 (ADDR→GND) |
-| I2C SCL (BME280 + BH1750) | GPIO7 | shared bus; modules usually carry pull-ups — fit board-side 4.7k to 3V3 only if they don't |
+| I2C SDA (BME280 + BH1750) | GPIO8 | BME280 @ 0x76 (SDO→GND), BH1750 @ 0x23 (ADDR→GND) |
+| I2C SCL (BME280 + BH1750) | GPIO9 | shared bus; modules usually carry pull-ups — fit board-side 4.7k to 3V3 only if they don't |
 | LD2410C UART TX (ESP→module RX) | GPIO21 | 256000 baud, 8N1 |
 | LD2410C UART RX (ESP←module TX) | GPIO20 | cross TX/RX on the connector |
 
 Constraints to respect:
 
 - GPIO18/19 are native USB D-/D+ — reserved; do not use for peripherals.
-- GPIO2/8/9 are strapping pins; avoid designs that hold them low at boot. GPIO9 is the onboard BOOT button and GPIO8 the onboard LED on most Super Mini variants — verify against the actual board.
+- GPIO2/8/9 are strapping pins; avoid designs that hold them low at boot. GPIO9 is the onboard BOOT button and GPIO8 the onboard LED on most Super Mini variants — verify against the actual board. Rev2 deliberately uses GPIO8/GPIO9 for I²C (the reference pinout's SDA/SCL); the module pull-ups hold both high at reset.
 - GPIO4/5/6/7 are the C3 JTAG pins. This pinout gives up JTAG debugging; acceptable, but don't add a conflicting debug header.
 - GPIO20/21 are the UART0 defaults. The ESPHome logger is configured for `USB_SERIAL_JTAG`, so keep the USB-C connector accessible for logs and flashing.
-- **Verify the Super Mini header footprint and pinout against the physical board before schematic capture.** Variants differ.
+- **Verify the Super Mini header footprint and pinout against the physical board before schematic capture.** Variants differ. Rev2 uses the reference order: pad 1 = 5V at the USB end, pad 8 = GPIO0, pad 9 = GPIO5, pad 16 = GPIO21; the U1 footprint was corrected to that order.
 
 Every HW-dependent default (polarity, pull-ups, addresses, baud) is fixed by `doorbell.yml` and must stay documented here so the YAML never needs board knowledge.
 

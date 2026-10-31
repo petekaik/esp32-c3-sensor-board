@@ -27,8 +27,8 @@ screw/plug connections.
 |---|---|---|---|
 | Relay control | GPIO4 | RELAY | J3 pin 3 |
 | Button | GPIO3 | BUTTON | J4 pin 1 |
-| I²C SDA | GPIO6 | I2C_SDA | J1/J2 + breakout |
-| I²C SCL | GPIO7 | I2C_SCL | J1/J2 + breakout |
+| I²C SDA | GPIO8 | I2C_SDA | J1/J2 + breakout |
+| I²C SCL | GPIO9 | I2C_SCL | J1/J2 + breakout |
 | LD2410C RX (module TX) | GPIO20 | UART_RX | U2 pin 1 |
 | LD2410C TX (module RX) | GPIO21 | UART_TX | U2 pin 2 |
 | SPI CS (jumper option) | GPIO5 | SPI_CS | JP1 pin 3 + breakout |
@@ -38,11 +38,13 @@ GPIO18/19 are the native USB pins and are left free for flashing/logging.
 
 ## Breakout row (J5, 1×14 holes)
 
-`3V3 · 5V · GND · IO0 · IO1 · IO2 · IO5 · IO8 · IO9 · IO10 · SDA · SCL · RX · TX`
+`3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX`
 
-I²C and UART are on the row by net name, so a second device can share the buses. IO0/IO2/IO8/IO9
-are boot-strapping pins (IO9 = BOOT, IO8 = LED on most Super Minis) — usable as taps, but do not
-hold them low at reset.
+I²C and UART are on the row by net name, so a second device can share the buses. I²C uses GPIO8/9,
+which are also C3 strapping pins (GPIO9 = BOOT, GPIO8 = LED on most Super Minis); the module-side
+I²C pull-ups hold both high at reset, which is the required state. GPIO0/GPIO2 are the other
+strapping pins — usable as taps, but do not hold them low at reset. GPIO8 drives the onboard LED
+as well, so expect faint LED activity during I²C traffic.
 
 ## Jumpers (2.54 mm headers, shunt-selectable)
 

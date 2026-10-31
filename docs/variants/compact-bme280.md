@@ -8,7 +8,7 @@
 - Board shortened to 46 × 68 mm; the sensor strip, ESP32, LD2410C and breakout keep their
   positions.
 - **GPIO4 freed** and added to the breakout row → **J5 becomes 1×15**:
-  `3V3 · 5V · GND · IO0 · IO1 · IO2 · IO4 · IO5 · IO8 · IO9 · IO10 · SDA · SCL · RX · TX`
+  `3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 · GPIO4 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX`
 - Buttons stay on J4; jumpers JP1/JP2/JP3 unchanged with defaults 1–2 (I²C, 0x76, 0x23).
 
 ## BOM

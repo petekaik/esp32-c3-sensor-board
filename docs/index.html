@@ -47,27 +47,27 @@
     <tr><th>Function</th><th>GPIO</th><th>Net</th><th>Where</th></tr>
     <tr><td>Relay control</td><td>4</td><td>RELAY</td><td>J3 pin 3</td></tr>
     <tr><td>Button</td><td>3</td><td>BUTTON</td><td>J4 pin 1</td></tr>
-    <tr><td>I²C SDA</td><td>6</td><td>I2C_SDA</td><td>J1/J2 + J5</td></tr>
-    <tr><td>I²C SCL</td><td>7</td><td>I2C_SCL</td><td>J1/J2 + J5</td></tr>
+    <tr><td>I²C SDA</td><td>8</td><td>I2C_SDA</td><td>J1/J2 + J5</td></tr>
+    <tr><td>I²C SCL</td><td>9</td><td>I2C_SCL</td><td>J1/J2 + J5</td></tr>
     <tr><td>LD2410C RX</td><td>20</td><td>UART_RX</td><td>U2 pin 1 + J5</td></tr>
     <tr><td>LD2410C TX</td><td>21</td><td>UART_TX</td><td>U2 pin 2 + J5</td></tr>
     <tr><td>SPI CS (jumper)</td><td>5</td><td>SPI_CS</td><td>JP1 pin 3 + J5</td></tr>
     <tr><td>SPI MISO (jumper)</td><td>10</td><td>SPI_MISO</td><td>JP2 pin 3 + J5</td></tr>
   </table>
-  <p><code>J5</code>: 3V3 · 5V · GND · IO0 · IO1 · IO2 · IO5 · IO8 · IO9 · IO10 · SDA · SCL · RX · TX (compact variants add IO4).</p>
+  <p><code>J5</code>: 3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX (compact variants add GPIO4).</p>
 
   <h2>Jumpers</h2>
   <table>
     <tr><th>Ref</th><th>Default</th><th>1–2</th><th>2–3 / open</th></tr>
-    <tr><td>JP1</td><td>1–2</td><td>CSB → 3V3, I²C mode</td><td>CSB → IO5, SPI mode</td></tr>
-    <tr><td>JP2</td><td>1–2</td><td>SDO → GND, address 0x76</td><td>SDO → IO10, SPI MISO</td></tr>
+    <tr><td>JP1</td><td>1–2</td><td>CSB → 3V3, I²C mode</td><td>CSB → GPIO5, SPI mode</td></tr>
+    <tr><td>JP2</td><td>1–2</td><td>SDO → GND, address 0x76</td><td>SDO → GPIO10, SPI MISO</td></tr>
     <tr><td>JP3</td><td>1–2</td><td>ADDR → GND, 0x23</td><td>open, 0x5C</td></tr>
   </table>
 
   <h2>Buses</h2>
   <table>
     <tr><th>Bus</th><th>Pins</th><th>Settings</th></tr>
-    <tr><td>I²C</td><td>GPIO6 / GPIO7</td><td>100 kHz, module pull-ups</td></tr>
+    <tr><td>I²C</td><td>GPIO8 / GPIO9</td><td>100 kHz, module pull-ups</td></tr>
     <tr><td>UART</td><td>GPIO20 / GPIO21</td><td>256000 baud, 8N1</td></tr>
     <tr><td>SPI (optional)</td><td>SCK 7, MOSI 6, MISO 10, CS 5</td><td>GPIO-matrix routing</td></tr>
   </table>
