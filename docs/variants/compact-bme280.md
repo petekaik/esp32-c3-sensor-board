@@ -22,7 +22,7 @@
 | BME280 | (3.5, 47.5) |
 | BH1750 | (23, 47.5) |
 | Jumper headers | (3.5 / 7.1 / 10.7, 51.2) |
-| Breakout row J5 | x 40, y 25 … 60.6 (15 holes) |
+| Breakout row J5 | x 40, y 25 … 60.6 (15 socket positions) |
 | Button terminal | (6.5, 14.5) |
 
 ## Firmware

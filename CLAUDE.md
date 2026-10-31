@@ -49,7 +49,7 @@ Every HW-dependent default (polarity, pull-ups, addresses, baud) is fixed by `do
 - I2C: one socket per module on the shared bus.
   - **BME280 (6-pin module, ~15.2×12 mm, 2.54 mm pitch):** 1x06 socket — 3V3, GND, SCL, SDA, CSB, SDO. CSB→3V3 (I2C mode) and SDO→GND (0x76) through 3-pad solder jumpers, default bridged; SDO alternate to 3V3 = 0x77. Verify silkscreen pin order — some clones swap CSB/SDO.
   - **BH1750 (GY-302 5-pin module, 13.9×18.5 mm, 2.54 mm pitch):** 1x05 socket — VCC (3V3), GND, SCL, SDA, ADDR. The module already pulls ADDR low (0x23), so JP3 is optional; alternate 3V3 = 0x5C.
-- Female headers: 2× 1×8 (U1), 1× 1×5 (U2), 1× 1×6 (J1), 1× 1×5 (J2). U1/U2 and J1/J2 have socket 3D models and J1/J2 use the detailed baked module models; J3/J4 terminal 3D uses Phoenix MKDS 5.00 stand-ins for the MX126 5.0 footprints.
+- Female headers: 2× 1×8 (U1), 1× 1×5 (U2), 1× 1×6 (J1), 1× 1×5 (J2), 1× 1×14 (J5 breakout). U1/U2 and J1/J2 have socket 3D models and J1/J2 use the detailed baked module models; J3/J4 terminal 3D uses Phoenix MKDS 5.00 stand-ins for the MX126 5.0 footprints.
 - UART: 4-pin header for LD2410C — 5V, GND, ESP TX (GPIO21) → module RX, ESP RX (GPIO20) ← module TX
 - Relay: 3-pin screw terminal in module pin order — **5V, GND, RELAY (GPIO4)**. External active-high module (10 A contacts); switched load is low voltage (<50 V), so no mains isolation on the carrier.
 - Button: 2-pin wire terminal — GPIO3, GND; internal pull-up, button shorts to GND

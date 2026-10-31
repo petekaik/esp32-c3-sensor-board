@@ -38,8 +38,11 @@ Not fitted on the compact variants.
 ### J4 — button (2-pin screw terminal)
 `1 BUTTON (GPIO3) · 2 GND` — internal pull-up, button shorts to GND.
 
-### J5 — breakout row (1×14 through holes, no header fitted)
+### J5 — breakout row (1×14 female socket)
 `3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX`
+
+Fitted with a standard 2.54 mm 1×14 female socket
+(`Connector_PinSocket_2.54mm:PinSocket_1x14_P2.54mm_Vertical`).
 
 Compact variants add **GPIO4** as hole 15.
 
