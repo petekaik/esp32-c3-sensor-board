@@ -17,13 +17,13 @@ a{color:var(--accent)}.muted{color:var(--muted)}ul{padding-left:22px}nav a{margi
 <p>   <a href="compact-bme280.html">compact-bme280</a>).</p>
 <p>2. <strong>BME680</strong> instead of BME280 on the same 1×6 socket (see <a href="relay-bme680.html">relay-bme680</a>).</p>
 <h2>Breakout row (J5, 1×15)</h2>
-<p><code>3V3 · 5V · GND · IO0 · IO1 · IO2 · IO4 · IO5 · IO8 · IO9 · IO10 · SDA · SCL · RX · TX</code></p>
+<p><code>3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 · GPIO4 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX</code></p>
 <h2>Jumper defaults</h2>
 <p>JP1 1–2 (I²C), JP2 1–2 (0x76), JP3 1–2 (0x23) — same as every other variant.</p>
 <h2>Firmware</h2>
 <p>Compact base configuration plus the BME680 component:</p>
 <ul>
-<li>I²C on GPIO6/7, UART on GPIO20/21, button on GPIO3</li>
+<li>I²C on GPIO8/9, UART on GPIO20/21, button on GPIO3</li>
 <li>BME680 via <code>bme680_bsec</code> (or <code>bme680_i2c</code> if BSEC is not wanted)</li>
 <li>No relay switch; GPIO4 available on J5</li>
 </ul>

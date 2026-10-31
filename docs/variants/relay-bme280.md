@@ -24,11 +24,11 @@ This is the base design. All other variants are derived from it.
 - J2 BH1750 (1×5) — I²C 0x23
 - J3 relay (1×3 horizontal socket)
 - J4 button (2-pin terminal)
-- J5 breakout 1×14 holes: 3V3, 5V, GND, IO0, IO1, IO2, IO5, IO8, IO9, IO10, SDA, SCL, RX, TX
+- J5 breakout 1×14 holes: 3V3, 5V, GND, GPIO0, GPIO1, GPIO2, GPIO5, GPIO6, GPIO7, GPIO10, SDA, SCL, RX, TX
 - JP1/JP2/JP3 jumper headers, defaults 1–2 (I²C, 0x76, 0x23)
 
 ## Firmware
-`doorbell.yml`: I²C on GPIO6/7, UART on GPIO20/21, relay on GPIO4 (active-high, off at boot),
+`doorbell.yml`: I²C on GPIO8/9, UART on GPIO20/21, relay on GPIO4 (active-high, off at boot),
 button on GPIO3 with internal pull-up.
 
 ## Layout notes

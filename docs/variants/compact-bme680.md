@@ -9,14 +9,14 @@ Combines the two changes:
 2. **BME680** instead of BME280 on the same 1×6 socket (see [relay-bme680](relay-bme680.md)).
 
 ## Breakout row (J5, 1×15)
-`3V3 · 5V · GND · IO0 · IO1 · IO2 · IO4 · IO5 · IO8 · IO9 · IO10 · SDA · SCL · RX · TX`
+`3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 · GPIO4 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX`
 
 ## Jumper defaults
 JP1 1–2 (I²C), JP2 1–2 (0x76), JP3 1–2 (0x23) — same as every other variant.
 
 ## Firmware
 Compact base configuration plus the BME680 component:
-- I²C on GPIO6/7, UART on GPIO20/21, button on GPIO3
+- I²C on GPIO8/9, UART on GPIO20/21, button on GPIO3
 - BME680 via `bme680_bsec` (or `bme680_i2c` if BSEC is not wanted)
 - No relay switch; GPIO4 available on J5
 
