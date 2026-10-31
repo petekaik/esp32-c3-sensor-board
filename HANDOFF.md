@@ -78,7 +78,8 @@ dummy-carrier experiments were removed.
   terminal; U1 2x8, U2 (TX RX OUT GND 5V) and J3 (5V GND RLY) on B.SilkS
   (mirrored) because the modules cover those pads from above. Hole and U2
   reference fields are hidden.
-- Routed with Freerouting (Java 25 image): 75 tracks / 4 vias, 0 unrouted.
+- Routed with Freerouting (Java 25 image): 189 tracks / 3 vias, 0 unrouted;
+  vias 0.8/0.3 mm (0.25 mm annular) and 0.15 mm silk for AISLER's 35 µm rules.
 - DRC: 0 errors, 0 unconnected, 3 warnings — JP2 library mismatch, U2 pin-1
   silk, U1 silk clipped by the top edge (USB overhang).
 - Schematic (rev2 copy): J3 footprint changed to

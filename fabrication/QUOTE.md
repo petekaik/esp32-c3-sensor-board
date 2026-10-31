@@ -12,7 +12,7 @@ Edge.Cuts, drill). Bare PCB, **5 pieces**, ship to Finland.
 | Material / thickness | FR4, **1.6 mm** |
 | Copper weight | 1 oz (35 µm) |
 | Minimum trace / clearance | **0.20 mm / 0.15 mm** |
-| Minimum drill | 0.3 mm (vias 0.6/0.3) |
+| Minimum drill | 0.3 mm (vias 0.8/0.3, 0.25 mm annular ring) |
 | Surface finish | **ENIG** preferred (HASL lead-free acceptable) |
 | Solder mask | green, both sides |
 | Silkscreen | white, both sides |
@@ -21,6 +21,10 @@ Edge.Cuts, drill). Bare PCB, **5 pieces**, ship to Finland.
 | Panelisation | none — single boards are fine at 5 pcs |
 
 Not needed for bare PCB: paste layers (excluded), assembly, test fixtures.
+
+AISLER's 2L 1.6 mm 35 µm process requires a **200 µm via annular ring**;
+the board uses 0.8 mm vias on 0.3 mm drills (250 µm ring), and 0.15 mm
+silkscreen lines (their minimum). Both checks pass on the current zip.
 
 ## What to compare (5 pcs, delivered)
 
