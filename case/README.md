@@ -9,8 +9,11 @@ Print files:
 - `compact_cover.stl` — press-fit lid with the radar and BME hole meshes, the
   Ø5 BH1750 sight hole, the full-height module partitions and the underside
   relief over the ESP32 USB shell.
+- `compact_mount.stl` — separate Ø28 × 5 mm wall-mount pod with the keyhole;
+  glue its open face to the back of the base. The base floor seals the screw
+  cavity, so the wall screw cannot reach the PCB.
 
-Fusion master: document **Sensorbox Compact v11** in the `Modules` project.
+Fusion master: document **Sensorbox Compact v12** in the `Modules` project.
 The current bodies `TRAY_COMPACT` and `COVER_COMPACT` live in component
 `CASE_V2`; the older `CASE_COMPACT` component is kept hidden for reference.
 The reference board is modelled at the real stack height: 8.5 mm female
@@ -22,11 +25,11 @@ carrier, with a 1×8 male pin row on each socket.
 | Case envelope | 41 × 84 × 22.5 mm (x −3.5…37.5, y −80…4, z −3.5…19.0) |
 | Tray | 2 mm floor at z −3.5…−1.5; cavity x −0.5…34.5, y −76.5…0, z −1.5…17.0 — 0.5 mm clearance on the left, right and bottom, USB edge flush with the top inner wall |
 | PCB | z 0…1.5, on four 1.5 mm standoffs with Ø3.2 clearance holes and Ø6.6 × 1.7 mm countersinks in the bottom |
-| Cover | 2 mm plate z 17.0…19.0, 1.5 mm press-fit lip with a stadium notch cut back to y −1.7 around the USB-C port so the lip clears the connector; the outer edge has a 9.4 × 2 mm stadium groove continuing the port opening; outer R1.5; 0.8 mm underside relief over the ESP32 USB shell; four poles at the PCB holes with modelled **M3×0.5 blind threads, 8 mm deep**; the lid top is solid |
+| Cover | 2 mm plate z 17.0…19.0, 1.5 mm press-fit lip with a stadium notch cut back to y −1.7 around the USB-C port so the lip clears the connector; the outer edge has a stadium groove aligned to the base outer chamfer (same 1.5 mm depth and junction width, curved bottom, open top under the faceplate); outer R1.5; 0.8 mm underside relief over the ESP32 USB shell; four poles at the PCB holes with modelled **M3×0.5 blind threads, 8 mm deep**; the lid top is solid |
 | Outer corners | R3 tray |
 | Openings | USB-C stadium 9.4 × 3.85 at x 17, z 13.35…17.0, cut through the 4 mm top wall from y −0.2 and open at the top under the cover, with a 1.2 mm chamfered mouth — the PCB edge sits on the inner wall and the connector sits in the notch; radar 22 × Ø1.6 holes (3.0 pitch, staggered); BH1750 Ø5 sight hole at (14.65, −50.1) with a Ø7 underside counterbore; BME280 18 × Ø1.2 holes (2.2 pitch, staggered); the same 36 × Ø1.6 side vents in two rows on both long walls |
 | Partitions | full-height walls at y −24.4…−23.4, −42.85…−42.25 and −58.6…−57.8, z 2.0…17.0 (0.5 mm above the PCB), x −0.5…28.5 to clear the J5 socket — ESP32, radar, BH1750 and BME280 each in their own segment |
-| Wall mount | One keyhole in a Ø28 × 5 mm pod on the back at (17, −45); the screw head sits in the pod cavity outside the sealed case, so it cannot reach the PCB. The case stands 5 mm off the wall on the pod. |
+| Wall mount | One keyhole in the separate `MOUNT` pod (Ø28 × 5 mm) at (17, −45). The pod is its own body/component; glue its open face to the base back. The screw head sits in the pod cavity, sealed off from the PCB by the solid base floor. The case stands 5 mm off the wall on the pod. |
 
 Board fixing: **four M3×12 countersunk screws from the bottom**. Each goes up
 through a Ø6.6 × 1.7 mm countersink and Ø3.2 clearance hole in the floor and
@@ -37,7 +40,7 @@ come out tight. Remove the case from the wall to reach the screws. Trim the J5
 socket pins flush on the underside before fitting the board — the 3D socket
 model shows them 1.5 mm below the PCB and the floor is 1.5 mm below the board.
 
-The cover is a press-fit lip plus **four M3×12 screws from the bottom** into threaded poles on the lid. The lid top is solid, so the faceplate sits flush and no screw holes show. The wall mount is a single keyhole in a back pod; the wall screw stays in the pod cavity, outside the sealed case. The lid and base are separate components `LID` and `BASE` in Fusion.
+The cover is a press-fit lip plus **four M3×12 screws from the bottom** into threaded poles on the lid. The lid top is solid, so the faceplate sits flush and no screw holes show. The wall mount is a single keyhole in a separate back pod; glue the pod to the base, and the solid floor seals the wall screw away from the PCB. The lid and base are separate components `LID` and `BASE` in Fusion.
 
 Printer notes: PLA or PETG, 0.2 mm layers, 3 perimeters. Print the tray
 floor-down and the cover outer-face-down; no supports. Never use carbon- or
