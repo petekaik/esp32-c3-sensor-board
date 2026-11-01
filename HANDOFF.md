@@ -485,15 +485,24 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   counterbore on the underside, replacing the 11 × 11 window.
 - Radar: 22 × Ø1.6 holes (3.0 mm pitch, staggered) replace the three slots.
   BME280: 18 × Ø1.2 holes (2.2 mm pitch) replace the five louvres.
-  Side walls: 70 × Ø1.6 holes in two rows (z 13.2 / 15.4) on both long walls.
+  Side walls: 36 × Ø1.6 holes in two rows (z 13.2 / 15.4) on each long wall,
+  identical on both sides.
 - Full-height partition walls at y −24.4…−23.4, −42.85…−42.25 and
   −58.6…−57.8, z 2.0…17.0 (0.5 mm above the PCB), x −1.3…28.5 so they clear
   the J5 socket; the top 14.2…17.0 section stays full width. This gives the
   ESP32, radar, BH1750 and BME280 their own segments. The radar wall was
   centred in the 1.1 mm gap after the first version clipped the radar PCB.
-- Print files: `compact_tray.stl` 6820 tris / 341 KB and
+- Print files: `compact_tray.stl` 8796 tris / 440 KB and
   `compact_cover.stl` 4562 tris / 228 KB, both manifold. Exported from the
   CASE_V2 bodies.
 - Faceplate regenerated for the z 19.0 roof: 39.5 × 82.5 × 3.85 mm (bottom
   19.0, top 22.85), with the same radar/BME hole fields and a funnel at the
   new BH sensor position (14.65, −50.1). Generator and blend updated.
+
+
+### Compact case: J5 side slot filled (2026-11-01)
+- The 42 × 8.5 mm GPIO-breakout slot in the right wall is not needed. It was
+  filled flush and the wall was recut with the same 36-hole vent pattern as
+  the left wall (6/4/4/4 groups, z 13.2 / 15.4). J5 is now fully enclosed.
+- `compact_tray.stl` regenerated: 8796 tris, manifold; both long walls are
+  identical. Docs updated to drop the side-slot reference.

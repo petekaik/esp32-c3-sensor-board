@@ -4,8 +4,8 @@
 
 Print files:
 
-- `compact_tray.stl` — floor, walls, standoffs, USB-C stadium notch, J5 side
-  slot, Ø1.6 side vents on both long walls and two wall-mount keyholes.
+- `compact_tray.stl` — floor, walls, standoffs, USB-C stadium notch, the same
+  Ø1.6 vent holes on both long walls and two wall-mount keyholes.
 - `compact_cover.stl` — press-fit lid with the radar and BME hole meshes, the
   Ø5 BH1750 sight hole, the full-height module partitions and the underside
   relief over the ESP32 USB shell.
@@ -24,7 +24,7 @@ carrier, with a 1×8 male pin row on each socket.
 | PCB | z 0…1.5, on four 1.5 mm standoffs with Ø2.5 mm M3 pilots |
 | Cover | 2 mm plate z 17.0…19.0, 1.5 mm press-fit lip; outer R1.5; 0.8 mm underside relief over the ESP32 USB shell |
 | Outer corners | R3 tray |
-| Openings | USB-C stadium 9.4 × 3.85 at x 17, z 13.35…17.0 (open at the top under the cover) with a 1.2 mm chamfered mouth; J5 1×16 side slot 42 × 8.5 on the right wall; radar 22 × Ø1.6 holes (3.0 pitch, staggered); BH1750 Ø5 sight hole at (14.65, −50.1) with a Ø7 underside counterbore; BME280 18 × Ø1.2 holes (2.2 pitch, staggered); Ø1.6 side vents in two rows on both long walls |
+| Openings | USB-C stadium 9.4 × 3.85 at x 17, z 13.35…17.0 (open at the top under the cover) with a 1.2 mm chamfered mouth; radar 22 × Ø1.6 holes (3.0 pitch, staggered); BH1750 Ø5 sight hole at (14.65, −50.1) with a Ø7 underside counterbore; BME280 18 × Ø1.2 holes (2.2 pitch, staggered); the same 36 × Ø1.6 side vents in two rows on both long walls |
 | Partitions | full-height walls at y −24.4…−23.4, −42.85…−42.25 and −58.6…−57.8, z 2.0…17.0 (0.5 mm above the PCB), x −1.3…28.5 to clear the J5 socket; the top 14.2…17.0 section runs full width — ESP32, radar, BH1750 and BME280 each in their own segment |
 | Wall mount | Two keyhole slots through the floor at x 10 / 24, y −45 |
 
@@ -42,7 +42,8 @@ floor-down and the cover outer-face-down; no supports. Never use carbon- or
 metal-filled filament in front of the radar or the BH1750 window.
 
 The compact case has **no wiring channel**; the 3.5 mm perimeter margin is all
-the space around the board. The J5 breakout exits through the right-hand slot.
+the space around the board. The J5 breakout is fully enclosed — both long
+walls carry the same 36-hole vent pattern, with no side slot.
 
 ### Decorative faceplate
 

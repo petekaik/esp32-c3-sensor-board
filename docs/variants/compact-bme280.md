@@ -50,11 +50,12 @@ J4 button configuration; GPIO3 and GPIO4 are now free I/O on the breakout row (p
   `case/compact_tray.stl` and `case/compact_cover.stl`.
 - **41 × 84 × 22.5 mm** envelope (roof lowered 1.5 mm to z 19.0; the ESP32
   USB shell at 16.6 mm is the limiting part), 3.5 mm perimeter margin and
-  **no wiring channel**; the J5 breakout exits through the right-hand slot.
+  **no wiring channel**; the J5 breakout is fully enclosed (no side slot) and
+  both long walls carry the same 36-hole vent pattern.
 - Openings: USB-C stadium at x 17 centred on the connector with a chamfered
-  mouth; J5 side slot; 22 × Ø1.6 radar holes; Ø5 BH1750 sight hole with an
-  underside counterbore; 18 × Ø1.2 BME280 holes; Ø1.6 side vents on both long
-  walls. Full-height cover walls at y −24.4, −42.85 and −58.6 split the ESP32,
+  mouth; 22 × Ø1.6 radar holes; Ø5 BH1750 sight hole with an
+  underside counterbore; 18 × Ø1.2 BME280 holes; the same 36 × Ø1.6 side vents on both
+  long walls. Full-height cover walls at y −24.4, −42.85 and −58.6 split the ESP32,
   radar, BH1750 and BME280 into separate segments (0.5 mm above the PCB,
   stopping at x 28.5 to clear the J5 socket).
 - Two wall-mount keyholes in the back; four M3 standoffs for the PCB; the cover
