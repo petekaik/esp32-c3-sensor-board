@@ -10,7 +10,7 @@ Print files:
   Ø5 BH1750 sight hole, the full-height module partitions and the underside
   relief over the ESP32 USB shell.
 
-Fusion master: document **Sensorbox Compact v7** in the `Modules` project.
+Fusion master: document **Sensorbox Compact v8** in the `Modules` project.
 The current bodies `TRAY_COMPACT` and `COVER_COMPACT` live in component
 `CASE_V2`; the older `CASE_COMPACT` component is kept hidden for reference.
 The reference board is modelled at the real stack height: 8.5 mm female
