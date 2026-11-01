@@ -469,7 +469,7 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   compact board open in pcbnew to add the two models.
 
 ### Compact case v5 (2026-11-01)
-- New component `CASE_V2` in **Sensorbox Compact v8** (Modules project);
+- New component `CASE_V2` in **Sensorbox Compact v9** (Modules project);
   bodies `TRAY_COMPACT` and `COVER_COMPACT` rebuilt there, old `CASE_COMPACT`
   hidden. Roof lowered 1.5 mm: envelope **41 × 84 × 22.5 mm** (z −3.5…19.0),
   tray walls to 17.0, cover plate 17.0…19.0.
@@ -511,7 +511,7 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   ESP32 at z 10.1 in the v5 document (the stack-fix transforms had been lost,
   most likely by the undo operations during the case edit). Restored them to
   (0.938, −0.231, 1.2595) and (2.462, −0.231, 1.2595) cm with the 180° Y
-  rotation, module at 1.3045 cm, and saved **Sensorbox Compact v8** with the
+  rotation, module at 1.3045 cm, and saved **Sensorbox Compact v9** with the
   J5 slot filled.
 
 
@@ -524,8 +524,8 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   printing). The cover has four Ø6 bosses at the PCB holes, Ø3.2 clearance
   holes and Ø6.6 flush counterbores; M3×20 screws clamp the PCB and lid.
 - Lid/base are separate components `BASE` and `LID` (CASE_V2 kept hidden as
-  the source/history). Case doc saved as **Sensorbox Compact v8**.
-- STLs: `compact_tray.stl` 17100 tris / 855 KB, `compact_cover.stl` 6424
+  the source/history). Case doc saved as **Sensorbox Compact v9**.
+- STLs: `compact_tray.stl` 9268 tris / 463 KB, `compact_cover.stl` 6424
   tris / 321 KB, both manifold.
 
 - The first thread feature only cut one of the four standoff holes (the input
@@ -538,3 +538,15 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   world positions (module z 13.045 cm, headers z 12.595 cm), and hid the
   original occurrences. The stack is now baked geometry, not occurrence
   transforms, so it cannot revert.
+
+
+### Compact case: bottom-screw lid (2026-11-01)
+- Screw direction reversed: the lid poles are now blind **M3×0.5 threaded**
+  from below (8 mm deep), and the lid top is solid. The base floor/standoffs
+  have Ø3.2 clearance holes with Ø6.6 × 1.7 mm countersinks on the bottom.
+- Four **M3×12 countersunk** screws go up from the bottom, through the PCB,
+  into the lid poles; the PCB is clamped between the standoff and the pole and
+  the heads are flush/recessed. The faceplate no longer covers any screws.
+- The two keyhole slots in the bottom remain the wall mount.
+- STLs: tray 9268 tris / 463 KB, cover 22192 tris / 1.1 MB (modelled pole
+  threads), both manifold. Document saved as **Sensorbox Compact v9**.
