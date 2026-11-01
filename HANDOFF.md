@@ -469,7 +469,7 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   compact board open in pcbnew to add the two models.
 
 ### Compact case v5 (2026-11-01)
-- New component `CASE_V2` in **Sensorbox Compact v6** (Modules project);
+- New component `CASE_V2` in **Sensorbox Compact v7** (Modules project);
   bodies `TRAY_COMPACT` and `COVER_COMPACT` rebuilt there, old `CASE_COMPACT`
   hidden. Roof lowered 1.5 mm: envelope **41 × 84 × 22.5 mm** (z −3.5…19.0),
   tray walls to 17.0, cover plate 17.0…19.0.
@@ -511,5 +511,19 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   ESP32 at z 10.1 in the v5 document (the stack-fix transforms had been lost,
   most likely by the undo operations during the case edit). Restored them to
   (0.938, −0.231, 1.2595) and (2.462, −0.231, 1.2595) cm with the 180° Y
-  rotation, module at 1.3045 cm, and saved **Sensorbox Compact v6** with the
+  rotation, module at 1.3045 cm, and saved **Sensorbox Compact v7** with the
   J5 slot filled.
+
+
+### Compact case: snug PCB fit, USB flush and screwed lid (2026-11-01)
+- Interior resized around the PCB: cavity x −0.5…34.5, y −76.5…0, z −1.5…17.0;
+  0.5 mm clearance on the left, right and bottom, USB edge flush with the top
+  inner wall. Top wall is 4 mm thick; the USB notch is cut through it from
+  y −0.2 so the connector sits in the wall and the plug reaches it.
+- The four standoffs now carry modelled **M3×0.5** internal threads (tap after
+  printing). The cover has four Ø6 bosses at the PCB holes, Ø3.2 clearance
+  holes and Ø6.6 flush counterbores; M3×20 screws clamp the PCB and lid.
+- Lid/base are separate components `BASE` and `LID` (CASE_V2 kept hidden as
+  the source/history). Case doc saved as **Sensorbox Compact v7**.
+- STLs: `compact_tray.stl` 10884 tris / 544 KB, `compact_cover.stl` 6424
+  tris / 321 KB, both manifold.
