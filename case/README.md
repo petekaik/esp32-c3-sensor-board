@@ -9,9 +9,12 @@ Print files:
 - `compact_cover.stl` — press-fit lid with the radar vents, BH1750 window,
   BME280 louvres and the internal heat-separation walls.
 
-Fusion master: document **Sensorbox Compact v1** in the `Modules` project.
+Fusion master: document **Sensorbox Compact v2** in the `Modules` project.
 Bodies `TRAY_COMPACT` and `COVER_COMPACT`; `COVER_SCREW_TEST` is a hidden
-archive of a screw-hole trial and is not used.
+archive of a screw-hole trial and is not used. The reference board is modelled
+at the real stack height: 8.5 mm female sockets + 2.5 mm male-header plastic,
+so the ESP32-C3 PCB sits 11 mm above the carrier, with a 1×8 male pin row on
+each socket.
 
 | | |
 |---|---|

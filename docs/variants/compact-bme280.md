@@ -46,7 +46,7 @@ J4 button configuration; GPIO3 and GPIO4 are now free I/O on the breakout row (p
 - Gerbers/drill/zip: `fabrication/esp32-c3-sensor-board-compact-gerbers.zip`.
 
 ## Case
-- Fusion document **Sensorbox Compact v1** (Modules project); print files
+- Fusion document **Sensorbox Compact v2** (Modules project); print files
   `case/compact_tray.stl` and `case/compact_cover.stl`.
 - 41 × 84 × 24 mm envelope with a 3.5 mm perimeter margin and **no wiring
   channel**; the J5 breakout exits through the right-hand slot.

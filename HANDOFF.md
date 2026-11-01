@@ -411,7 +411,7 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
 - Rev3 and rev2 are unchanged; rev2 remains the ordered baseline.
 
 ### Compact case (2026-10-31)
-- Fusion document **Sensorbox Compact v1** in the `Modules` project. Imported
+- Fusion document **Sensorbox Compact v2** in the `Modules` project. Imported
   the compact board STEP (`kicad-cli pcb export step --output /tmp/compact-board.step
   hardware/esp32-c3-sensor-board-compact.kicad_pcb`) and built the case around
   it. Bodies: `TRAY_COMPACT`, `COVER_COMPACT`; hidden `COVER_SCREW_TEST`.
@@ -448,3 +448,20 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   `compact_case_faceplate.png`.
 - Print bottom-face-down, no supports; plain PLA/PETG or a mineral stone PLA,
   never carbon- or metal-filled in front of the radar or BH1750.
+
+### Compact case: ESP32 stack fix (2026-11-01)
+- The imported board STEP modelled the Super Mini PCB at 8.5 mm, directly on
+  the female sockets, and had no male pin rows. Physically the stack is
+  8.5 mm socket + 2.5 mm male-header plastic = **11 mm** to the module PCB.
+- In Fusion, imported two `PinHeader_1x08_P2.54mm_Vertical` STEP rows
+  (`/Applications/KiCad/…/Connector_PinHeader_2.54mm.3dshapes/`) at the two
+  socket origins (0.938, −0.231) and (2.462, −0.231) cm, z **1.2595 cm**,
+  rotated 180° about local Y so the long pins point down into the sockets and
+  the 2.5 mm plastic lands on the socket tops. Raised the
+  `esp32c3-supermini` occurrence from z 1.0095 to **1.2595 cm**.
+- The USB-C connector now lines up with the case opening at z 13.6; the pin
+  tops clear the cover underside (z 18.5). Document saved as
+  **Sensorbox Compact v2**.
+- The KiCad board's 3D preview still places the module at z 8.5 with no male
+  headers; this is cosmetic (3D only) and would need an IPC session with the
+  compact board open in pcbnew to add the two models.
