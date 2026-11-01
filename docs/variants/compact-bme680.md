@@ -27,4 +27,4 @@ J5 becomes the 1×16 socket (LCSC C7499334); BME280 replaced by BME680.
 
 ## Risks to check before layout
 - BSEC needs ~2 kB more RAM and a slower I²C bus; verify timing on the C3.
-- VOC accuracy is affected by the enclosure airflow — keep the louvres above the sensor.
+- VOC accuracy is affected by the enclosure airflow — keep the BME hole mesh above the sensor.

@@ -46,18 +46,22 @@ J4 button configuration; GPIO3 and GPIO4 are now free I/O on the breakout row (p
 - Gerbers/drill/zip: `fabrication/esp32-c3-sensor-board-compact-gerbers.zip`.
 
 ## Case
-- Fusion document **Sensorbox Compact v2** (Modules project); print files
+- Fusion document **Sensorbox Compact v5** (Modules project); print files
   `case/compact_tray.stl` and `case/compact_cover.stl`.
-- 41 × 84 × 24 mm envelope with a 3.5 mm perimeter margin and **no wiring
-  channel**; the J5 breakout exits through the right-hand slot.
-- Openings: USB-C, J5 side slot, 3 radar vents, BH1750 11 × 11 window, 5 BME280
-  louvres and 3 ESP32 side vents. Internal cover walls at y −42.6 and −24.4
-  keep the radar pocket separate from the BH/BME side.
+- **41 × 84 × 22.5 mm** envelope (roof lowered 1.5 mm to z 19.0; the ESP32
+  USB shell at 16.6 mm is the limiting part), 3.5 mm perimeter margin and
+  **no wiring channel**; the J5 breakout exits through the right-hand slot.
+- Openings: USB-C stadium at x 17 centred on the connector with a chamfered
+  mouth; J5 side slot; 22 × Ø1.6 radar holes; Ø5 BH1750 sight hole with an
+  underside counterbore; 18 × Ø1.2 BME280 holes; Ø1.6 side vents on both long
+  walls. Full-height cover walls at y −24.4, −42.85 and −58.6 split the ESP32,
+  radar, BH1750 and BME280 into separate segments (0.5 mm above the PCB,
+  stopping at x 28.5 to clear the J5 socket).
 - Two wall-mount keyholes in the back; four M3 standoffs for the PCB; the cover
   is a press-fit lid. See [`case/README.md`](../../case/README.md).
 - Optional decorative stone faceplate **`case/faceplate_compact.stl`** —
-  39.5 × 82.5 × 3.9 mm, sitting on the cover top (z 20.5), with the same
-  openings and a raised BH1750 “eye”. The stone surface is sampled from the
+  39.5 × 82.5 × 3.85 mm, bottom z 19.0, with matching radar/BME hole fields
+  and a funnel over the BH1750 sensor. The stone surface is sampled from the
   CC0 Poly Haven *Rustic Stone Wall 02* displacement map; previews are in
   `case/renders/`. The Blender scene is `case/compact_faceplate.blend` and the
   generator is [`tools/blender/make_compact_faceplate.py`](../../tools/blender/make_compact_faceplate.py).

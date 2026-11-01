@@ -4,27 +4,28 @@
 
 Print files:
 
-- `compact_tray.stl` — floor, walls, standoffs, USB-C opening, J5 side slot,
-  ESP32 side vents and two wall-mount keyholes.
-- `compact_cover.stl` — press-fit lid with the radar vents, BH1750 window,
-  BME280 louvres and the internal heat-separation walls.
+- `compact_tray.stl` — floor, walls, standoffs, USB-C stadium notch, J5 side
+  slot, Ø1.6 side vents on both long walls and two wall-mount keyholes.
+- `compact_cover.stl` — press-fit lid with the radar and BME hole meshes, the
+  Ø5 BH1750 sight hole, the full-height module partitions and the underside
+  relief over the ESP32 USB shell.
 
-Fusion master: document **Sensorbox Compact v2** in the `Modules` project.
-Bodies `TRAY_COMPACT` and `COVER_COMPACT`; `COVER_SCREW_TEST` is a hidden
-archive of a screw-hole trial and is not used. The reference board is modelled
-at the real stack height: 8.5 mm female sockets + 2.5 mm male-header plastic,
-so the ESP32-C3 PCB sits 11 mm above the carrier, with a 1×8 male pin row on
-each socket.
+Fusion master: document **Sensorbox Compact v5** in the `Modules` project.
+The current bodies `TRAY_COMPACT` and `COVER_COMPACT` live in component
+`CASE_V2`; the older `CASE_COMPACT` component is kept hidden for reference.
+The reference board is modelled at the real stack height: 8.5 mm female
+sockets + 2.5 mm male-header plastic, so the ESP32-C3 PCB sits 11 mm above the
+carrier, with a 1×8 male pin row on each socket.
 
 | | |
 |---|---|
-| Case envelope | 41 × 84 × 24 mm (x −3.5…37.5, y −80…4, z −3.5…20.5) |
-| Tray | 2 mm floor at z −3.5…−1.5, 2 mm walls to z 18.5 |
-| PCB | z 0…1.52, on four 1.5 mm standoffs with Ø2.5 mm M3 pilots |
-| Cover | 2 mm plate z 18.5…20.5, 1.5 mm press-fit lip; outer R1.5 |
+| Case envelope | 41 × 84 × 22.5 mm (x −3.5…37.5, y −80…4, z −3.5…19.0) |
+| Tray | 2 mm floor at z −3.5…−1.5, 2 mm walls to z 17.0 |
+| PCB | z 0…1.5, on four 1.5 mm standoffs with Ø2.5 mm M3 pilots |
+| Cover | 2 mm plate z 17.0…19.0, 1.5 mm press-fit lip; outer R1.5; 0.8 mm underside relief over the ESP32 USB shell |
 | Outer corners | R3 tray |
-| Openings | USB-C 9.2 × 3.4 at x 17, z 13.6; J5 1×16 side slot 42 × 8.5 on the right wall; 3 radar vents 3 × 10; BH1750 11 × 11 window; 5 BME280 louvres 1.6 × 9.5; 3 ESP32 side vents |
-| Heat separation | Cover walls at y −42.6 and −24.4 keep the radar pocket away from the BH window and BME louvres |
+| Openings | USB-C stadium 9.4 × 3.85 at x 17, z 13.35…17.0 (open at the top under the cover) with a 1.2 mm chamfered mouth; J5 1×16 side slot 42 × 8.5 on the right wall; radar 22 × Ø1.6 holes (3.0 pitch, staggered); BH1750 Ø5 sight hole at (14.65, −50.1) with a Ø7 underside counterbore; BME280 18 × Ø1.2 holes (2.2 pitch, staggered); Ø1.6 side vents in two rows on both long walls |
+| Partitions | full-height walls at y −24.4…−23.4, −42.85…−42.25 and −58.6…−57.8, z 2.0…17.0 (0.5 mm above the PCB), x −1.3…28.5 to clear the J5 socket; the top 14.2…17.0 section runs full width — ESP32, radar, BH1750 and BME280 each in their own segment |
 | Wall mount | Two keyhole slots through the floor at x 10 / 24, y −45 |
 
 Board fixing: four M3 self-tapping screws from the top through the PCB into
@@ -45,15 +46,16 @@ the space around the board. The J5 breakout exits through the right-hand slot.
 
 ### Decorative faceplate
 
-Optional stone plaque that sits on the cover top (z 20.5):
+Optional stone plaque that sits on the cover top (z 19.0):
 
-- `faceplate_compact.stl` — 39.5 × 82.5 × 3.9 mm, bottom z 20.5. It is inset
-  0.75 mm from the 41 × 84 cover, leaving a fine shadow gap; fix with
-  double-sided tape or a few drops of glue.
+- `faceplate_compact.stl` — 39.5 × 82.5 × 3.85 mm, bottom z 19.0, top
+  22.85. It is inset 0.75 mm from the 41 × 84 cover, leaving a fine shadow
+  gap; fix with double-sided tape or a few drops of glue.
 - The field is a heightfield sampled from the CC0 **Rustic Stone Wall 02**
   displacement map (Poly Haven), with a flat 3 mm rim, a carved border groove,
-  a raised ring and 16 short rays around the BH1750 opening, and the exact
-  radar/BME/BH openings of the cover.
+  a raised ring and 16 short rays around the BH1750 opening. It carries the
+  same 22 × Ø1.6 radar holes and 18 × Ø1.2 BME holes as the cover, plus the
+  funnel centred on the BH1750 sensor at (14.65, −50.1).
 - `compact_faceplate.blend` — Blender 5.2 scene with the compact case,
   faceplate, stone material, camera and lights.
 - `renders/faceplate_compact.png`, `renders/faceplate_compact_top.png`,

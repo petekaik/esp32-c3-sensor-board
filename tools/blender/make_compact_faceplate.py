@@ -30,20 +30,24 @@ DIFF = os.path.join(BASE, "case/textures/rustic_stone_wall_02_diff_1k.jpg")
 STL = os.path.join(BASE, "case/faceplate_compact.stl")
 PNG = os.path.join(BASE, "case/renders/faceplate_compact.png")
 
-# envelope: 0.75 mm inset from the 41 x 84 cover, bottom on z 20.5
+# envelope: 0.75 mm inset from the 41 x 84 cover, bottom on the lowered cover top
 X0, X1, Y0, Y1 = -2.75, 36.75, -79.25, 3.25
-BOTTOM, DECK, RIM = 20.5, 22.5, 23.5
+BOTTOM, DECK, RIM = 19.0, 21.0, 22.0
 NX, NY = 114, 238
-CX, CY = 17.0, -50.0
+CX, CY = 14.65, -50.1
 TILE = 300.0              # mm of stone map per tile on the plaque
 OFF_U, OFF_V = 0.23, 0.41
 STONE_AMP = 2.2
 
-OPEN_VENTS = [(8.5, 11.5, -38.0, -28.0), (15.5, 18.5, -38.0, -28.0),
-              (22.5, 25.5, -38.0, -28.0)]
-OPEN_LOUVRES = [(15.7, 17.3, -71.75, -62.25), (18.2, 19.8, -71.75, -62.25),
-                (20.7, 22.3, -71.75, -62.25), (23.2, 24.8, -71.75, -62.25),
-                (25.7, 27.3, -71.75, -62.25)]
+# vent holes, matching the cover exactly: (x, y, radius)
+RADAR_HOLES = []
+for j, y in enumerate((-37.2, -34.2, -31.2, -28.2)):
+    xs = (9.4, 12.4, 15.4, 18.4, 21.4, 24.4) if j % 2 == 0 else (10.9, 13.9, 16.9, 19.9, 22.9)
+    RADAR_HOLES += [(x, y, 0.8) for x in xs]
+BME_HOLES = []
+for j, y in enumerate((-70.5, -68.3, -66.1, -63.9)):
+    xs = (15.8, 18.0, 20.2, 22.4, 24.6) if j % 2 == 0 else (16.9, 19.1, 21.3, 23.5)
+    BME_HOLES += [(x, y, 0.6) for x in xs]
 
 # ---- stone displacement map ------------------------------------------------
 _img = bpy.data.images.load(DISP, check_existing=True)
@@ -78,9 +82,11 @@ def rect_gap(x, y, r):
 
 
 def mask_openings(x, y):
+    # flatten the stone relief around each vent hole so the boolean cuts a clean rim
     m = 1.0
-    for r in OPEN_VENTS + OPEN_LOUVRES:
-        m = min(m, smoothstep(0.35, 1.5, rect_gap(x, y, r)))
+    for (hx, hy, r) in RADAR_HOLES + BME_HOLES:
+        d = math.hypot(x - hx, y - hy)
+        m = min(m, smoothstep(r + 0.4, r + 1.6, d))
     return m
 
 
@@ -167,9 +173,9 @@ def ring(z, ax, ay, n, mod=None):
 
 
 def funnel():
-    rings = [ring(19.5, 5.5, 5.5, 12.0), ring(20.5, 5.5, 5.5, 12.0),
-             ring(21.8, 6.6, 6.6, 4.0),
-             ring(23.6, 9.0, 8.6, 2.0,
+    rings = [ring(18.0, 5.5, 5.5, 12.0), ring(19.0, 5.5, 5.5, 12.0),
+             ring(20.3, 6.6, 6.6, 4.0),
+             ring(22.1, 9.0, 8.6, 2.0,
                   lambda th: 1.0 + 0.12 * math.sin(3 * th + 0.7) +
                   0.06 * math.sin(5 * th + 2.1))]
     bm2 = bmesh.new()
@@ -198,13 +204,18 @@ def cube(x0, x1, y0, y1, z0, z1):
     return o
 
 
-cutters = [funnel()] + [cube(x0, x1, y0, y1, 19.0, 25.0)
-                        for (x0, x1, y0, y1) in OPEN_VENTS + OPEN_LOUVRES]
+def hole(x, y, r):
+    bpy.ops.mesh.primitive_cylinder_add(
+        vertices=32, radius=r, depth=8.0, location=(x, y, (BOTTOM + RIM) / 2))
+    return bpy.context.object
+
+
+cutters = [funnel()] + [hole(x, y, r) for (x, y, r) in RADAR_HOLES + BME_HOLES]
 bpy.context.view_layer.objects.active = fp
 for i, c in enumerate(cutters):
     m = fp.modifiers.new(f'b{i}', 'BOOLEAN')
     m.operation = 'DIFFERENCE'
-    m.solver = 'EXACT'
+    m.solver = 'MANIFOLD'
     m.object = c
     bpy.ops.object.modifier_apply(modifier=m.name)
     c.hide_set(True)
@@ -250,7 +261,7 @@ scene.camera = cam
 cam_data.type = 'ORTHO'
 cam_data.ortho_scale = 100.0
 cam.location = (55, -135, 95)
-target = Vector((17.0, -38.0, 22.0))
+target = Vector((17.0, -38.0, 20.5))
 cam.rotation_euler = (target - cam.location).to_track_quat('-Z', 'Y').to_euler()
 
 
@@ -278,7 +289,7 @@ if bg:
     bg.inputs['Color'].default_value = (0.10, 0.11, 0.13, 1)
     bg.inputs['Strength'].default_value = 1.0
 
-bpy.ops.mesh.primitive_plane_add(size=400, location=(17, -38, 20.4))
+bpy.ops.mesh.primitive_plane_add(size=400, location=(17, -38, 18.9))
 g = bpy.context.object
 g.name = 'GroundFP'
 gm = bpy.data.materials.new('GroundFP')

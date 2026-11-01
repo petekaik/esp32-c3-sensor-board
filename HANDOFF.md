@@ -457,11 +457,43 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   (`/Applications/KiCad/…/Connector_PinHeader_2.54mm.3dshapes/`) at the two
   socket origins (0.938, −0.231) and (2.462, −0.231) cm, z **1.2595 cm**,
   rotated 180° about local Y so the long pins point down into the sockets and
-  the 2.5 mm plastic lands on the socket tops. Raised the
-  `esp32c3-supermini` occurrence from z 1.0095 to **1.2595 cm**.
-- The USB-C connector now lines up with the case opening at z 13.6; the pin
-  tops clear the cover underside (z 18.5). Document saved as
-  **Sensorbox Compact v2**.
+  the 2.5 mm plastic lands on the socket tops.
+- The ESP32 STEP origin is the **PCB mid-plane** (PCB 0.9 mm thick), not its
+  bottom; the module occurrence was then set to z **1.3045 cm** so the PCB
+  bottom rests on the header plastic at 12.595 mm (11 mm above the carrier).
+- The USB-C connector now lines up with the case opening; the pin tops clear
+  the cover underside. Document versions: **Sensorbox Compact v2** after this
+  fix, **v5** after the case redesign below.
 - The KiCad board's 3D preview still places the module at z 8.5 with no male
   headers; this is cosmetic (3D only) and would need an IPC session with the
   compact board open in pcbnew to add the two models.
+
+### Compact case v5 (2026-11-01)
+- New component `CASE_V2` in **Sensorbox Compact v5** (Modules project);
+  bodies `TRAY_COMPACT` and `COVER_COMPACT` rebuilt there, old `CASE_COMPACT`
+  hidden. Roof lowered 1.5 mm: envelope **41 × 84 × 22.5 mm** (z −3.5…19.0),
+  tray walls to 17.0, cover plate 17.0…19.0.
+- 5 mm lower is not physically possible: the tallest parts are the ESP32
+  USB-C shell at 16.6 mm, the 1×8 pin tops at 15.6, BH1750/BME280 at 15.2 and
+  the radar at 14.4. A 5 mm drop would put the roof at 13.5 and cut through
+  the sensors. The cover has a 0.8 mm underside relief over the USB shell
+  (clearance 1.2 mm); the rest has 1.8–2.6 mm.
+- USB-C: stadium notch 9.4 × 3.85 at x 17, z 13.35…17.0, open at the top
+  under the cover, with a 1.2 mm chamfered mouth; it follows the connector
+  shell (13.5…16.6 mm).
+- BH1750: single Ø5 sight hole at (14.65, −50.1) with a Ø7 × 0.8 mm
+  counterbore on the underside, replacing the 11 × 11 window.
+- Radar: 22 × Ø1.6 holes (3.0 mm pitch, staggered) replace the three slots.
+  BME280: 18 × Ø1.2 holes (2.2 mm pitch) replace the five louvres.
+  Side walls: 70 × Ø1.6 holes in two rows (z 13.2 / 15.4) on both long walls.
+- Full-height partition walls at y −24.4…−23.4, −42.85…−42.25 and
+  −58.6…−57.8, z 2.0…17.0 (0.5 mm above the PCB), x −1.3…28.5 so they clear
+  the J5 socket; the top 14.2…17.0 section stays full width. This gives the
+  ESP32, radar, BH1750 and BME280 their own segments. The radar wall was
+  centred in the 1.1 mm gap after the first version clipped the radar PCB.
+- Print files: `compact_tray.stl` 6820 tris / 341 KB and
+  `compact_cover.stl` 4562 tris / 228 KB, both manifold. Exported from the
+  CASE_V2 bodies.
+- Faceplate regenerated for the z 19.0 roof: 39.5 × 82.5 × 3.85 mm (bottom
+  19.0, top 22.85), with the same radar/BME hole fields and a funnel at the
+  new BH sensor position (14.65, −50.1). Generator and blend updated.
