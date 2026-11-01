@@ -469,7 +469,7 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   compact board open in pcbnew to add the two models.
 
 ### Compact case v5 (2026-11-01)
-- New component `CASE_V2` in **Sensorbox Compact v5** (Modules project);
+- New component `CASE_V2` in **Sensorbox Compact v6** (Modules project);
   bodies `TRAY_COMPACT` and `COVER_COMPACT` rebuilt there, old `CASE_COMPACT`
   hidden. Roof lowered 1.5 mm: envelope **41 × 84 × 22.5 mm** (z −3.5…19.0),
   tray walls to 17.0, cover plate 17.0…19.0.
@@ -506,3 +506,10 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   the left wall (6/4/4/4 groups, z 13.2 / 15.4). J5 is now fully enclosed.
 - `compact_tray.stl` regenerated: 8796 tris, manifold; both long walls are
   identical. Docs updated to drop the side-slot reference.
+
+- The two `PinHeader_1x08` occurrences were found back at the origin and the
+  ESP32 at z 10.1 in the v5 document (the stack-fix transforms had been lost,
+  most likely by the undo operations during the case edit). Restored them to
+  (0.938, −0.231, 1.2595) and (2.462, −0.231, 1.2595) cm with the 180° Y
+  rotation, module at 1.3045 cm, and saved **Sensorbox Compact v6** with the
+  J5 slot filled.
