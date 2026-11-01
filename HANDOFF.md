@@ -469,7 +469,7 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   compact board open in pcbnew to add the two models.
 
 ### Compact case v5 (2026-11-01)
-- New component `CASE_V2` in **Sensorbox Compact v10** (Modules project);
+- New component `CASE_V2` in **Sensorbox Compact v11** (Modules project);
   bodies `TRAY_COMPACT` and `COVER_COMPACT` rebuilt there, old `CASE_COMPACT`
   hidden. Roof lowered 1.5 mm: envelope **41 × 84 × 22.5 mm** (z −3.5…19.0),
   tray walls to 17.0, cover plate 17.0…19.0.
@@ -511,7 +511,7 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   ESP32 at z 10.1 in the v5 document (the stack-fix transforms had been lost,
   most likely by the undo operations during the case edit). Restored them to
   (0.938, −0.231, 1.2595) and (2.462, −0.231, 1.2595) cm with the 180° Y
-  rotation, module at 1.3045 cm, and saved **Sensorbox Compact v10** with the
+  rotation, module at 1.3045 cm, and saved **Sensorbox Compact v11** with the
   J5 slot filled.
 
 
@@ -524,7 +524,7 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   printing). The cover has four Ø6 bosses at the PCB holes, Ø3.2 clearance
   holes and Ø6.6 flush counterbores; M3×20 screws clamp the PCB and lid.
 - Lid/base are separate components `BASE` and `LID` (CASE_V2 kept hidden as
-  the source/history). Case doc saved as **Sensorbox Compact v10**.
+  the source/history). Case doc saved as **Sensorbox Compact v11**.
 - STLs: `compact_tray.stl` 9268 tris / 463 KB, `compact_cover.stl` 6424
   tris / 321 KB, both manifold.
 
@@ -549,10 +549,22 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   the heads are flush/recessed. The faceplate no longer covers any screws.
 - The two keyhole slots in the bottom remain the wall mount.
 - STLs: tray 9268 tris / 463 KB, cover 22192 tris / 1.1 MB (modelled pole
-  threads), both manifold. Document saved as **Sensorbox Compact v10**.
+  threads), both manifold. Document saved as **Sensorbox Compact v11**.
 
 - The lid lip overlapped the back of the USB-C receptacle (y −1.3…−0.2,
   z 15.5…16.6). Cut a stadium notch through the lip from y −1.7 to the outer
   edge at x 12.3…21.7, z 13.35…17.25, following the connector profile; LID vs
   ESP32 interference is now 0. Cover STL 22276 tris / 1.11 MB, manifold.
-  Document saved as **Sensorbox Compact v10**.
+  Document saved as **Sensorbox Compact v11**.
+
+
+### Compact case: single keyhole pod and lid edge groove (2026-11-01)
+- Removed the two floor keyhole slots and added a **Ø28 × 5 mm pod on the
+  back** at (17, −45). The keyhole is in the pod's 2 mm back plate; the screw
+  head enters the 3 mm cavity between the back plate and the sealed floor, so
+  no metal can reach the PCB. The case stands 5 mm off the wall on the pod.
+- The lid outer edge now has a 9.4 × 2 mm stadium groove (r1.0 ends) through
+  the edge at the USB port, continuing the base opening curve; the faceplate
+  covers the top of the groove.
+- STLs: tray 9960 tris / 498 KB, cover 22380 tris / 1.12 MB, both manifold.
+  Document saved as **Sensorbox Compact v11**.
