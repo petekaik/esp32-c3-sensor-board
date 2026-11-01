@@ -24,6 +24,8 @@
   .card p{margin:0;color:var(--muted);font-size:.9rem}
   .tag{display:inline-block;font-size:.75rem;padding:1px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
   .tag.built{color:var(--accent);border-color:var(--accent)}
+  figure{margin:0}
+  figcaption{color:var(--muted);font-size:.85rem;margin-top:6px}
   a{color:var(--accent)}
   footer{margin-top:40px;color:var(--muted);font-size:.85rem}
 </style>
@@ -33,6 +35,12 @@
   <h1>ESP32-C3 Sensor Board</h1>
   <p class="lead">Wall-mountable carrier for an ESP32-C3 Super Mini — plug-in sensor modules, relay and button terminals, USB-C on the top edge.</p>
   <img src="img/board.png" alt="rev2 carrier board, top view; rev3 adds a 1×16 breakout row">
+
+  <h2>Final boards</h2>
+  <div class="grid">
+    <figure><img src="img/board-rev3.png" alt="rev3 relay board, 46 × 89 mm, 3D render with modules fitted"><figcaption>rev3 — relay + button, 46 × 89 mm, 1×16 J5</figcaption></figure>
+    <figure><img src="img/board-compact.png" alt="compact board, 34 × 76 mm, 3D render with modules fitted"><figcaption>compact — 34 × 76 mm, stacked sensors, 1×16 J5</figcaption></figure>
+  </div>
 
   <h2>Variants</h2>
   <div class="grid">
@@ -70,6 +78,31 @@
     <tr><td>I²C</td><td>GPIO8 / GPIO9</td><td>100 kHz, module pull-ups</td></tr>
     <tr><td>UART</td><td>GPIO20 / GPIO21</td><td>256000 baud, 8N1</td></tr>
     <tr><td>SPI (optional)</td><td>SCK 9, MOSI 8, MISO 5, CS 7</td><td>reuses SDA/SCL as MOSI/SCK</td></tr>
+  </table>
+
+  <h2>Case and faceplate</h2>
+  <p>The compact board has a 41 × 84 × 24 mm wall-mount case printed from
+  <code>case/compact_tray.stl</code> and <code>case/compact_cover.stl</code>
+  (press-fit lid, two keyholes, radar vents, BH1750 window, BME280 louvres).
+  The optional stone faceplate sits on the cover.</p>
+  <div class="grid">
+    <figure><img src="img/compact_case_faceplate.png" alt="compact case with the stone faceplate fitted"><figcaption>case + stone faceplate</figcaption></figure>
+    <figure><img src="img/faceplate_compact.png" alt="stone faceplate, isometric view"><figcaption>faceplate — 39.5 × 82.5 × 3.9 mm</figcaption></figure>
+    <figure><img src="img/faceplate_compact_top.png" alt="stone faceplate, top view"><figcaption>openings: radar vents, BH1750 “eye”, BME280 louvres</figcaption></figure>
+  </div>
+
+  <h2>Design files</h2>
+  <table>
+    <tr><th>Product</th><th>Where</th></tr>
+    <tr><td>PCB sources (KiCad 10)</td><td><code>hardware/esp32-c3-sensor-board-rev3.*</code>, <code>…-compact.*</code>, baseline <code>…-rev2.*</code></td></tr>
+    <tr><td>Bare-board order packages</td><td><code>fabrication/esp32-c3-sensor-board-{rev3,compact,rev2}-gerbers.zip</code></td></tr>
+    <tr><td>Assembly packages (JLCPCB)</td><td><code>fabrication/assembly/jlcpcb/</code> (rev2); BOM/CPL for rev3 and compact in <code>fabrication/assembly/</code></td></tr>
+    <tr><td>Case (print files)</td><td><code>case/compact_tray.stl</code>, <code>case/compact_cover.stl</code></td></tr>
+    <tr><td>Faceplate (print file)</td><td><code>case/faceplate_compact.stl</code></td></tr>
+    <tr><td>Faceplate source</td><td><code>case/compact_faceplate.blend</code>, generator <code>tools/blender/make_compact_faceplate.py</code></td></tr>
+    <tr><td>Fusion master</td><td>Cloud document <b>Sensorbox Compact v1</b> (Modules project)</td></tr>
+    <tr><td>Board 3D STEP</td><td><code>case/board-rev2.step</code></td></tr>
+    <tr><td>Pin map, BOM, pricing</td><td><a href="pinout.html">pinout.html</a>, <a href="BOM.csv">BOM.csv</a>, <a href="pricing.md">pricing.md</a></td></tr>
   </table>
 
   <h2>Documents</h2>
