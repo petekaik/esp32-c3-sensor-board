@@ -46,7 +46,7 @@ J4 button configuration; GPIO3 and GPIO4 are now free I/O on the breakout row (p
 - Gerbers/drill/zip: `fabrication/esp32-c3-sensor-board-compact-gerbers.zip`.
 
 ## Case
-- Fusion document **Sensorbox Compact v13** (Modules project); print files
+- Fusion document **Sensorbox Compact v15** (Modules project); print files
   `case/compact_tray.stl` and `case/compact_cover.stl`.
 - **41 × 84 × 22.5 mm** envelope (roof lowered 1.5 mm to z 19.0; the ESP32
   USB shell at 16.6 mm is the limiting part). The interior is sized to the
@@ -64,8 +64,9 @@ J4 button configuration; GPIO3 and GPIO4 are now free I/O on the breakout row (p
   base back; the base floor seals the screw cavity from the PCB. Four
   **M3×0.5 threaded poles** on
   the lid. The USB-C cutout is built from the actual port: 9.6 × 4.0 mm,
-  r1.0, centred at (x 17, z 15.05), continuing through the lid lip and the lid
-  edge slot (9.6 × 2, r1.0). Four M3×12 countersunk screws from the bottom clamp the PCB and
+  9.6 mm wide with r0.5 bottom corners and full width at the top, centred at
+  (x 17, z 15.05), continuing through the lid lip and a straight 9.6 × 2 mm
+  lid edge slot. Four M3×12 countersunk screws from the bottom clamp the PCB and
   lid; the heads sit in Ø6.6 countersinks and do not protrude. The lid top is
   solid and the faceplate sits flush. The lid and base are separate `LID` and
   `BASE` components. See [`case/README.md`](../../case/README.md).
