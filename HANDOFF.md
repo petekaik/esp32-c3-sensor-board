@@ -589,3 +589,19 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   centre, so the wall and lid cutouts meet with no step. Wall and lid
   cutouts are now concentric with the port. Interference with the ESP32 is 0;
   all STLs manifold. Document is **Sensorbox Compact v15**.
+
+
+### Compact case: lid USB-C slot restored (2026-11-02)
+- Sensorbox Compact **v16** had lost the lid edge slot present in v15: the
+  LID body's outer face at y=4 was continuous across the port (z 17…19), so
+  the lid left a 2 mm brow over the USB-C opening and a chunky plug/overmold
+  could not pass.
+- Re-cut a straight **9.6 × 2 mm** slot through the lid edge, concentric with
+  the port: x 12.2…21.8, z 17.0…19.0, from the outer face y=4 inward to
+  y=2.5. It meets the base's outer opening (10.8 wide, z 12.75…17.0) and the
+  0.8 mm underside relief over the ESP32 shell, giving 6.25 mm of clear
+  height at the case face.
+- LID vs ESP32 interference: 0 (the remaining two results are the pre-existing
+  ESP32 module/header overlaps). `compact_cover.stl` re-exported from the
+  LID body: 22 272 tris / 1.11 MB, 0 non-manifold / 0 boundary edges.
+- Fusion document saved as **Sensorbox Compact v16**.

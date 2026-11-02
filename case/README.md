@@ -13,9 +13,9 @@ Print files:
   glue its open face to the back of the base. The base floor seals the screw
   cavity, so the wall screw cannot reach the PCB.
 
-Fusion master: document **Sensorbox Compact v15** in the `Modules` project.
-The current bodies `TRAY_COMPACT` and `COVER_COMPACT` live in component
-`CASE_V2`; the older `CASE_COMPACT` component is kept hidden for reference.
+Fusion master: document **Sensorbox Compact v16** in the `Modules` project.
+The current bodies are components `BASE` (body `Body8`) and `LID` (body `LID`);
+the older `CASE_V2`/`CASE_COMPACT` components are kept hidden for reference.
 The reference board is modelled at the real stack height: 8.5 mm female
 sockets + 2.5 mm male-header plastic, so the ESP32-C3 PCB sits 11 mm above the
 carrier, with a 1×8 male pin row on each socket.

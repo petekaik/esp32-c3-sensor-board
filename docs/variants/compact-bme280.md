@@ -46,7 +46,7 @@ J4 button configuration; GPIO3 and GPIO4 are now free I/O on the breakout row (p
 - Gerbers/drill/zip: `fabrication/esp32-c3-sensor-board-compact-gerbers.zip`.
 
 ## Case
-- Fusion document **Sensorbox Compact v15** (Modules project); print files
+- Fusion document **Sensorbox Compact v16** (Modules project); print files
   `case/compact_tray.stl` and `case/compact_cover.stl`.
 - **41 × 84 × 22.5 mm** envelope (roof lowered 1.5 mm to z 19.0; the ESP32
   USB shell at 16.6 mm is the limiting part). The interior is sized to the
