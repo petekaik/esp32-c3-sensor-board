@@ -13,7 +13,7 @@ Print files:
   glue its open face to the back of the base. The base floor seals the screw
   cavity, so the wall screw cannot reach the PCB.
 
-Fusion master: document **Sensorbox Compact v17** in the `Modules` project.
+Fusion master: document **Sensorbox Compact v18** in the `Modules` project.
 The current bodies are components `BASE` (body `Body8`) and `LID` (body `LID`);
 the older `CASE_V2`/`CASE_COMPACT` components are kept hidden for reference.
 The reference board is modelled at the real stack height: 8.5 mm female

@@ -605,4 +605,4 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
 - LID vs ESP32 interference: 0. `compact_cover.stl` re-exported from the LID
   body: 22 284 tris / 1.11 MB, 0 non-manifold / 0 boundary edges. The tray STL
   is unchanged (the base was left untouched).
-- Fusion document saved as **Sensorbox Compact v17**.
+- Fusion document saved as **Sensorbox Compact v18**.
