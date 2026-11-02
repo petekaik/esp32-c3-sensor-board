@@ -614,11 +614,14 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   placement outlines, open on the socket side).
 - 3D assembly: MOD1 (21, 12.25) carries `esp32c3-supermini.step` plus two
   `PinHeader_1x08_P2.54mm_Horizontal` models, aligned manually in the 3D
-  viewer. MOD2/3/4 carry `ld2410c.step`, `bh1750-good-baked.step` and
-  `bme280-good-baked.step` at body-centred offsets, Z ≈ 5 mm as a starting
-  point. The mirror-X sockets use scale 1 and a 180° Z model rotation instead
-  of a negative X scale. The standard 6 mm header's body/arms still overlap
-  the socket because the layout assumes ~1.4 mm trimmed pins.
+  viewer. MOD2/3/4 carry `ld2410c-nopins.step`, `bh1750-good-baked.step` and
+  `bme280-good-baked.step` at body-centred offsets, Z ≈ 5 mm, plus one angled
+  `PinHeader_1x05/1x06_P2.54mm_Horizontal` row per module at the pin row,
+  Z = 2.54 mm. `ld2410c-nopins.step` is the vendor STEP with the five
+  `HDR2.54-1P` straight-pin assemblies removed. The mirror-X sockets use
+  scale 1 and a 180° Z model rotation instead of a negative X scale. The
+  standard 6 mm header's body/arms still overlap the socket because the layout
+  assumes ~1.4 mm trimmed pins.
 - Centring/slimming (measured): socket copper x 0.12–27.88, module bodies
   x 9.93–32.08, module column y 0.93–74.65. A USB-centred board (x = 21)
   cannot go below ≈41.8 mm wide — the current 42 mm is the floor. With the

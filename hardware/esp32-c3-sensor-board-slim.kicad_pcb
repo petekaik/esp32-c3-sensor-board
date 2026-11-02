@@ -1902,7 +1902,7 @@
 			)
 		)
 		(embedded_fonts no)
-		(model "${KIPRJMOD}/lib/models/ld2410c.step"
+		(model "${KIPRJMOD}/lib/models/ld2410c-nopins.step"
 			(offset
 				(xyz 0 0 5)
 			)
@@ -1911,6 +1911,17 @@
 			)
 			(rotate
 				(xyz 0 0 270)
+			)
+		)
+		(model "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x05_P2.54mm_Horizontal.step"
+			(offset
+				(xyz 5.46 -5.08 2.54)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 180)
 			)
 		)
 	)
@@ -3010,7 +3021,18 @@
 		(embedded_fonts no)
 		(model "${KIPRJMOD}/lib/models/bh1750-good-baked.step"
 			(offset
-				(xyz 7.75 -5.05 5)
+				(xyz -7.75 4.95 5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -180)
+			)
+		)
+		(model "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x05_P2.54mm_Horizontal.step"
+			(offset
+				(xyz -7.75 4.95 2.54)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -3508,7 +3530,18 @@
 		(embedded_fonts no)
 		(model "${KIPRJMOD}/lib/models/bme280-good-baked.step"
 			(offset
-				(xyz -4.25 6.35 5)
+				(xyz 4.4 -6.35 5)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -0 -0)
+			)
+		)
+		(model "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x06_P2.54mm_Horizontal.step"
+			(offset
+				(xyz 4.4 -6.35 2.54)
 			)
 			(scale
 				(xyz 1 1 1)
@@ -5362,11 +5395,6 @@
 			)
 		)
 	)
-	
-	
-	
-	
-	
 	(gr_arc
 		(start 0 3)
 		(mid 0.87868 0.87868)

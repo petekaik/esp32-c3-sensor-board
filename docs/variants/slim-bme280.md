@@ -102,12 +102,13 @@ Mini STEP and two `PinHeader_1x08_P2.54mm_Horizontal` models, aligned manually
 in the 3D viewer. The module PCB is lifted clear of the 2.54 mm socket bodies;
 the exact model offsets/rotations are in the board file.
 
-The sensor module bodies are attached to MOD2/3/4 (`ld2410c.step`,
+The sensor module bodies are attached to MOD2/3/4 (`ld2410c-nopins.step`,
 `bh1750-good-baked.step`, `bme280-good-baked.step`) with body-centred offsets
-and Z ≈ 5 mm as a starting point; nudge them in the 3D viewer once the sockets
-sit exactly at the module pin rows. The module models include their own pin
-rows; separate angled-header models were not added because the standard 6 mm
-header does not fit the ~1.4 mm trimmed-pin sockets.
+and Z ≈ 5 mm, plus one angled right-angle row per module at the module's pin
+row, Z = 2.54 mm so the arms land at the socket mouths. The LD2410C body uses a
+pin-less copy of the vendor STEP (`ld2410c-nopins.step`, the five
+`HDR2.54-1P` assemblies removed) so only the angled row is visible. Nudge the
+rows in the 3D viewer once the sockets sit exactly at the module pin rows.
 
 The header model is the standard 6 mm right-angle part. The sockets are placed
 for a ~1.4 mm trimmed-pin run, so the standard header's plastic body and long
