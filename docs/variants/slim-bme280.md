@@ -32,7 +32,7 @@ and the board to ~56 mm wide.
 | Item | Placement (mm, origin top-left) |
 |---|---|
 | Board outline | 42 × 84, R3 |
-| ESP32-C3 module body | x 12–30, y 0.8–23.3; USB-C at the top edge, centred x 21 |
+| ESP32-C3 module body | x 12–30, y 1.0–23.5; USB-C at the top edge, centred x 21 |
 | U1A (right 1×8) | `sensor-board:PinSocket_1x08_P2.54mm_Horizontal_MirrorX` at (17.14, 3.36), rot 0 |
 | U1B (left 1×8) | `sensor-board:PinSocket_1x08_P2.54mm_Horizontal_MirrorX` at (1.9, 3.36), rot 0 |
 | LD2410C body | x 15.16–31.16, y 24.58–46.58 |
@@ -56,6 +56,21 @@ F.SilkS carries open-sided placement outlines and names for all four modules
 J5. The outlines are open on the socket side so they do not cross the socket
 silkscreen.
 
+## 3D assembly
+
+MOD1 (the ESP32 placement outline, at 21, 12.25) carries:
+
+- `lib/models/esp32c3-supermini.step` at offset (0, 0, 0.04), rotation 0 —
+  module PCB bottom 2.54 mm above the carrier, USB-C at the top edge.
+- two `PinHeader_1x08_P2.54mm_Horizontal` models at (±7.62, −8.89, 2.54),
+  rotated 180° about Y so the arms point −X into the sockets.
+
+The header model is the standard 6 mm right-angle part. The sockets are placed
+for a ~1.4 mm trimmed-pin run, so the standard header's plastic body and long
+arms overlap the socket in the 3D view — that is the visual confirmation that
+the pins must be trimmed (or bare pins used). An untrimmed header needs the
+~56 mm-wide board variant.
+
 ## Electrical
 
 - Pin map unchanged from the compact / `doorbell.yml`.
@@ -67,7 +82,7 @@ silkscreen.
 ## Verification
 
 - ERC: **0 violations**.
-- DRC: **0 violations**, 6 warnings — 2 silkscreen-edge and 4 silkscreen-overlap
+- DRC: **0 violations**, 7 warnings — 2 silkscreen-edge and 5 silkscreen-overlap
   notices from the placement outlines and the mirrored socket reference text.
   KiCad also reports **4 GND-zone island notices** on the B.Cu pour (same-net
   copper fragments); no pad, signal track or via is unconnected.

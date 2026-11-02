@@ -93,7 +93,7 @@
 	(footprint "sensor-board:module_outline_esp32c3"
 		(layer "F.Cu")
 		(uuid "31045cca-7a98-47af-9035-83b656f7edf2")
-		(at 21 12.05)
+		(at 21 12.25)
 		(descr "ESP32-C3 Super Mini placement outline, board-only, open on the socket side")
 		(property "Reference" "MOD1"
 			(at 0 -12.45 0)
@@ -195,6 +195,39 @@
 			)
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/lib/models/esp32c3-supermini.step"
+			(offset
+				(xyz 0 0 0.04)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+		(model "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x08_P2.54mm_Horizontal.step"
+			(offset
+				(xyz -7.62 -8.89 2.54)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 180 0)
+			)
+		)
+		(model "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x08_P2.54mm_Horizontal.step"
+			(offset
+				(xyz 7.62 -8.89 2.54)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 180 0)
+			)
+		)
 	)
 	(footprint "Connector_PinSocket_2.54mm:PinSocket_1x05_P2.54mm_Horizontal"
 		(layer "F.Cu")

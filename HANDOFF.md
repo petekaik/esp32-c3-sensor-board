@@ -598,7 +598,7 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   side. Stack: carrier / horizontal pins / module PCB. Module PCB ≈2.5 mm
   above the carrier, component tops ≈7.5 mm (ESP32 USB-C shell) versus
   ≈16.6 mm on the compact.
-- Layout: ESP32 body x 12–30, y 0.8–23.3, USB at the top edge centred x 21;
+- Layout: ESP32 body x 12–30, y 1.0–23.5, USB at the top edge centred x 21;
   U1A and U1B are both mirrored-X 1×8 horizontal sockets, at (17.14, 3.36)
   and (1.9, 3.36), so both openings face +X and the module slides in from the
   right. LD2410C x 15.16–31.16, y 24.58–46.58,
@@ -608,6 +608,11 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
 - New library footprints: `sensor-board:PinSocket_1x08/1x06_P2.54mm_Horizontal_MirrorX`
   (body +X, same +Y pad order) and `module_outline_{esp32c3,ld2410c,bh1750,bme280}`
   (board-only F.SilkS placement outlines, open on the socket side).
+- 3D assembly on MOD1 (21, 12.25): `lib/models/esp32c3-supermini.step` at
+  offset (0, 0, 0.04), plus two `PinHeader_1x08_P2.54mm_Horizontal` models at
+  (±7.62, −8.89, 2.54) rotated 180° about Y (arms −X). The standard 6 mm
+  header's body/arms overlap the socket because the layout assumes ~1.4 mm
+  trimmed pins — the 3D view makes that visible.
 - Schematic: U1A/U1B/J1/J2/U2 footprints switched to horizontal sockets;
   H1–H4 and JP1–JP3 deleted; BME_CSB→3V3, BME_SDO→GND (0x76), BH_ADDR→GND
   (0x23). ERC 0.
@@ -615,7 +620,7 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   connected; tracks normalised to 0.25 mm, vias 0.8/0.3, clearance 0.2 mm;
   GND pour on B.Cu only, solid pad connection (the F.Cu pour was dropped
   because the routing split it into isolated islands). DRC 0 violations,
-  6 warnings (2 silk edge, 4 silk overlap) plus 4 same-net GND-zone island
+  7 warnings (2 silk edge, 5 silk overlap) plus 4 same-net GND-zone island
   notices on B.Cu — cosmetic, no pad/signal/via disconnects.
 - Module pins must be bare or the right-angle header body trimmed so the
   socket opening sits at the module edge (~1.4 mm horizontal run). An

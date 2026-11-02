@@ -1,14 +1,14 @@
 {
   "board": "hardware/esp32-c3-sensor-board-slim.kicad_pcb",
-  "timestamp": "2026-11-02T15:53:00",
-  "total_violations": 6,
+  "timestamp": "2026-11-02T16:14:35",
+  "total_violations": 7,
   "violation_counts": {
     "silk_edge_clearance": 2,
-    "silk_overlap": 4
+    "silk_overlap": 5
   },
   "severity_counts": {
     "error": 0,
-    "warning": 6,
+    "warning": 7,
     "info": 0
   },
   "unconnected_items": 4,
@@ -37,7 +37,7 @@
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
         "x": 12.0,
-        "y": 0.8
+        "y": 1.0
       }
     },
     {
@@ -46,16 +46,25 @@
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
         "x": 20.0,
-        "y": 0.8
+        "y": 1.0
       }
     },
     {
       "type": "silk_overlap",
       "severity": "warning",
-      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.1150 mm)",
+      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
         "x": 27.23,
         "y": 2.15
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0331 mm)",
+      "location": {
+        "x": 20.0,
+        "y": 1.0
       }
     },
     {
