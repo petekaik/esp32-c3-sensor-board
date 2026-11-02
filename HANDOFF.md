@@ -589,3 +589,35 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   centre, so the wall and lid cutouts meet with no step. Wall and lid
   cutouts are now concentric with the port. Interference with the ESP32 is 0;
   all STLs manifold. Document is **Sensorbox Compact v15**.
+
+### Slim PCB (2026-11-02)
+
+- `hardware/esp32-c3-sensor-board-slim.*` — **42 × 84 mm** R3, 2-layer, no
+  relay/button. All modules mount on flat right-angle (horizontal) 2.54 mm
+  female sockets; each module gets a 90° bent male pin row on its solder
+  side. Stack: carrier / horizontal pins / module PCB. Module PCB ≈2.5 mm
+  above the carrier, component tops ≈7.5 mm (ESP32 USB-C shell) versus
+  ≈16.6 mm on the compact.
+- Layout: ESP32 body x 12–30, y 0.8–23.3, USB at the top edge centred x 21;
+  U1A standard 1×8 horizontal at (40.1, 3.36), U1B mirrored-X 1×8 at
+  (1.9, 3.36), both pad 1 at the top. LD2410C x 15.16–31.16, y 24.58–46.58,
+  U2 1×5 horizontal at (40.1, 30.5). BH1750 x 11.48–30.53, y 47.84–62.07,
+  J2 at (40.1, 50). BME280 x 12.36–24.30, y 65.73–81.22, J1 mirrored-X 1×6 at
+  (1.9, 68). J5 1×16 vertical at (4, 26), unpopulated. No mounting holes.
+- New library footprints: `sensor-board:PinSocket_1x08/1x06_P2.54mm_Horizontal_MirrorX`
+  (body +X, same +Y pad order) and `module_outline_{esp32c3,ld2410c,bh1750,bme280}`
+  (board-only F.SilkS placement outlines, open on the socket side).
+- Schematic: U1A/U1B/J1/J2/U2 footprints switched to horizontal sockets;
+  H1–H4 and JP1–JP3 deleted; BME_CSB→3V3, BME_SDO→GND (0x76), BH_ADDR→GND
+  (0x23). ERC 0.
+- Routing: Freerouting best-of-3, 141 segments / 4 vias, all nets connected;
+  tracks normalised to 0.25 mm, vias 0.8/0.3, clearance 0.2 mm; GND pours on
+  both layers, solid pad connection. DRC 0 errors, 4 warnings (2 silk edge,
+  2 silk overlap — cosmetic, from the placement outlines / mirrored socket
+  reference text).
+- Module pins must be bare or the right-angle header body trimmed so the
+  socket opening sits at the module edge (~1.4 mm horizontal run). An
+  untouched 6 mm right-angle header widens the board to ≈56 mm.
+- Case not rebuilt. USB-C opening drops to ≈z 4–6 mm; radar/BH/BME openings
+  move to the new module positions. Radar-patch / ESP32-antenna carrier-copper
+  keep-outs were not re-created.

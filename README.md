@@ -72,6 +72,7 @@ The full descriptions are printed on the back.
 | [relay-bme680](docs/variants/relay-bme680.md) (rev3) | 46 × 89 | yes | J4 | BME680 | 1×16 | **PCB ready** (sensor/firmware variant) |
 | [compact-bme280](docs/variants/compact-bme280.md) (compact) | 34 × 76 | no | none | BME280 | 1×16 | **routed** |
 | [compact-bme680](docs/variants/compact-bme680.md) (compact) | 34 × 76 | no | none | BME680 | 1×16 | **PCB ready** (sensor/firmware variant) |
+| [slim-bme280](docs/variants/slim-bme280.md) (slim) | 42 × 84 | no | none | BME280 | 1×16 (DNP) | **routed** |
 
 Rev3 expands J5 to a **1×16** row: `3V3 · 5V · GND · GPIO0 · GPIO1 · GPIO2 ·
 GPIO3 · GPIO4 · GPIO5 · GPIO6 · GPIO7 · GPIO10 · SDA · SCL · RX · TX`. The
@@ -81,6 +82,16 @@ J4**, removes the relay area, and is a **34 × 76 mm stacked column**: radar,
 BH1750 rotated 90° to a landscape body, BME280 rotated 90° to a portrait body,
 and J5 in the right-hand strip. It is 12 mm narrower than rev2 and uses the
 same full 1×16 row.
+
+The slim board (`hardware/esp32-c3-sensor-board-slim.*`) is a **42 × 84 mm**
+take on the compact. Every module — including the ESP32-C3 — mounts on a
+**right-angle (horizontal) female socket** soldered flat to the carrier, and
+carries a 90° bent male pin row on its solder side. That makes a three-layer
+stack (carrier / horizontal pins / module PCB) about **7.5 mm** high instead of
+the 16.6 mm vertical-socket deck, at the cost of a wider carrier. The mounting
+holes and the three through-hole jumpers are gone; BME280 CSB/SDO and BH1750
+ADDR are hard-wired for I²C (0x76 / 0x23), and the 1×16 GPIO row is bare holes
+(socket not fitted).
 
 ## Documentation
 
