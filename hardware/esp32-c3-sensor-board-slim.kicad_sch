@@ -4222,7 +4222,7 @@
 				)
 			)
 		)
-		(property "Footprint" "sensor-board:PinSocket_1x06_P2.54mm_Horizontal_MirrorX"
+		(property "Footprint" "sensor-board:PinSocket_1x06_P2.54mm_Horizontal_MirrorX_Rev"
 			(at 149.86 54.61 0)
 			(hide yes)
 			(show_name no)
@@ -4322,7 +4322,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x05_P2.54mm_Horizontal"
+		(property "Footprint" "sensor-board:PinSocket_1x05_P2.54mm_Horizontal_Rev"
 			(at 149.86 105.41 0)
 			(hide yes)
 			(show_name no)
@@ -5001,7 +5001,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x05_P2.54mm_Horizontal"
+		(property "Footprint" "sensor-board:PinSocket_1x05_P2.54mm_Horizontal_Rev"
 			(at 193.04 100.33 0)
 			(hide yes)
 			(show_name no)

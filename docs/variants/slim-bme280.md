@@ -35,13 +35,13 @@ and the board to ~56 mm wide.
 | ESP32-C3 module body | x 12–30, y 1.0–23.5; USB-C at the top edge, centred x 21 |
 | U1A (right 1×8) | `sensor-board:PinSocket_1x08_P2.54mm_Horizontal_MirrorX` at (17.14, 3.36), rot 0 |
 | U1B (left 1×8) | `sensor-board:PinSocket_1x08_P2.54mm_Horizontal_MirrorX` at (1.9, 3.36), rot 0 |
-| LD2410C body | x 15.16–31.16, y 24.58–46.58 |
-| U2 (radar 1×5) | `PinSocket_1x05_P2.54mm_Horizontal` at (40.1, 30.5), rot 0 |
-| BH1750 body | x 11.48–30.53, y 47.84–62.07 |
-| J2 (BH 1×5) | `PinSocket_1x05_P2.54mm_Horizontal` at (40.1, 50), rot 0 |
-| BME280 body | x 12.36–24.30, y 65.73–81.22 |
-| J1 (BME 1×6) | `sensor-board:PinSocket_1x06_P2.54mm_Horizontal_MirrorX` at (1.9, 68), rot 0 |
-| J5 (GPIO 1×16) | `PinSocket_1x16_P2.54mm_Vertical` at (4, 26), **unpopulated (DNP)** |
+| LD2410C body | MOD2 outline at (18.5, 32.5), rot 90 |
+| U2 (radar 1×5) | `sensor-board:PinSocket_1x05_P2.54mm_Horizontal_Rev` at (13.4, 25.1), rot 90 |
+| BH1750 body | MOD3 outline at (18.5, 49.5), rot 180 |
+| J2 (BH 1×5) | `sensor-board:PinSocket_1x05_P2.54mm_Horizontal_Rev` at (14.1, 54.6), rot 180 |
+| BME280 body | MOD4 outline at (22, 66), rot 0 |
+| J1 (BME 1×6) | `sensor-board:PinSocket_1x06_P2.54mm_Horizontal_MirrorX_Rev` at (14.6, 60.125), rot 0 |
+| J5 (GPIO 1×16) | `PinSocket_1x16_P2.54mm_Vertical` at (3.5, 26.95), **unpopulated (DNP)** |
 | Mounting holes | none |
 
 Both ESP32 sockets are mirrored-X and open toward **+X**, so the module
@@ -51,6 +51,22 @@ existing pin map. The mirrored footprints keep the pad order (+Y from pad 1)
 while putting the socket body on the opposite side; a plain 180° rotation
 would reverse the pad order.
 
+### Pin order (underside-folded rows)
+
+The LD2410C, BH1750 and BME280 male rows are soldered to the module's solder
+side and fold under its PCB, so the pin order along each row is reversed
+relative to a socket numbered 1..N from the original end. Those three sockets
+use reversed-pad variants:
+
+- `sensor-board:PinSocket_1x05_P2.54mm_Horizontal_Rev` — U2 and J2, pad 1 at
+  the far end of the row.
+- `sensor-board:PinSocket_1x06_P2.54mm_Horizontal_MirrorX_Rev` — J1, pad 1 at
+  the far end, body on the +X side.
+
+The schematic pin numbers and net names are unchanged; pad 1 now lands at the
+end the module's pin 1 reaches. U1A/U1B keep the original mirrored-X
+footprints (pad order +Y).
+
 F.SilkS carries open-sided placement outlines and names for all four modules
 (`MOD1`–`MOD4`), a `USB` mark at the top, and a `GPIO 1x16 (DNP)` note beside
 J5. The outlines are open on the socket side so they do not cross the socket
@@ -58,18 +74,21 @@ silkscreen.
 
 ## 3D assembly
 
-MOD1 (the ESP32 placement outline, at 21, 12.25) carries:
-
-- `lib/models/esp32c3-supermini.step` at offset (0, 0, 0.04), rotation 0 —
-  module PCB bottom 2.54 mm above the carrier, USB-C at the top edge.
-- two `PinHeader_1x08_P2.54mm_Horizontal` models at (±7.62, −8.89, 2.54),
-  rotated 180° about Y so the arms point −X into the sockets.
+MOD1 (the ESP32 placement outline, at 21, 12.25) carries the ESP32-C3 Super
+Mini STEP and two `PinHeader_1x08_P2.54mm_Horizontal` models, aligned manually
+in the 3D viewer. The module PCB is lifted clear of the 2.54 mm socket bodies;
+the exact model offsets/rotations are in the board file.
 
 The header model is the standard 6 mm right-angle part. The sockets are placed
 for a ~1.4 mm trimmed-pin run, so the standard header's plastic body and long
 arms overlap the socket in the 3D view — that is the visual confirmation that
 the pins must be trimmed (or bare pins used). An untrimmed header needs the
 ~56 mm-wide board variant.
+
+The mirror-X socket footprints (U1A/U1B/J1) use scale 1 and a 180° Z model
+rotation instead of a negative X scale. The negative scale rendered the
+sockets half-transparent; the rotation is visually identical to the standard
+sockets used on U2/J2.
 
 ## Electrical
 
@@ -82,13 +101,13 @@ the pins must be trimmed (or bare pins used). An untrimmed header needs the
 ## Verification
 
 - ERC: **0 violations**.
-- DRC: **0 violations**, 7 warnings — 2 silkscreen-edge and 5 silkscreen-overlap
-  notices from the placement outlines and the mirrored socket reference text.
-  KiCad also reports **4 GND-zone island notices** on the B.Cu pour (same-net
-  copper fragments); no pad, signal track or via is unconnected.
-- Routing: Freerouting best-of-3, 143 segments / 2 signal vias; all 16 nets
-  connected. All tracks normalised to 0.25 mm; vias 0.8/0.3 mm; clearance
-  0.2 mm.
+- DRC: **0 violations**, 33 warnings — 2 silkscreen-edge and 31 silkscreen-overlap
+  notices from the placement outlines and the module outlines laid over the
+  sockets. KiCad also reports **2 GND-zone island notices** on the B.Cu pour
+  (same-net copper fragments); no pad, signal track or via is unconnected.
+- Routing: Freerouting best-of-3, 163 segments / 3 signal vias; all 16 nets
+  connected. Default track 0.25 mm, autorouter thin traces 0.187 mm
+  (`min_track_width` 0.15 mm), vias 0.8/0.3 mm, clearance 0.2 mm.
 - GND pour on B.Cu (solid pad connection). The F.Cu pour was dropped because
   the routing fragmented it into isolated islands; the B.Cu plane carries the
   ground and all GND pads are through-hole.
