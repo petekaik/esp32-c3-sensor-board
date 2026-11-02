@@ -610,11 +610,11 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
 - Schematic: U1A/U1B/J1/J2/U2 footprints switched to horizontal sockets;
   H1–H4 and JP1–JP3 deleted; BME_CSB→3V3, BME_SDO→GND (0x76), BH_ADDR→GND
   (0x23). ERC 0.
-- Routing: Freerouting best-of-3, 141 segments / 4 vias, all nets connected;
-  tracks normalised to 0.25 mm, vias 0.8/0.3, clearance 0.2 mm; GND pours on
-  both layers, solid pad connection. DRC 0 errors, 4 warnings (2 silk edge,
-  2 silk overlap — cosmetic, from the placement outlines / mirrored socket
-  reference text).
+- Routing: Freerouting best-of-3, 141 segments / 8 vias (4 signal + 4 GND
+  stitching vias); all nets connected; tracks normalised to 0.25 mm, vias
+  0.8/0.3, clearance 0.2 mm; GND pours on both layers, solid pad connection.
+  DRC 0 errors, 0 unconnected, 4 warnings (2 silk edge, 2 silk overlap —
+  cosmetic, from the placement outlines / mirrored socket reference text).
 - Module pins must be bare or the right-angle header body trimmed so the
   socket opening sits at the module edge (~1.4 mm horizontal run). An
   untouched 6 mm right-angle header widens the board to ≈56 mm.

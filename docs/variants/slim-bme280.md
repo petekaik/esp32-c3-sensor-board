@@ -65,11 +65,13 @@ silkscreen.
 ## Verification
 
 - ERC: **0 violations**.
-- DRC: **0 errors, 4 warnings** — 2 silkscreen-edge and 2 silkscreen-overlap
-  notices from the placement outlines and the mirrored socket reference text.
-  No copper, clearance, width or unconnected-item errors.
-- Routing: Freerouting best-of-3, 141 segments / 4 vias; all 16 nets connected.
-  All tracks normalised to 0.25 mm; vias 0.8/0.3 mm; clearance 0.2 mm.
+- DRC: **0 errors, 0 unconnected, 4 warnings** — 2 silkscreen-edge and 2
+  silkscreen-overlap notices from the placement outlines and the mirrored
+  socket reference text. No copper, clearance, width or unconnected-item
+  errors.
+- Routing: Freerouting best-of-3, 141 segments / 8 vias (4 signal + 4 GND
+  stitching); all 16 nets connected. All tracks normalised to 0.25 mm; vias
+  0.8/0.3 mm; clearance 0.2 mm.
 - GND pours on F.Cu and B.Cu (0.5 mm inset, solid pad connection).
 
 ## Build notes

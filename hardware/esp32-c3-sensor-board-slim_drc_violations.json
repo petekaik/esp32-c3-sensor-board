@@ -1,6 +1,6 @@
 {
   "board": "/Users/petekaik/projects/esphome-sensor-board/.claude/worktrees/slim-pcb/hardware/esp32-c3-sensor-board-slim.kicad_pcb",
-  "timestamp": "2026-11-02T15:08:40",
+  "timestamp": "2026-11-02T15:12:28",
   "total_violations": 4,
   "violation_counts": {
     "silk_edge_clearance": 2,
