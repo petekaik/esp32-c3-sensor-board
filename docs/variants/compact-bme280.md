@@ -65,8 +65,9 @@ J4 button configuration; GPIO3 and GPIO4 are now free I/O on the breakout row (p
   **M3×0.5 threaded poles** on
   the lid. The USB-C cutout is built from the actual port: 9.6 × 4.0 mm,
   9.6 mm wide with r0.5 bottom corners and full width at the top, centred at
-  (x 17, z 15.05), continuing through the lid lip and a straight 9.6 × 2 mm
-  lid edge slot. Four M3×12 countersunk screws from the bottom clamp the PCB and
+  (x 17, z 15.05), continuing through the lid lip. The 10.8 × 4.6 mm
+  r1.2 outer recess is completed by the lid at the seam, so the assembled
+  case shows one continuous opening. Four M3×12 countersunk screws from the bottom clamp the PCB and
   lid; the heads sit in Ø6.6 countersinks and do not protrude. The lid top is
   solid and the faceplate sits flush. The lid and base are separate `LID` and
   `BASE` components. See [`case/README.md`](../../case/README.md).
