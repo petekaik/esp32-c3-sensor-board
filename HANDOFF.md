@@ -604,4 +604,4 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
 - LID vs ESP32 interference: 0 (the remaining two results are the pre-existing
   ESP32 module/header overlaps). `compact_cover.stl` re-exported from the
   LID body: 22 272 tris / 1.11 MB, 0 non-manifold / 0 boundary edges.
-- Fusion document saved as **Sensorbox Compact v16**.
+- Fusion document saved as **Sensorbox Compact v17** (the save bumped v16).
