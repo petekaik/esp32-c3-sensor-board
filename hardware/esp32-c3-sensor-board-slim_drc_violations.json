@@ -1,14 +1,14 @@
 {
   "board": "hardware/esp32-c3-sensor-board-slim.kicad_pcb",
-  "timestamp": "2026-11-02T21:02:41",
-  "total_violations": 33,
+  "timestamp": "2026-11-02T21:36:39",
+  "total_violations": 36,
   "violation_counts": {
     "silk_edge_clearance": 2,
-    "silk_overlap": 31
+    "silk_overlap": 34
   },
   "severity_counts": {
     "error": 0,
-    "warning": 33,
+    "warning": 36,
     "info": 0
   },
   "unconnected_items": 2,
@@ -34,19 +34,10 @@
     {
       "type": "silk_overlap",
       "severity": "warning",
-      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0190 mm)",
+      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
-        "x": 7.5,
-        "y": 40.5
-      }
-    },
-    {
-      "type": "silk_overlap",
-      "severity": "warning",
-      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0190 mm)",
-      "location": {
-        "x": 7.4,
-        "y": 45.0
+        "x": 23.69,
+        "y": 66.475
       }
     },
     {
@@ -54,8 +45,71 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
-        "x": 12.07,
-        "y": 35.19
+        "x": 15.03,
+        "y": 73.745
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
+      "location": {
+        "x": 15.03,
+        "y": 73.745
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
+      "location": {
+        "x": 21.0,
+        "y": 66.0
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
+      "location": {
+        "x": 12.0,
+        "y": 1.0
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0713 mm)",
+      "location": {
+        "x": 27.23,
+        "y": 2.03
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.1056 mm)",
+      "location": {
+        "x": 27.23,
+        "y": 2.15
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
+      "location": {
+        "x": 20.0,
+        "y": 1.0
+      }
+    },
+    {
+      "type": "silk_overlap",
+      "severity": "warning",
+      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0942 mm)",
+      "location": {
+        "x": 21.52,
+        "y": 0.59
       }
     },
     {
@@ -97,10 +151,10 @@
     {
       "type": "silk_overlap",
       "severity": "warning",
-      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.1145 mm)",
+      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
-        "x": 18.5,
-        "y": 49.5
+        "x": 14.57,
+        "y": 35.19
       }
     },
     {
@@ -108,7 +162,7 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0374 mm)",
       "location": {
-        "x": 19.5,
+        "x": 22.0,
         "y": 56.61
       }
     },
@@ -117,7 +171,7 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
-        "x": 24.19,
+        "x": 26.69,
         "y": 55.455714
       }
     },
@@ -126,7 +180,7 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
-        "x": 19.5,
+        "x": 22.0,
         "y": 56.61
       }
     },
@@ -135,7 +189,7 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
-        "x": 19.5,
+        "x": 22.0,
         "y": 56.61
       }
     },
@@ -144,7 +198,7 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
-        "x": 19.5,
+        "x": 22.0,
         "y": 56.61
       }
     },
@@ -153,7 +207,7 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
-        "x": 24.19,
+        "x": 26.69,
         "y": 55.93
       }
     },
@@ -162,7 +216,7 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0648 mm)",
       "location": {
-        "x": 28.025,
+        "x": 30.525,
         "y": 56.61
       }
     },
@@ -171,7 +225,7 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0498 mm)",
       "location": {
-        "x": 18.98,
+        "x": 17.98,
         "y": 57.355
       }
     },
@@ -180,7 +234,7 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.1145 mm)",
       "location": {
-        "x": 18.5,
+        "x": 21.0,
         "y": 49.5
       }
     },
@@ -189,26 +243,17 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.1145 mm)",
       "location": {
-        "x": 18.5,
+        "x": 21.0,
         "y": 49.5
       }
     },
     {
       "type": "silk_overlap",
       "severity": "warning",
-      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0601 mm)",
+      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.1145 mm)",
       "location": {
-        "x": 18.98,
-        "y": 57.355
-      }
-    },
-    {
-      "type": "silk_overlap",
-      "severity": "warning",
-      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0934 mm)",
-      "location": {
-        "x": 18.98,
-        "y": 57.355
+        "x": 21.0,
+        "y": 49.5
       }
     },
     {
@@ -216,7 +261,7 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
-        "x": 24.69,
+        "x": 23.69,
         "y": 58.795
       }
     },
@@ -225,7 +270,7 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
-        "x": 24.69,
+        "x": 23.69,
         "y": 58.915
       }
     },
@@ -234,7 +279,7 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
-        "x": 24.69,
+        "x": 23.69,
         "y": 59.033095
       }
     },
@@ -243,7 +288,7 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
-        "x": 24.69,
+        "x": 23.69,
         "y": 59.15119
       }
     },
@@ -252,7 +297,7 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
-        "x": 21.0,
+        "x": 20.0,
         "y": 58.255
       }
     },
@@ -261,7 +306,7 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
-        "x": 21.0,
+        "x": 20.0,
         "y": 58.255
       }
     },
@@ -270,7 +315,7 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0155 mm)",
       "location": {
-        "x": 21.0,
+        "x": 20.0,
         "y": 58.255
       }
     },
@@ -279,35 +324,17 @@
       "severity": "warning",
       "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
       "location": {
-        "x": 24.69,
-        "y": 66.475
+        "x": 9.5,
+        "y": 29.0
       }
     },
     {
       "type": "silk_overlap",
       "severity": "warning",
-      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0312 mm)",
+      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0586 mm)",
       "location": {
-        "x": 22.0,
-        "y": 66.0
-      }
-    },
-    {
-      "type": "silk_overlap",
-      "severity": "warning",
-      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
-      "location": {
-        "x": 16.03,
-        "y": 73.745
-      }
-    },
-    {
-      "type": "silk_overlap",
-      "severity": "warning",
-      "message": "Silkscreen clearance (board setup constraints silk clearance 0.1250 mm; actual 0.0000 mm)",
-      "location": {
-        "x": 16.03,
-        "y": 73.745
+        "x": 9.5,
+        "y": 67.0
       }
     }
   ]

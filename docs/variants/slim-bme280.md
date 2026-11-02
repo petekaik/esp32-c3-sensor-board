@@ -35,12 +35,12 @@ and the board to ~56 mm wide.
 | ESP32-C3 module body | x 12–30, y 1.0–23.5; USB-C at the top edge, centred x 21 |
 | U1A (right 1×8) | `sensor-board:PinSocket_1x08_P2.54mm_Horizontal_MirrorX` at (17.14, 3.36), rot 0 |
 | U1B (left 1×8) | `sensor-board:PinSocket_1x08_P2.54mm_Horizontal_MirrorX` at (1.9, 3.36), rot 0 |
-| LD2410C body | MOD2 outline at (18.5, 32.5), rot 90 |
-| U2 (radar 1×5) | `sensor-board:PinSocket_1x05_P2.54mm_Horizontal_Rev` at (13.4, 25.1), rot 90 |
-| BH1750 body | MOD3 outline at (18.5, 49.5), rot 180 |
-| J2 (BH 1×5) | `sensor-board:PinSocket_1x05_P2.54mm_Horizontal_Rev` at (14.1, 54.6), rot 180 |
-| BME280 body | MOD4 outline at (22, 66), rot 0 |
-| J1 (BME 1×6) | `sensor-board:PinSocket_1x06_P2.54mm_Horizontal_MirrorX_Rev` at (14.6, 60.125), rot 0 |
+| LD2410C body | MOD2 outline at (21.0, 32.5), rot 90 |
+| U2 (radar 1×5) | `sensor-board:PinSocket_1x05_P2.54mm_Horizontal_Rev` at (15.9, 25.1), rot 90 |
+| BH1750 body | MOD3 outline at (21.0, 49.5), rot 180 |
+| J2 (BH 1×5) | `sensor-board:PinSocket_1x05_P2.54mm_Horizontal_Rev` at (16.6, 54.6), rot 180 |
+| BME280 body | MOD4 outline at (21.0, 66), rot 0 |
+| J1 (BME 1×6) | `sensor-board:PinSocket_1x06_P2.54mm_Horizontal_MirrorX_Rev` at (13.6, 60.125), rot 0 |
 | J5 (GPIO 1×16) | `PinSocket_1x16_P2.54mm_Vertical` at (3.5, 26.95), **unpopulated (DNP)** |
 | Mounting holes | none |
 
@@ -72,12 +72,42 @@ F.SilkS carries open-sided placement outlines and names for all four modules
 J5. The outlines are open on the socket side so they do not cross the socket
 silkscreen.
 
+### Centring and slim-down
+
+The sensor modules are centred on **x = 21**, the ESP32/USB centreline. Assuming
+each sensor sits at its module centre, the USB-C, radar array, BH1750 light
+sensor and BME280 sensor then share that line. Sockets and modules were moved as
+pairs, so the pin rows keep their alignment.
+
+Measured extents after centring:
+
+| Feature | x | y |
+|---|---|---|
+| Socket copper/courtyards | 0.12–27.88 | 1.58–74.65 |
+| Module bodies | 9.93–32.08 | 0.93–74.65 |
+
+- **Width:** a board centred on the USB (x = 21) must reach the left socket
+  (x = 0.12) symmetrically, i.e. ≈41.8 mm — the present 42 mm is already the
+  floor. If the USB-C may sit off-centre, the board can shrink to ≈28.5 mm
+  (just over the socket span), with the USB about 7 mm off the board centre.
+  The slide-in ESP32 arrangement (both sockets opening +X) is what makes the
+  left side wider than the right.
+- **Length:** the module column ends at y ≈ 74.7; the board can shrink from 84
+  to ≈76 mm (≈8 mm) without moving any module.
+
 ## 3D assembly
 
 MOD1 (the ESP32 placement outline, at 21, 12.25) carries the ESP32-C3 Super
 Mini STEP and two `PinHeader_1x08_P2.54mm_Horizontal` models, aligned manually
 in the 3D viewer. The module PCB is lifted clear of the 2.54 mm socket bodies;
 the exact model offsets/rotations are in the board file.
+
+The sensor module bodies are attached to MOD2/3/4 (`ld2410c.step`,
+`bh1750-good-baked.step`, `bme280-good-baked.step`) with body-centred offsets
+and Z ≈ 5 mm as a starting point; nudge them in the 3D viewer once the sockets
+sit exactly at the module pin rows. The module models include their own pin
+rows; separate angled-header models were not added because the standard 6 mm
+header does not fit the ~1.4 mm trimmed-pin sockets.
 
 The header model is the standard 6 mm right-angle part. The sockets are placed
 for a ~1.4 mm trimmed-pin run, so the standard header's plastic body and long
@@ -101,13 +131,13 @@ sockets used on U2/J2.
 ## Verification
 
 - ERC: **0 violations**.
-- DRC: **0 violations**, 33 warnings — 2 silkscreen-edge and 31 silkscreen-overlap
-  notices from the placement outlines and the module outlines laid over the
-  sockets. KiCad also reports **2 GND-zone island notices** on the B.Cu pour
-  (same-net copper fragments); no pad, signal track or via is unconnected.
-- Routing: Freerouting best-of-3, 163 segments / 3 signal vias; all 16 nets
-  connected. Default track 0.25 mm, autorouter thin traces 0.187 mm
-  (`min_track_width` 0.15 mm), vias 0.8/0.3 mm, clearance 0.2 mm.
+- DRC: **0 violations**, 36 warnings — 2 silkscreen-edge and 34 silkscreen-overlap
+  notices from the module outlines and labels laid over the sockets. KiCad also
+  reports **2 GND-zone island notices** on the B.Cu pour (same-net copper
+  fragments); no pad, signal track or via is unconnected.
+- Routing: Freerouting best-of-3, 156 segments / 2 signal vias; all 16 nets
+  connected. Default track 0.25 mm, autorouter thin traces 0.125–0.187 mm
+  (`min_track_width` 0.12 mm), vias 0.8/0.3 mm, clearance 0.2 mm.
 - GND pour on B.Cu (solid pad connection). The F.Cu pour was dropped because
   the routing fragmented it into isolated islands; the B.Cu plane carries the
   ground and all GND pads are through-hole.
