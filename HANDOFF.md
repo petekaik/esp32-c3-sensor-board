@@ -599,8 +599,9 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   above the carrier, component tops ≈7.5 mm (ESP32 USB-C shell) versus
   ≈16.6 mm on the compact.
 - Layout: ESP32 body x 12–30, y 0.8–23.3, USB at the top edge centred x 21;
-  U1A standard 1×8 horizontal at (40.1, 3.36), U1B mirrored-X 1×8 at
-  (1.9, 3.36), both pad 1 at the top. LD2410C x 15.16–31.16, y 24.58–46.58,
+  U1A and U1B are both mirrored-X 1×8 horizontal sockets, at (17.14, 3.36)
+  and (1.9, 3.36), so both openings face +X and the module slides in from the
+  right. LD2410C x 15.16–31.16, y 24.58–46.58,
   U2 1×5 horizontal at (40.1, 30.5). BH1750 x 11.48–30.53, y 47.84–62.07,
   J2 at (40.1, 50). BME280 x 12.36–24.30, y 65.73–81.22, J1 mirrored-X 1×6 at
   (1.9, 68). J5 1×16 vertical at (4, 26), unpopulated. No mounting holes.
@@ -610,11 +611,12 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
 - Schematic: U1A/U1B/J1/J2/U2 footprints switched to horizontal sockets;
   H1–H4 and JP1–JP3 deleted; BME_CSB→3V3, BME_SDO→GND (0x76), BH_ADDR→GND
   (0x23). ERC 0.
-- Routing: Freerouting best-of-3, 141 segments / 8 vias (4 signal + 4 GND
-  stitching vias); all nets connected; tracks normalised to 0.25 mm, vias
-  0.8/0.3, clearance 0.2 mm; GND pours on both layers, solid pad connection.
-  DRC 0 errors, 0 unconnected, 4 warnings (2 silk edge, 2 silk overlap —
-  cosmetic, from the placement outlines / mirrored socket reference text).
+- Routing: Freerouting best-of-3, 143 segments / 2 signal vias; all nets
+  connected; tracks normalised to 0.25 mm, vias 0.8/0.3, clearance 0.2 mm;
+  GND pour on B.Cu only, solid pad connection (the F.Cu pour was dropped
+  because the routing split it into isolated islands). DRC 0 violations,
+  6 warnings (2 silk edge, 4 silk overlap) plus 4 same-net GND-zone island
+  notices on B.Cu — cosmetic, no pad/signal/via disconnects.
 - Module pins must be bare or the right-angle header body trimmed so the
   socket opening sits at the module edge (~1.4 mm horizontal run). An
   untouched 6 mm right-angle header widens the board to ≈56 mm.

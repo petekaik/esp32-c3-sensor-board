@@ -33,7 +33,7 @@ and the board to ~56 mm wide.
 |---|---|
 | Board outline | 42 × 84, R3 |
 | ESP32-C3 module body | x 12–30, y 0.8–23.3; USB-C at the top edge, centred x 21 |
-| U1A (right 1×8) | `PinSocket_1x08_P2.54mm_Horizontal` at (40.1, 3.36), rot 0 |
+| U1A (right 1×8) | `sensor-board:PinSocket_1x08_P2.54mm_Horizontal_MirrorX` at (17.14, 3.36), rot 0 |
 | U1B (left 1×8) | `sensor-board:PinSocket_1x08_P2.54mm_Horizontal_MirrorX` at (1.9, 3.36), rot 0 |
 | LD2410C body | x 15.16–31.16, y 24.58–46.58 |
 | U2 (radar 1×5) | `PinSocket_1x05_P2.54mm_Horizontal` at (40.1, 30.5), rot 0 |
@@ -44,10 +44,12 @@ and the board to ~56 mm wide.
 | J5 (GPIO 1×16) | `PinSocket_1x16_P2.54mm_Vertical` at (4, 26), **unpopulated (DNP)** |
 | Mounting holes | none |
 
-Both ESP32 rows use pad 1 at the top, keeping the existing pin map. The
-mirrored footprints keep the pad order (+Y from pad 1) while putting the
-socket body on the opposite side; a plain 180° rotation would reverse the
-pad order.
+Both ESP32 sockets are mirrored-X and open toward **+X**, so the module
+**slides in from the right**. U1A sits under the module's right half; U1B is
+just outside the left edge. Both rows use pad 1 at the top, keeping the
+existing pin map. The mirrored footprints keep the pad order (+Y from pad 1)
+while putting the socket body on the opposite side; a plain 180° rotation
+would reverse the pad order.
 
 F.SilkS carries open-sided placement outlines and names for all four modules
 (`MOD1`–`MOD4`), a `USB` mark at the top, and a `GPIO 1x16 (DNP)` note beside
@@ -65,20 +67,25 @@ silkscreen.
 ## Verification
 
 - ERC: **0 violations**.
-- DRC: **0 errors, 0 unconnected, 4 warnings** — 2 silkscreen-edge and 2
-  silkscreen-overlap notices from the placement outlines and the mirrored
-  socket reference text. No copper, clearance, width or unconnected-item
-  errors.
-- Routing: Freerouting best-of-3, 141 segments / 8 vias (4 signal + 4 GND
-  stitching); all 16 nets connected. All tracks normalised to 0.25 mm; vias
-  0.8/0.3 mm; clearance 0.2 mm.
-- GND pours on F.Cu and B.Cu (0.5 mm inset, solid pad connection).
+- DRC: **0 violations**, 6 warnings — 2 silkscreen-edge and 4 silkscreen-overlap
+  notices from the placement outlines and the mirrored socket reference text.
+  KiCad also reports **4 GND-zone island notices** on the B.Cu pour (same-net
+  copper fragments); no pad, signal track or via is unconnected.
+- Routing: Freerouting best-of-3, 143 segments / 2 signal vias; all 16 nets
+  connected. All tracks normalised to 0.25 mm; vias 0.8/0.3 mm; clearance
+  0.2 mm.
+- GND pour on B.Cu (solid pad connection). The F.Cu pour was dropped because
+  the routing fragmented it into isolated islands; the B.Cu plane carries the
+  ground and all GND pads are through-hole.
 
 ## Build notes
 
 - Solder the right-angle female sockets flat on the carrier.
 - Solder a bent male row to each module's solder side. Trim the horizontal run
   so the pin enters the socket with the module edge at the opening (~1.4 mm).
+- **ESP32 insertion:** both U1A and U1B open toward +X. Place the module with
+  both bent rows aligned to the socket mouths and slide it in from the right
+  edge. Do not fit U1A backwards — the two rows must face the same way.
 - Populate the PCB before fitting it into the enclosure; no in-place module
   access is required.
 - The enclosure must be rebuilt for the 42 × 84 board and the lower deck.
