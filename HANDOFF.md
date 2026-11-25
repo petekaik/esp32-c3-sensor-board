@@ -589,3 +589,65 @@ Print-ready STLs: `case/tray.stl`, `case/cover_open.stl`, `case/faceplate_organi
   centre, so the wall and lid cutouts meet with no step. Wall and lid
   cutouts are now concentric with the port. Interference with the ESP32 is 0;
   all STLs manifold. Document is **Sensorbox Compact v15**.
+
+
+### Compact case: fit fixes + style variants (2026-11-23)
+- Fit check (interference analysis, all modules vs BASE/LID): module PCBs all at
+  z 12.56–12.60 (11 mm stack), headers on their sockets within 0.08 mm.
+- Fixed in BASE/LID history (saved): **LIP_CLEARANCE** — the lid lip was 0.2 mm
+  oversize on every side (lid could not seat); now 0.15 mm clearance per side,
+  partition-wall ends trimmed too. **ESP32_EDGE_RELIEF** — Super Mini PCB edge
+  poked 0.06 mm into the USB wall; 0.3 mm relief pocket x 7.5..26.5, z 12.2..13.9.
+- Remaining interference: Super Mini vendor model's own pads vs its header pins
+  (cosmetic, 3.46 mm³ each row).
+- Style variants as separate components at the same position; toggle the
+  light bulbs (originals BASE/LID untouched as reference):
+  - **VAR_PEBBLE** (PEBBLE_BASE, PEBBLE_LID): R8 plan corners, R3.5 cavity corner
+    fills concentric with the PCB R3 corners (2.7 mm corner wall), 0.8 mm-deep
+    shadow band z 13.2..17 so the lid floats, 72 round side holes replaced by
+    18 slots/side 1.4 × 2.2 mm in the band (same segment groups), R1.5 lid-top and
+    base-back fillets.
+  - **VAR_FACETED** (FACETED_BASE, FACETED_LID): same band/slots, C5 corner
+    chamfers, C1.5 lid-top and base-back chamfers.
+  - Variant bodies are static base-feature copies; port the chosen one back as
+    features (or export it directly).
+- Next: twist-lock ceiling plate + 45° corner wedge (user chose this mount).
+
+### Compact case: twist-lock mount + corner wedge (2026-11-23)
+- Bayonet, 3 lugs @ 90/210/330°, 35° wide; notches 39° at lock+60°; 60° twist
+  with a hard stop at the lock end. Clearances 0.3 radial / 0.2 axial.
+  Verified with temporary copies: locked 0, entry path and 15/30/45° twist 0,
+  over-twist hits the stop, pulling the locked case 0.5 mm off catches the lip.
+- `MOUNT_TWIST/WALL_PLATE`: 30 × 60 × 2.5 R6 plate, Ø26 hub, lugs r14.5 × 1.6;
+  two Ø4.2 countersunk screw holes at y ±22 from centre (hidden under the case).
+- `VAR_PEBBLE/PEBBLE_ADAPTER`, `VAR_FACETED/FACETED_ADAPTER`: 5.5 mm back
+  plinth, outline inset 2 mm from the case (R1 / C1 edge), z −9.0…−3.5. Held by
+  the four existing corner screws, now **M3×16 countersunk** (were ×12); the
+  countersinks move to the adapter face. Bore Ø26.6, lug channel r14.8 × 1.8,
+  1.2 mm floor.
+- `CORNER_WEDGE/WEDGE_90`: 90° corner block, 40 mm face × 60 mm along the
+  corner, 17 mm deep, 3 mm apex flat. One Ø4.5 screw per wall (perpendicular to
+  it, Ø8 counterbore open at the front face, under the plate); Ø3.2 pilots for
+  the plate screws. Case clears both walls by ≥3.5 mm. Print on a triangular end.
+- STLs (all watertight): `case/compact_wall_plate.stl`,
+  `compact_corner_wedge.stl`, `compact_adapter_pebble.stl`,
+  `compact_adapter_faceted.stl`. The old glue-on `MOUNT` pod is superseded.
+
+### Compact case: ripple front pattern (2026-11-23)
+- Both variant lids: old radar/BME hole fields filled flush on top
+  (`FACE_FILL`, z 17.9–19; leftover blind pockets underneath are invisible),
+  then one concentric "ripple" pattern centred on the BH1750 sight hole
+  (14.65, −50.1): rings every 3.2 mm from r 6.6 to 46, dots every 2.0 mm along
+  each ring, golden-ratio phase per ring, Ø 2.0 − 0.036·r (fades to nothing
+  toward the USB end). 3 mm face margin, 4.3 mm clear of the lid poles.
+- `RIPPLE_THRU` (138 holes, Ø ≥ 1.2): only over the radar pocket
+  (y −41.25…−25.4) and the BME pocket (y −74.3…−59.6), x 1.6…32.6, so
+  partitions stay intact and the two vent paths remain separate.
+  `RIPPLE_DIMPLE` (193): 0.6 mm blind dimples everywhere else.
+  `EYE_RING`: 0.5 × 0.4 mm groove at r 4.0 around the Ø5 sight hole.
+- Verified per hole: all through-holes open full depth, all dimples cut and
+  with solid skin beneath, lids single-lump. Sketch + extrude features, so
+  pitch/size can be edited.
+- Previews: `case/renders/ripple_options.png` (A uniform / B / C chosen),
+  `compact_pebble_ripple.png`, `compact_faceted_ripple.png`.
+- STLs: `compact_{lid,base}_{pebble,faceted}.stl`.
